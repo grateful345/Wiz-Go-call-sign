@@ -1,4 +1,347 @@
-count Manager REST API
+Global id key 45caee23df0581c1fbd3e6fa0faf4f67-37620acccb1ddc2bce5e6101b3ddf7f4
+ 
+UUID
+
+dfb33af7_fa5a_4920_a4d4_e7742b273246 gods time travel 
+
+API key sk_eg_live_abcdefghijkImnopqrstuvwxyz
+fetch('https://{{sk_test_4eC39HqLyjWDarjtT1zdp7dc:}}/connection_token', { method: "POST" }); 
+Connection token stripe
+
+Webhook ID data stripe 
+
+—header—
+‘we_1Oa74JGF83d3fsgWfJ6n3SSa’
+
+Webhook signing data 
+—header—
+‘whsec_PwrdbHDsw0GYve1NbZHjacu7g3nUH8Vu’
+
+Item potency Key 
+—header—
+‘92281688-5a41-4be2-8e1b-ea48c81eae85’
+
+// This is your Stripe CLI webhook secret for testing your endpoint locally.
+        String endpointSecret = "whsec_da6d6364681be84689d4b526b26fd5a4d339eb3ec4dcdbab9047fd89909a6244";
+
+Stripe charge automation api key 2337b090-a837-11ee-9efa-651583e247bf
+
+access_token":"gho_16C7e42F292c6912E7710c838347Ae178B4a", "scope":"repo,gist", "token_type":"bearer" } Accept: application/xml <token_type>bearer</token_type> repo,gist <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
+
+import { AlchemySigner } from "@alchemy/aa-alchemy";
+
+export const signer = new AlchemySigner({
+  client: {
+    // This is created in your dashboard under `https://dashboard.alchemy.com/settings/access-keys`
+    // NOTE: it is not recommended to expose your API key on the client, instead proxy requests to your backend and set the `rpcUrl`
+    // here to point to your backend.
+    connection: { apiKey: "alcht_<2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>" },
+    iframeConfig: {
+      // you will need to render a container with this id in your DOM
+      iframeContainerId: "turnkey-iframe-container",
+    },
+  },
+});
+import { AlchemySigner } from "@alchemy/aa-alchemy";
+import { useMutation } from "@tanstack/react-query";
+import { useEffect, useMemo, useState } from "react";
+
+export const SignupLoginComponent = () => {
+  const [email, setEmail] = useState<string>("");
+
+  // It is recommended you wrap this in React Context or other state management
+  const signer = useMemo(
+    () =>
+      new AlchemySigner({
+        client: {
+          connection: {
+            jwt: "alcht_<2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>",
+          },
+          iframeConfig: {
+            iframeContainerId: "turnkey-iframe-container",
+          },
+        },
+      }),
+    []
+  );
+
+  // we are using react-query to handle loading states more easily, but feel free to use w/e state management library you prefer
+  const { mutate: loginOrSignup, isLoading } = useMutation({
+    mutationFn: (email: string) =>
+      signer.authenticate({ type: "email", email }),
+  });
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("bundle")) {
+      // this will complete email auth
+      signer
+        .authenticate({ type: "email", bundle: urlParams.get("bundle")! })
+        // redirect the user or do w/e you want once the user is authenticated
+        .then(() => (window.location.href = "/"));
+    }
+  }, [signer]);
+
+  // The below view allows you to collect the email from the user
+  return (
+    <>
+      {!isLoading && (
+        <div>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button onClick={() => loginOrSignup(email)}>Submit</button>
+        </div>
+      )}
+      <div id="turnkey-iframe-container" />
+    </>
+  );
+};
+import { signer } from "./signer";
+
+// NOTE: this method throws if there is no authenticated user
+// so we return null in the case of an error
+const user = await signer.getAuthDetails().catch(() => null);
+
+import { signer } from "./signer";
+
+export const account = await createMultiOwnerModularAccount({
+  transport: rpcTransport,
+  chain,
+  signer,
+});
+import { signer } from "./signer";
+import { createWalletClient, http } from "viem";
+import { sepolia } from "@alchemy/aa-core";
+
+export const walletClient = createWalletClient({
+  transport: http("[alchemy_rpc_url](https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator)"),
+  chain: sepolia,
+  account: signer.toViemAccount(),
+});
+
+$ python -m pip install requests
+import requests
+
+url = "https://dashboard.alchemy.com/api/webhook-addresses?webhook_id=https%3A%2F%2Fscpf-foundation-roblox.fandom.com%2Fwiki%2FThe_Administrator&limit=1000&after=19"
+
+headers = {
+    "accept": "application/json",
+    "X-Alchemy-Token": "jE92Hk8uCBZnJEh1PP0PoUVDwnuYFdVp"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+curl -X POST https://subgraphs.alchemy.com/api/subgraphs/<TEAM ID>/<SUBGRAPH_NAME>/<VERSION_NAME>/promote-live \
+ -H 'x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>'
+
+curl -X POST https://subgraphs.alchemy.com/api/subgraphs/<TEAM ID>/<SUBGRAPH_NAME>/<VERSION_NAME>/auto-promote-live \
+ -H "Content-Type: application/json" -H "x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>"
+
+curl -v \
+ 'https://subgraph.satsuma-prod.com/<QUERY_KEY>/<ORGANIZATION>/<SUBGRAPH_NAME>/version/<VERSION_NAME>/api' \
+  --data-raw '{"query":"{entities(first:1){id}}"}'
+
+curl -v \
+ 'https://subgraph.satsuma-prod.com/<ORGANIZATION>/<SUBGRAPH_NAME>/version/<VERSION_NAME>/api' \
+  -H 'x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>' \
+  --data-raw '{"query":"{entities(first:1){id}}"}'
+
+{
+  "data": {
+    "indexingStatusForCurrentVersion": {
+      "subgraph": "QmXqNgptc2b5WzwmFfCu8PxsLgetBe5M8eBKvSyu5jqkei",
+      "synced": true,
+      "health": "healthy",
+      "fatalError": null,
+      "nonFatalErrors": [],
+      "chains": [
+        {
+          "chainHeadBlock": {
+            "number": "17787217"
+          },
+          "latestBlock": {
+            "number": "17787217"
+          }
+        }
+      ]
+    }
+  }
+}
+curl -X POST https://subgraphs.alchemy.com/api/subgraphs/<TEAM ID>/<SUBGRAPH_NAME>/<VERSION_NAME>/promote-live \
+ -H 'x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>'
+
+curl -X POST https://subgraphs.alchemy.com/api/subgraphs/<TEAM ID>/<SUBGRAPH_NAME>/<VERSION_NAME>/auto-promote-live \
+ -H "Content-Type: application/json" -H "x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>"
+
+curl -v \
+ 'https://subgraph.satsuma-prod.com/<QUERY_KEY>/<ORGANIZATION>/<SUBGRAPH_NAME>/version/<VERSION_NAME>/api' \
+  --data-raw '{"query":"{entities(first:1){id}}"}'
+
+curl -v \
+ 'https://subgraph.satsuma-prod.com/<ORGANIZATION>/<SUBGRAPH_NAME>/version/<VERSION_NAME>/api' \
+  -H 'x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>' \
+  --data-raw '{"query":"{entities(first:1){id}}"}'
+
+{
+  "data": {
+    "indexingStatusForCurrentVersion": {
+      "subgraph": "QmXqNgptc2b5WzwmFfCu8PxsLgetBe5M8eBKvSyu5jqkei",
+      "synced": true,
+      "health": "healthy",
+      "fatalError": null,
+      "nonFatalErrors": [],
+      "chains": [
+        {
+          "chainHeadBlock": {
+            "number": "17787217"
+          },
+          "latestBlock": {
+            "number": "17787217"
+          }
+        }
+      ]
+    }
+  }
+}
+curl -X POST https://subgraphs.alchemy.com/api/subgraphs/<TEAM ID>/<SUBGRAPH_NAME>/<VERSION_NAME>/promote-live \
+ -H 'x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>'
+
+curl -X POST https://subgraphs.alchemy.com/api/subgraphs/<TEAM ID>/<SUBGRAPH_NAME>/<VERSION_NAME>/auto-promote-live \
+ -H "Content-Type: application/json" -H "x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>"
+
+curl -v \
+ 'https://subgraph.satsuma-prod.com/<QUERY_KEY>/<ORGANIZATION>/<SUBGRAPH_NAME>/version/<VERSION_NAME>/api' \
+  --data-raw '{"query":"{entities(first:1){id}}"}'
+
+curl -v \
+ 'https://subgraph.satsuma-prod.com/<ORGANIZATION>/<SUBGRAPH_NAME>/version/<VERSION_NAME>/api' \
+  -H 'x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>' \
+  --data-raw '{"query":"{entities(first:1){id}}"}'
+
+{
+  "data": {
+    "indexingStatusForCurrentVersion": {
+      "subgraph": "QmXqNgptc2b5WzwmFfCu8PxsLgetBe5M8eBKvSyu5jqkei",
+      "synced": true,
+      "health": "healthy",
+      "fatalError": null,
+      "nonFatalErrors": [],
+      "chains": [
+        {
+          "chainHeadBlock": {
+            "number": "17787217"
+          },
+          "latestBlock": {
+            "number": "17787217"
+          }
+        }
+      ]
+    }
+  }
+}
+curl -X POST https://subgraphs.alchemy.com/api/subgraphs/<TEAM ID>/<SUBGRAPH_NAME>/<VERSION_NAME>/promote-live \
+ -H 'x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>'
+
+curl -X POST https://subgraphs.alchemy.com/api/subgraphs/<TEAM ID>/<SUBGRAPH_NAME>/<VERSION_NAME>/auto-promote-live \
+ -H "Content-Type: application/json" -H "x-api-key: <2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby>"
+
+curl -v \
+ 'https://subgraph.satsuma-prod.com/<QUERY_KEY>/<ORGANIZATION>/<SUBGRAPH_NAME>/version/<VERSION_NAME>/api' \
+  --data-raw '{"query":"{entities(first:1){id}}"}'
+
+curl -v \
+ 'https://subgraph.satsuma-prod.com/<ORGANIZATION>/<SUBGRAPH_NAME>/version/<VERSION_NAME>/api' \
+  -H 'x-api-key: <whsec_Ka3G2XkXDVxzhdrFzG8n2OFq>' \
+  --data-raw '{"query":"{entities(first:1){id}}"}'
+
+{
+  "data": {
+    "indexingStatusForCurrentVersion": {
+      "subgraph": "QmXqNgptc2b5WzwmFfCu8PxsLgetBe5M8eBKvSyu5jqkei",
+      "synced": true,
+      "health": "healthy",
+      "fatalError": null,
+      "nonFatalErrors": [],
+      "chains": [
+        {
+          "chainHeadBlock": {
+            "number": "17787217"
+          },
+          "latestBlock": {
+            "number": "17787217"
+          }
+        }
+      ]
+    }
+  }
+}
+
+Algolia api key {
+  "key": "1eb37de6308abdccf9b760ddacb418b4",
+  "createdAt": "2017-12-16T22:21:31.871Z"
+}
+‘ATATT3xFfGF0mn4_ynZKOZshtOT6EOeisir3IJzQrdJzmBUtYiqaCq1rvNwzBlmcOFB_6A30uxx6RFrmQAsfBXRyShoFA69Wbab3YHl6BuR5tVMg9MT5R-UV2bc-4phYNcNb_PAHUOZd0h8RDA-6FxjNelEkQD5M3Q6BMxy_2aL8uL_tKkzImZo=A80E56ED’
+Trello god964v account api key 🔑
+
+Alchemy signing key webhook 
+1. whsec_Ka3G2XkXDVxzhdrFzG8n2OFq
+
+2. whsec_rEV4KKHw57OALQ73encoFHDB ethermeum 
+
+3. whsec_pa1W66wlvZyfLuESqE939OxD polygon matic
+Majestic twelve app api key 21a11ec6-9522-45a7-8cae-3e92b703f968
+
+65cd180b-b06f-4f22-ae87-da7296ff07f7
+
+curl https://api.getblock.io/external/webhook/?api_key={1eb37de6308abdccf9b760ddacb418b4}
+
+
+Alchemy Auth token : jE92Hk8uCBZnJEh1PP0PoUVDwnuYFdVp
+
+Alchemy Webhook identifications
+wh_pae2ekjly3q7fhx9 
+Ethereum Mainnet
+active
+https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator
+
+V2 wh_cktmaceotb7zou0i 
+Polygon Mainnet
+
+
+Alchemy Webhook signing key whsec_Ka3G2XkXDVxzhdrFzG8n2OFq
+
+Alchemy api key 2_30hERlJhrpl9Tgt1a5sX9D7NA_9cby
+
+Auth token alchemy webhooks jE92Hk8uCBZnJEh1PP0PoUVDwnuYFdVp
+
+
+graph deploy example-subgraph-name \
+  --version-label v0.0.1-new-version \
+  --node https://subgraphs.alchemy.com/api/subgraphs/deploy \
+  --deploy-key skf75fXbMunwJ \
+  --ipfs https://ipfs.satsuma.xyz
+graph deploy example-subgraph-name \
+  --version-label v0.0.1-new-version \
+  --node https://subgraphs.alchemy.com/api/subgraphs/deploy \
+  --deploy-key skf75fXbMunwJ \
+  --ipfs https://ipfs.satsuma.xyz
+graph deploy example-subgraph-name \
+  --version-label v0.0.1-new-version \
+  --node https://subgraphs.alchemy.com/api/subgraphs/deploy \
+  --deploy-key skf75fXbMunwJ \
+  --ipfs https://ipfs.satsuma.xyz
+graph deploy example-subgraph-name \
+  --version-label v0.0.1-new-version \
+  --node https://subgraphs.alchemy.com/api/subgraphs/deploy \
+  --deploy-key skf75fXbMunwJ \
+  --ipfs https://ipfs.satsuma.xyz
+
+REST API
  0.1 
 OAS3
 Welcome to the DigiCert® Account Manager API reference documentation! The DigiCert® Account Manager API provides operations for managing DigiCert ONE users and accounts.
@@ -20187,2348 +20530,4 @@ index 9f10a05..2888fcd 100644
 ++Active cards
 ++Active cards (inserted into a card reader or plugged in tokens) are always tried; they are ordered by their serial numbers.
 ++gpg-connect-agent updatestartuptty /bye
-++Although all GnuPG components try to start the gpg-agent as needed, this is not possible for the ssh support because ssh does not know about it. Thus if no GnuPG tool which accesses the agent has been run, there is no guarantee that ssh is able to use gpg-agent for authentication. To fix this you may start gpg-agent if needed using this simple command:
-++
-++gpg-connect-agent /bye
-++--scdaemon-program filename
-++Use program filename as the Smartcard daemon. The default is installation dependent and can be shown with the gpgconf
-++--check-passphrase-pattern file
-++--check-sym-passphrase-pattern file
-++Check the passphrase against the pattern given in file. When entering a new passphrase matching one of these pattern a warning will be displayed. If file does not contain any slashes and does not start with "~/" it is searched in the system configuration directory (/usr/local/etc/gnupg)
-++bin\pinentry.exe, ..\Gpg4win\bin\pinentry.exe, ..\Gpg4win\pinentry.exe, ..\GNU\GnuPG\pinentry.exe, ..\GNU\bin\pinentry.exe, bin\pinentry-basic.exe
-++Keys listed in the sshcontrol file
-++--disable-extended-key-format
-++These options are obsolete and have no effect. The extended key format is used for years now and has been supported since 2.1.12. Existing keys in the old format are migrated to the new format as soon as they are touched.
-++
-++--enable-ssh-support
-++--enable-win32-openssh-support
-++--enable-putty-support
-++
-++gpg-connect-agent 'GETINFO s2k_count' /bye
-++gpg-connect-agent 'GETINFO s2k_time' /bye
-++To view the auto-calibrated count use:
-++
-++gpg-connect-agent 'GETINFO s2k_count_cal' /bye
-++--ssh-fingerprint-digest
-++Keys listed in the sshcontrol file
-++
-++Active card
-++gpg-connect-agent /bye
-++bashrc or whatever initialization file is used for all shell invocations:
-++
-++GPG_TTY=$(tty)
-++export GPG_TTY
-++--daemon [command line]
-++server
-++
-++agent-program file ¶
-++Specify the agent program to be started if none is running. The default value is determined by running gpgconf with the option --list-dirs.
-++
-++--gpg-program file
-++Specify a non-default gpg binary to be used by certain commands.
-++
-++--gpgsm-program file
-++Specify a non-default gpgsm binary to be used by certain commands.
-++
-++--chuid uid
-++Change the current user to uid which may either be a number or a name. This can be used from the root account to run gpg-card for another user. If uid is not the current UID a standard PATH is set and the envvar GNUPGHOME is unset. To override the latter the option --homedir can be used. This option has only an effect when used on the command line. This option has currently no effect at all on Windows.
-++
-++gpg-card
-++AUTHENTICATE [--setkey] [--raw] [< file]|010203040506070801020304050607080102030405060708] ¶
-++AUTH
-++FETCH
-++GENERATE [--force] [--algo=algo{+algo2}] keyref
-++KDF-SETUP ¶
-++Prepare the OpenPGP card KDF feature for this card.
-++
-++LANG [--clear]
-++Change the language info for the card. This info can be used by applications for a personalized greeting. Up to 4 two-digit language identifiers can be entered as a preference. The option --clear removes all identifiers. GnuPG does not use this info.
-++
-++LIST [--cards] [--apps] [--info] [--no-key-lookup] [n] [app]
-++NAME [--clear]
-++PRIVATEDO [--clear] n [< file] file
-++READCERT [--openpgp] certref > file ¶
-++Read the certificate for key certref and store it in file. With option --openpgp an OpenPGP keyblock wrapped in a dedicated CMS content type (OID=1.3.6.1.4.1.11591.2.3.1) is expected and extracted to file. Note that for current OpenPGP cards a certificate may only be available at the certref "OPENPGP.3".
-++URL [--clear]
-++gpg's. --fetch 
-++WRITECERT certref < file ¶
-++WRITECERT --openpgp certref [< file|fpr]
-++WRITECERT --clear certref
-++ --openpgp
-++file 
-++fpr.
-++WRITEKEY [--force] keyref keygrip ¶
-++Write a private key object identified by keygrip to the card under the id keyref.
-++CHECKKEYS [--ondisk] [--delete-clear-copy] [--delete-protected-copy] ¶
-++Serial number
-++A hex-string with the serial number of the card.
-++
-++Type
-++This gives the type of the card’s application. For example "OpenPGP" or "PIV".
-++
-++Keygrip
-++A hex-string identifying a key.
-++
-++Keyref
-++The application slot where the key is stored on the card. For example "OpenPGP.1"
-++
-++Status
-++The status of the key. The most common value is "shadowed" for a key where only the public key along with the card’s serial number is stored on the disk. The value "clear" indicates that a copy of the card’s key is stored unprotected on disk. The value "protected" indicated that a copy of the car’s key is stored on disk but is protected by a password. The value "error" may also be shown if there was a problem reading information from the card.
-++
-++YUBIKEY cmd args
-++Various commands pertaining to Yubikey tokens with cmd being:
-++
-++LIST
-++List supported and enabled Yubikey applications.
-++
-++ENABLE usb|nfc|all [otp|u2f|opgp|piv|oath|fido2|all]
-++DISABLE
-++Enable or disable the specified or all applications on the given interface.
-++
-++The support for OpenPGP cards in gpg-card is not yet complete. For missing features, please continue to use gpg --card-edit.
-++
-++GnuPG has support for PIV cards (“Personal Identity Verification” as specified by NIST Special Publication 800-73-4). This section describes how to initialize (personalize) a fresh Yubikey token featuring the PIV application (requires Yubikey-5). We assume that the credentials have not yet been changed and thus are:
-++
-++Authentication key
-++This is a 24 byte key described by the hex string
-++010203040506070801020304050607080102030405060708.
-++
-++PIV Application PIN
-++This is the string 123456.
-++
-++PIN Unblocking Key
-++This is the string 12345678.
-++list (the string gpg/card>
-++card> list
-++Reader ...........: 1050:0407:X:0
-++Card type ........: yubikey
-++Card firmware ....: 5.1.2
-++Serial number ....: D2760001240102010006090746250000
-++Application type .: OpenPGP
-++Version ..........: 2.1
-++[...]
-++on:
-++  push:
-++    tags:
-++      - "v*"
-++
-++permissions:
-++  contents: write
-++
-++jobs:
-++  release:
-++    runs-on: ubuntu-latest
-++    steps:
-++      - uses: actions/checkout@v3
-++      - uses: cli/gh-extension-precompile@v1
-++        with:
-++          go_version: "1.16"
-++Then
-++- uses: cli/gh-extension-precompile@v1
-++  env:
-++    CGO_ENABLED: 1
-++- uses: cli/gh-extension-precompile@v1
-++  with:
-++    build_script_override: "script/build.sh"
-++name: release
-++
-++on:
-++  push:
-++    tags:
-++      - "v*"
-++
-++permissions:
-++  contents: write
-++
-++jobs:
-++  release:
-++    runs-on: ubuntu-latest
-++    steps:
-++      - uses: actions/checkout@v3
-++      - id: import_gpg
-++        uses: crazy-max/ghaction-import-gpg@v5
-++        with:
-++          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-++          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-++      - uses: cli/gh-extension-precompile@v1
-++        with:
-++          gpg_fingerprint: ${{ steps.import_gpg.outputs.fingerprint }}
-++# macOS
-++gpg --armor --export-secret-key joe@foo.bar | pbcopy
-++
-++# Ubuntu (assuming GNU base64)
-++gpg --armor --export-secret-key joe@foo.bar -w0 | xclip
-++
-++# Arch
-++gpg --armor --export-secret-key joe@foo.bar | xclip -selection clipboard -i
-++
-++# FreeBSD (assuming BSD base64)
-++gpg --armor --export-secret-key joe@foo.bar | xclip
-++
-++name: import-gpg
-++
-++on:
-++  push:
-++    branches: master
-++
-++jobs:
-++  import-gpg:
-++    runs-on: ubuntu-latest
-++    steps:
-++      -
-++        name: Checkout
-++        uses: actions/checkout@v4
-++      -
-++        name: Import GPG key
-++        uses: crazy-max/ghaction-import-gpg@v6
-++        with:
-++          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-++          passphrase: ${{ secrets.PASSPHRASE }}
-++      -
-++        name: List keys
-++        run: gpg -K
-++name: import-gpg
-++
-++on:
-++  push:
-++    branches: master
-+ 
-++gpg/card> writekey PIV.9D 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-++gpg/card> writecert PIV.9D < encr.crt
-++
-++jobs:
-++  import-gpg:
-++    runs-on: ubuntu-latest
-++    steps:
-++      -
-++        name: Checkout
-++        uses: actions/checkout@v4
-++      -
-++        name: Import GPG key
-++        uses: crazy-max/ghaction-import-gpg@v6
-++        with:
-++          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-++          passphrase: ${{ secrets.PASSPHRASE }}
-++          fingerprint: "C17D11ADF199F12A30A0910F1F80449BE0B08CB8"
-++      -
-++        name: List keys
-++        run: gpg -K
-++
-++pub   ed25519 2021-09-24 [C]
-++      87F257B89CE462100BEC0FFE6071D218380FDCC8
-++      Keygrip = F5C3ABFAAB36B427FD98C4EDD0387E08EA1E8092
-++uid           [ unknown] Joe Bar <joe@bar.foo>
-++sub   ed25519 2021-09-24 [S]
-++      C17D11ADF199F12A30A0910F1F80449BE0B08CB8
-++      Keygrip = DEE0FC98F441519CA5DE5D79773CB29009695FEB
-++name: import-gpg
-++/.gnupg/scdaemon.conf and by restarting scdaemon, either by killing the process or by using gpgconf --kill scdaemon. Finally the default order in which card applications are tried by scdaemon can be changed. For example to prefer PIV over OpenPGP it is sufficient to add
-++
-++application-priority piv
-++to ~/.gnupg/scdaemon.conf and to restart scdaemon. This has an effect only on tokens which support both, PIV and OpenPGP, but does not hamper the use of OpenPGP only tokens.
-++
-++With one of these methods employed the list command of gpg-card shows this:
-++
-++gpg/card> list
-++Reader ...........: 1050:0407:X:0
-++Card type ........: yubikey
-++Card firmware ....: 5.1.2
-++Serial number ....: FF020001008A77C1
-++Application type .: PIV
-++Version ..........: 1.0
-++Displayed s/n ....: yk-9074625
-++PIN usage policy .: app-pin
-++PIN retry counter : - 3 -
-++PIV authentication: [none]
-++      keyref .....: PIV.9A
-++Card authenticat. : [none]
-++      keyref .....: PIV.9E
-++Digital signature : [none]
-++      keyref .....: PIV.9C
-++Key management ...: [none]
-++      keyref .....: PIV.9D
-++34798AAFE0A7565088101CC4AE31C5C8C74461CB.key
-++list --cards
-++well. The PIV authentication key (internal reference PIV.9A
-++Card authentication key (PIV.9E) is also known as the CAK and used to support physical access applications. The private key is not protected by a PIN and can thus immediately be used. The Digital signature key (PIV.9C) is used to digitally sign documents. The use of the associated private key is protected by the Application PIN which needs to be provided for each signing operation. The Key management key (PIV.9D) is used for encryption
-++
-++gpg/card> auth 010203040506070801020304050607080102030405060708
-++gpg/card> auth < myauth.key
-++
-++gpg/card> generate --algo=nistp384 PIV.9A
-++PIV card no. yk-9074625 detected
-++gpg/card> generate --algo=nistp256 PIV.9E
-++PIV card no. yk-9074625 detected
-++gpg/card> generate --algo=rsa2048 PIV.9C
-++PIV card no. yk-9074625 detected
-++ ‘--force’
-++gpg/card> list
-++Reader ...........: 1050:0407:X:0
-++Card type ........: yubikey
-++Card firmware ....: 5.1.2
-++Serial number ....: FF020001008A77C1
-++Application type .: PIV
-++Version ..........: 1.0
-++Displayed s/n ....: yk-9074625
-++PIN usage policy .: app-pin
-++PIN retry counter : - 3 -
-++PIV authentication: 213D1825FDE0F8240CB4E4229F01AF90AC658C2E
-++      keyref .....: PIV.9A  (auth)
-++      algorithm ..: nistp384
-++Card authenticat. : 7A53E6CFFE7220A0E646B4632EE29E5A7104499C
-++      keyref .....: PIV.9E  (auth)
-++      algorithm ..: nistp256
-++Digital signature : 32A6C6FAFCB8421878608AAB452D5470DD3223ED
-++      keyref .....: PIV.9C  (sign,cert)
-++      algorithm ..: rsa2048
-++Key management ...: [none]
-++      keyref .....: PIV.9D
-++keygrip
-++gpg
-++self-signed X.509 certificate (exit the gpg-card tool, first):
-++
-++$ gpgsm --gen-key -o encr.crt
-++   (1) RSA
-++   (2) Existing key
-++   (3) Existing key from card
-++Your selection? 1
-++What keysize do you want? (3072) 2048
-++Requested keysize is 2048 bits
-++Possible actions for a RSA key:
-++   (1) sign, encrypt
-++   (2) sign
-++   (3) encrypt
-++Your selection? 3
-++Enter the X.509 subject name: CN=Encryption key for yk-9074625,O=example,C=DE
-++Enter email addresses (end with an empty line):
-++> otto@example.net
-++>
-++Enter DNS names (optional; end with an empty line):
-++>
-++Enter URIs (optional; end with an empty line):
-++>
-++Create self-signed certificate? (y/N) y
-++These parameters are used:
-++    Key-Type: RSA
-++    Key-Length: 2048
-++    Key-Usage: encrypt
-++    Serial: random
-++    Name-DN: CN=Encryption key for yk-9074625,O=example,C=DE
-++    Name-Email: otto@example.net
-++
-++Proceed with creation? (y/N)
-++Now creating self-signed certificate.  This may take a while ...
-++gpgsm: about to sign the certificate for key: &34798AAFE0A7565088101CC4AE31C5C8C74461CB
-++gpgsm: certificate created
-++Ready.
-++$ gpgsm --import encr.crt
-++gpgsm: certificate imported
-++gpgsm: total number processed: 1
-++gpgsm:               imported: 1
-++gpg/card> list
-++Reader ...........: 1050:0407:X:0
-++Card type ........: yubikey
-++Card firmware ....: 5.1.2
-++Serial number ....: FF020001008A77C1
-++Application type .: PIV
-++Version ..........: 1.0
-++Displayed s/n ....: yk-9074625
-++PIN usage policy .: app-pin
-++PIN retry counter : - 3 -
-++PIV authentication: 213D1825FDE0F8240CB4E4229F01AF90AC658C2E
-++      keyref .....: PIV.9A  (auth)
-++      algorithm ..: nistp384
-++Card authenticat. : 7A53E6CFFE7220A0E646B4632EE29E5A7104499C
-++      keyref .....: PIV.9E  (auth)
-++      algorithm ..: nistp256
-++Digital signature : 32A6C6FAFCB8421878608AAB452D5470DD3223ED
-++      keyref .....: PIV.9C  (sign,cert)
-++      algorithm ..: rsa2048
-++Key management ...: [none]
-++      keyref .....: PIV.9D
-++keygrip 
-++gpgsm --gen-key -o encr.crt
-++   (1) RSA
-++   (2) Existing key
-++   (3) Existing key from card
-++Your selection? 1
-++What keysize do you want? (3072) 2048
-++Requested keysize is 2048 bits
-++Possible actions for a RSA key:
-++   (1) sign, encrypt
-++   (2) sign
-++   (3) encrypt
-++Your selection? 3
-++Enter the X.509 subject name: CN=Encryption key for yk-9074625,O=example,C=DE
-++Enter email addresses (end with an empty line):
-++> otto@example.net
-++>
-++Enter DNS names (optional; end with an empty line):
-++>
-++Enter URIs (optional; end with an empty line):
-++>
-++Create self-signed certificate? (y/N) y
-++These parameters are used:
-++    Key-Type: RSA
-++    Key-Length: 2048
-++    Key-Usage: encrypt
-++    Serial: random
-++    Name-DN: CN=Encryption key for yk-9074625,O=example,C=DE
-++    Name-Email: otto@example.net
-++
-++Proceed with creation? (y/N)
-++Now creating self-signed certificate.  This may take a while ...
-++gpgsm: about to sign the certificate for key: &34798AAFE0A7565088101CC4AE31C5C8C74461CB
-++gpgsm: certificate created
-++Ready.
-++$ gpgsm --import encr.crt
-++gpgsm: certificate imported
-++gpgsm: total number processed: 1
-++gpgsm:               imported: 1
-++
-++gpg/card> writekey PIV.9D 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-++gpg/card> writecert PIV.9D < encr.crt
-++
-++gpgsm --with-keygrip -k 6309304695z@gmail.com
-++Key management ...: 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-++      keyref .....: PIV.9D  (encr)
-++      algorithm ..: rsa2048
-++      used for ...: X.509
-++        user id ..: CN=Encryption key for yk-9074625,O=example,C=DE
-++        user id ..: <6309304695z@gmail.com>
-++
-++34798AAFE0A7565088101CC4AE31C5C8C74461CB.key
-++
-++$ gpgsm --learn
-++$ gpgsm --gen-key -o sign.crt
-++Please select what kind of key you want:
-++   (1) RSA
-++   (2) Existing key
-++   (3) Existing key from card
-++Your selection? 3
-++Serial number of the card: FF020001008A77C1
-++Available keys:
-++   (1) 213D1825FDE0F8240CB4E4229F01AF90AC658C2E PIV.9A nistp384
-++   (2) 7A53E6CFFE7220A0E646B4632EE29E5A7104499C PIV.9E nistp256
-++   (3) 32A6C6FAFCB8421878608AAB452D5470DD3223ED PIV.9C rsa2048
-++   (4) 34798AAFE0A7565088101CC4AE31C5C8C74461CB PIV.9D rsa2048
-++Your selection? 3
-++Possible actions for a RSA key:
-++   (1) sign, encrypt
-++   (2) sign
-++   (3) encrypt
-++Your selection? 2
-++Enter the X.509 subject name: CN=Signing key for yk-9074625,O=example,C=DE
-++Enter email addresses (end with an empty line):
-++> 6309304695z@gmail.com
-++>
-++Enter DNS names (optional; end with an empty line):
-++>
-++Enter URIs (optional; end with an empty line):
-++>
-++Create self-signed certificate? (y/N)
-++These parameters are used:
-++    Key-Type: card:PIV.9C
-++    Key-Length: 1024
-++    Key-Usage: sign
-++    Serial: random
-++    Name-DN: CN=Signing key for yk-9074625,O=example,C=DE
-++    Name-Email: 6309304695z@gmail.com
-++
-++Proceed with creation? (y/N) y
-++Now creating self-signed certificate.  This may take a while ...
-++gpgsm: about to sign the certificate for key: &32A6C6FAFCB8421878608AAB452D5470DD3223ED
-++gpgsm: certificate created
-++Ready.
-++$ gpgsm --import sign.crt
-++gpgsm: certificate imported
-++gpgsm: total number processed: 1
-++gpgsm:               imported: 1
-++
-++‘gpgsm --learn’
-++Digital signature’ key
-++gpg-card:010203040506070801020304050607080102030405060708
-++
-++shellcode/eternalblue_sc_merge.py
-++
-++gpg/card> writecert PIV.9C < sign.crt
-+ on:
-+   push:
-+     branches: master
-+
-+AUTHENTICATE [--setkey] [--raw] [< file]|key]
-+AUTH and set key
-+
-+GENERATE [--force] [--algo=algo{+algo2}] keyref
-+Create a new key on a card. Use --force to overwrite an existing key. Use "help" for algo to get a list of known algorithms. For OpenPGP cards several algos may be given. Note that the OpenPGP key generation is done interactively unless --algo or keyref
-+
-+LIST [--cards] [--apps] [--info] [--no-key-lookup] [n] [app] ¶
-+L
-+
-+READCERT [--openpgp] certref > file ¶
-+
-+openpgp an OpenPGP keyblock wrapped in a dedicated CMS content type (OID=1.3.6.1.4.1.11591.2.3.1) is expected and extracted to file. Note that for current OpenPGP cards a certificate may only be available at the certref "OPENPGP.3"
-+
-+WRITECERT certref < file ¶
-+WRITECERT --openpgp certref [< file|fpr]
-+WRITECERT --clear certref
-+Write a certificate to the card under the id certref. 
-+
-+WRITEKEY [--force] keyref keygrip ¶
-+Write a private key object identified by keygrip to the card under the id keyref. Option --force allows overwriting an existing key
-+—Shadowed
-+
-+YUBIKEY cmd args ¶
-+Various commands pertaining to Yubikey tokens with cmd being:
-+
-+LIST
-+List supported and enabled Yubikey applications.
-+
-+ENABLE usb|nfc|all [otp|u2f|opgp|piv|oath|fido2|all]
-+DISABLE
-+Enable or disable the specified or all applications on the given interface.
-+
-+Authentication key
-+This is a 24 byte key described by the hex string
-+010203040506070801020304050607080102030405060708.
-+
-+PIV
-+
-+Authentication key
-+This is a 24 byte key described by the hex string
-+010203040506070801020304050607080102030405060708
-+
-+the string gpg/card> is the prompt
-+
-+gpg/card> list
-+Reader ...........: 1050:0407:X:0
-+Card type ........: yubikey
-+Card firmware ....: 5.1.2
-+Serial number ....: D2760001240102010006090746250000
-+Application type .: OpenPGP
-+Version ..........: 2.1
-+[...]
-+
-+use help yubikey).
-+
-+use help yubikey)
-+
-+gpg/card> yubikey disable all opgp
-+gpg/card> yubikey list
-+Application  USB    NFC
-+-----------------------
-+OTP          yes    yes
-+U2F          yes    yes
-+OPGP         no     no
-+PIV          yes    no
-+OATH         yes    yes
-+FIDO2        yes    yes
-+gpg/card> reset
-+
-+/.gnupg/scdaemon.conf
-+
-+application-priority piv
-+
-+scdaemon
-+
-+gpg/card> list
-+Reader ...........: 1050:0407:X:0
-+Card type ........: yubikey
-+Card firmware ....: 5.1.2
-+Serial number ....: FF020001008A77C1
-+Application type .: PIV
-+Version ..........: 1.0
-+Displayed s/n ....: yk-9074625
-+PIN usage policy .: app-pin
-+PIN retry counter : - 3 -
-+PIV authentication: [none]
-+      keyref .....: PIV.9A
-+Card authenticat. : [none]
-+      keyref .....: PIV.9E
-+Digital signature : [none]
-+      keyref .....: PIV.9C
-+Key management ...: [none]
-+      keyref .....: PIV.9D
-+In
-+
-+Card authentication key (PIV.9E) is also known as the CAK and used to support physical access applications. The private key is not protected by a PIN and can thus immediately be used. The Digital signature key (PIV.9C) is used to digitally sign documents. The use of the associated private key is protected by the Application PIN which needs to be provided for each signing operation. The Key management key (PIV.9D)
-+
-+Card authentication key; however, that key is mandatory by the PIV standard and thus we create it too. Key generation requires that we authenticate to the card. This can be done either on the command line (which would reveal the key):
-+
-+gpg/card> auth 010203040506070801020304050607080102030405060708
-+
-+gpg/card> auth < myauth.key
-+
-+gpg/card> generate --algo=nistp384 PIV.9A
-+PIV card no. yk-9074625 detected
-+gpg/card> generate --algo=nistp256 PIV.9E
-+PIV card no. yk-9074625 detected
-+gpg/card> generate --algo=rsa2048 PIV.9C
-+PIV card no. yk-9074625 detected
-+
-+gpg/card> list
-+Reader ...........: 1050:0407:X:0
-+Card type ........: yubikey
-+Card firmware ....: 5.1.2
-+Serial number ....: FF020001008A77C1
-+Application type .: PIV
-+Version ..........: 1.0
-+Displayed s/n ....: yk-9074625
-+PIN usage policy .: app-pin
-+PIN retry counter : - 3 -
-+PIV authentication: 213D1825FDE0F8240CB4E4229F01AF90AC658C2E
-+      keyref .....: PIV.9A  (auth)
-+      algorithm ..: nistp384
-+Card authenticat. : 7A53E6CFFE7220A0E646B4632EE29E5A7104499C
-+      keyref .....: PIV.9E  (auth)
-+      algorithm ..: nistp256
-+Digital signature : 32A6C6FAFCB8421878608AAB452D5470DD3223ED
-+      keyref .....: PIV.9C  (sign,cert)
-+      algorithm ..: rsa2048
-+Key management ...: [none]
-+      keyref .....: PIV.9D 
-+—force
-+
-+$ gpgsm --gen-key -o encr.crt
-+   (1) RSA
-+   (2) Existing key
-+   (3) Existing key from card
-+Your selection? 1
-+What keysize do you want? (3072) 2048
-+Requested keysize is 2048 bits
-+Possible actions for a RSA key:
-+   (1) sign, encrypt
-+   (2) sign
-+   (3) encrypt
-+Your selection? 3
-+Enter the X.509 subject name: CN=Encryption key for yk-9074625,O=example,C=DE
-+Enter email addresses (end with an empty line):
-+> otto@example.net
-+>
-+Enter DNS names (optional; end with an empty line):
-+>
-+Enter URIs (optional; end with an empty line):
-+>
-+Create self-signed certificate? (y/N) y
-+These parameters are used:
-+    Key-Type: RSA
-+    Key-Length: 2048
-+    Key-Usage: encrypt
-+    Serial: random
-+    Name-DN: CN=Encryption key for yk-9074625,O=example,C=DE
-+    Name-Email: otto@example.net
-+
-+Proceed with creation? (y/N)
-+Now creating self-signed certificate.  This may take a while ...
-+gpgsm: about to sign the certificate for key: &34798AAFE0A7565088101CC4AE31C5C8C74461CB
-+gpgsm: certificate created
-+Ready.
-+$ gpgsm --import encr.crt
-+gpgsm: certificate imported
-+gpgsm: total number processed: 1
-+gpgsm:               imported: 1
-+
-+gpg/card> writekey PIV.9D 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-+gpg/card> writecert PIV.9D < encr.crt
-+
-+[...]
-+Key management ...: 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-+      keyref .....: PIV.9D  (encr)
-+      algorithm ..: rsa2048
-+      used for ...: X.509
-+        user id ..: CN=Encryption key for yk-9074625,O=example,C=DE
-+        user id ..: <otto@example.net>
-+
-+34798AAFE0A7565088101CC4AE31C5C8C74461CB.key from the directory ~/.gnupg/private-keys-v1.d/
-+
-+$ gpgsm --learn
-+$ gpgsm --gen-key -o sign.crt
-+Please select what kind of key you want:
-+   (1) RSA
-+   (2) Existing key
-+   (3) Existing key from card
-+Your selection? 3
-+Serial number of the card: FF020001008A77C1
-+Available keys:
-+   (1) 213D1825FDE0F8240CB4E4229F01AF90AC658C2E PIV.9A nistp384
-+   (2) 7A53E6CFFE7220A0E646B4632EE29E5A7104499C PIV.9E nistp256
-+   (3) 32A6C6FAFCB8421878608AAB452D5470DD3223ED PIV.9C rsa2048
-+   (4) 34798AAFE0A7565088101CC4AE31C5C8C74461CB PIV.9D rsa2048
-+Your selection? 3
-+Possible actions for a RSA key:
-+   (1) sign, encrypt
-+   (2) sign
-+   (3) encrypt
-+Your selection? 2
-+Enter the X.509 subject name: CN=Signing key for yk-9074625,O=example,C=DE
-+Enter email addresses (end with an empty line):
-+> otto@example.net
-+>
-+Enter DNS names (optional; end with an empty line):
-+>
-+Enter URIs (optional; end with an empty line):
-+>
-+Create self-signed certificate? (y/N)
-+These parameters are used:
-+    Key-Type: card:PIV.9C
-+    Key-Length: 1024
-+    Key-Usage: sign
-+    Serial: random
-+    Name-DN: CN=Signing key for yk-9074625,O=example,C=DE
-+    Name-Email: otto@example.net
-+
-+Proceed with creation? (y/N) y
-+Now creating self-signed certificate.  This may take a while ...
-+gpgsm: about to sign the certificate for key: &32A6C6FAFCB8421878608AAB452D5470DD3223ED
-+gpgsm: certificate created
-+Ready.
-+$ gpgsm --import sign.crt
-+gpgsm: certificate imported
-+gpgsm: total number processed: 1
-+gpgsm:               imported: 1
-+
-+gpg/card> writecert PIV.9C < sign.crt
-+
-+Reader ...........: 1050:0407:X:0
-+Card type ........: yubikey
-+Card firmware ....: 5.1.2
-+Serial number ....: FF020001008A77C1
-+Application type .: PIV
-+Version ..........: 1.0
-+Displayed s/n ....: yk-9074625
-+PIN usage policy .: app-pin
-+PIN retry counter : - [verified] -
-+PIV authentication: 213D1825FDE0F8240CB4E4229F01AF90AC658C2E
-+      keyref .....: PIV.9A  (auth)
-+      algorithm ..: nistp384
-+Card authenticat. : 7A53E6CFFE7220A0E646B4632EE29E5A7104499C
-+      keyref .....: PIV.9E  (auth)
-+      algorithm ..: nistp256
-+Digital signature : 32A6C6FAFCB8421878608AAB452D5470DD3223ED
-+      keyref .....: PIV.9C  (sign,cert)
-+      algorithm ..: rsa2048
-+      used for ...: X.509
-+        user id ..: CN=Signing key for yk-9074625,O=example,C=DE
-+        user id ..: <otto@example.net>
-+Key management ...: 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-+      keyref .....: PIV.9D  (encr)
-+      algorithm ..: rsa2048
-+      used for ...: X.509
-+        user id ..: CN=Encryption key for yk-9074625,O=example,C=DE
-+        user id ..: <otto@example.net>
-+
-+PIV authentication’ key with ssh:
-+
-+$ ssh-add -l
-+384 SHA256:0qnJ0Y0ehWxKcx2frLfEljf6GCdlO55OZed5HqGHsaU cardno:yk-9074625 (ECDSA)
-+
-+$ gpgsm --learn
-+$ gpg --full-gen-key
-+Please select what kind of key you want:
-+   (1) RSA and RSA (default)
-+   (2) DSA and Elgamal
-+   (3) DSA (sign only)
-+   (4) RSA (sign only)
-+  (14) Existing key from card
-+Your selection? 14
-+Serial number of the card: FF020001008A77C1
-+Available keys:
-+   (1) 213D1825FDE0F8240CB4E4229F01AF90AC658C2E PIV.9A nistp384 (auth)
-+   (2) 7A53E6CFFE7220A0E646B4632EE29E5A7104499C PIV.9E nistp256 (auth)
-+   (3) 32A6C6FAFCB8421878608AAB452D5470DD3223ED PIV.9C rsa2048 (cert,sign)
-+   (4) 34798AAFE0A7565088101CC4AE31C5C8C74461CB PIV.9D rsa2048 (encr)
-+Your selection? 3
-+Please specify how long the key should be valid.
-+         0 = key does not expire
-+      <n>  = key expires in n days
-+      <n>w = key expires in n weeks
-+      <n>m = key expires in n months
-+      <n>y = key expires in n years
-+Key is valid for? (0)
-+Key does not expire at all
-+Is this correct? (y/N) y
-+
-+GnuPG needs to construct a user ID to identify your key.
-+
-+Real name:
-+Email address: otto@example.net
-+Comment:
-+You selected this USER-ID:
-+    "otto@example.net"
-+
-+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? o
-+gpg: key C3AFA9ED971BB365 marked as ultimately trusted
-+gpg: revocation certificate stored as '[...]D971BB365.rev'
-+public and secret key created and signed.
-+
-+Note that this key cannot be used for encryption.  You may want to use
-+the command "--edit-key" to generate a subkey for this purpose.
-+pub   rsa2048 2019-04-04 [SC]
-+      7F899AE2FB73159DD68A1B20C3AFA9ED971BB365
-+uid                      otto@example.net
-+$ gpg --edit-key 7F899AE2FB73159DD68A1B20C3AFA9ED971BB365
-+Secret key is available.
-+
-+sec  rsa2048/C3AFA9ED971BB365
-+     created: 2019-04-04  expires: never       usage: SC
-+     card-no: FF020001008A77C1
-+     trust: ultimate      validity: ultimate
-+[ultimate] (1). otto@example.net
-+gpg> addkey
-+Secret parts of primary key are stored on-card.
-+Please select what kind of key you want:
-+   (3) DSA (sign only)
-+   (4) RSA (sign only)
-+   (5) Elgamal (encrypt only)
-+   (6) RSA (encrypt only)
-+  (14) Existing key from card
-+Your selection? 14
-+Serial number of the card: FF020001008A77C1
-+Available keys:
-+   (1) 213D1825FDE0F8240CB4E4229F01AF90AC658C2E PIV.9A nistp384 (auth)
-+   (2) 7A53E6CFFE7220A0E646B4632EE29E5A7104499C PIV.9E nistp256 (auth)
-+   (3) 32A6C6FAFCB8421878608AAB452D5470DD3223ED PIV.9C rsa2048 (cert,sign)
-+   (4) 34798AAFE0A7565088101CC4AE31C5C8C74461CB PIV.9D rsa2048 (encr)
-+Your selection? 4
-+Please specify how long the key should be valid.
-+         0 = key does not expire
-+      <n>  = key expires in n days
-+      <n>w = key expires in n weeks
-+      <n>m = key expires in n months
-+      <n>y = key expires in n years
-+Key is valid for? (0)
-+Key does not expire at all
-+Is this correct? (y/N) y
-+Really create? (y/N) y
-+
-+sec  rsa2048/C3AFA9ED971BB365
-+     created: 2019-04-04  expires: never       usage: SC
-+     card-no: FF020001008A77C1
-+     trust: ultimate      validity: ultimate
-+ssb  rsa2048/7067860A98FCE6E1
-+     created: 2019-04-04  expires: never       usage: E
-+     card-no: FF020001008A77C1
-+[ultimate] (1). otto@example.net
-+
-+gpg> save
-+Now you can use your PIV card also with gpg.
-+
-
-
-diff --git a/ReadMe.md b/ReadMe.md
-index 7278f80..41b298d 100644
---- a/ReadMe.md
-+++ b/ReadMe.md
-@@ -709,7 +709,844 @@ Digital signature’ key
- gpg-card:
- 
- gpg/card> writecert PIV.9C < sign.crt
-+# MS17-010
-+# 000006
-+Reader ...........: 1050:0407:X:0
-+Card type ........: yubikey
-+Card firmware ....: 5.1.2
-+Serial number ....: FF020001008A77C1
-+Application type .: PIV
-+Version ..........: 1.0
-+Displayed s/n ....: yk-9074625
-+PIN usage policy .: app-pin
-+PIN retry counter : - [verified] -
-+PIV authentication: 213D1825FDE0F8240CB4E4229F01AF90AC658C2E
-+      keyref .....: PIV.9A  (auth)
-+      algorithm ..: nistp384
-+Card authenticat. : 7A53E6CFFE7220A0E646B4632EE29E5A7104499C
-+      keyref .....: PIV.9E  (auth)
-+      algorithm ..: nistp256
-+Digital signature : 32A6C6FAFCB8421878608AAB452D5470DD3223ED
-+      keyref .....: PIV.9C  (sign,cert)
-+      algorithm ..: rsa2048
-+      used for ...: X.509
-+        user id ..: CN=Signing key for yk-9074625,O=example,C=DE
-+        user id ..: <6309304695z@gmail.co
-+ m>
-+Key management ...: 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-+      keyref .....: PIV.9D  (encr)
-+      algorithm ..: rsa2048
-+      used for ...: X.509
-+        user id ..: CN=Encryption key for yk-9074625,O=example,C=DE
-+        user id ..: <6309304695z@gmail.com>
-+ PIV authentication’ key with ssh:
-+
-+$ ssh-add -l
-+384 SHA256:0qnJ0Y0ehWxKcx2frLfEljf6GCdlO55OZed5HqGHsaU cardno:yk-9074625 (ECDSA)
-+ssh-add with the uppercase ‘-L
-+$ gpgsm --learn
-+$ gpg --full-gen-key
-+Please select what kind of key you want:
-+   (1) RSA and RSA (default)
-+   (2) DSA and Elgamal
-+   (3) DSA (sign only)
-+   (4) RSA (sign only)
-+  (14) Existing key from card
-+Your selection? 14
-+Serial number of the card: FF020001008A77C1
-+Available keys:
-+   (1) 213D1825FDE0F8240CB4E4229F01AF90AC658C2E PIV.9A nistp384 (auth)
-+   (2) 7A53E6CFFE7220A0E646B4632EE29E5A7104499C PIV.9E nistp256 (auth)
-+   (3) 32A6C6FAFCB8421878608AAB452D5470DD3223ED PIV.9C rsa2048 (cert,sign)
-+   (4) 34798AAFE0A7565088101CC4AE31C5C8C74461CB PIV.9D rsa2048 (encr)
-+Your selection? 3
-+Please specify how long the key should be valid.
-+         0 = key does not expire
-+      <n>  = key expires in n days
-+      <n>w = key expires in n weeks
-+      <n>m = key expires in n months
-+      <n>y = key expires in n years
-+Key is valid for? (0)
-+Key does not expire at all
-+Is this correct? (y/N) y
-+
-+GnuPG needs to construct a user ID to identify your key.
-+
-+Real name: keith bieszczat
-+Email address: 6309304695z@gmail.com
-+Comment: https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator
-+You selected this USER-ID:
-+    "6309304695z@gmail.com"
-+
-+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? o
-+gpg: key C3AFA9ED971BB365 marked as ultimately trusted
-+gpg: revocation certificate stored as '[...]D971BB365.rev'
-+public and secret key created and signed.
-+
-+Note that this key cannot be used for encryption.  You may want to use
-+the command "--edit-key" to generate a subkey for this purpose.
-+pub   rsa2048 2019-04-04 [SC]
-+      7F899AE2FB73159DD68A1B20C3AFA9ED971BB365
-+uid                      6309304695z@gmail.com
-+
-+ run gpg in --expert mode
-+ $ gpg --edit-key 7F899AE2FB73159DD68A1B20C3AFA9ED971BB365
-+Secret key is available.
-+
-+sec  rsa2048/C3AFA9ED971BB365
-+     created: 2019-04-04  expires: never       usage: SC
-+     card-no: FF020001008A77C1
-+     trust: ultimate      validity: ultimate
-+[ultimate] (1). otto@example.net
-+gpg> addkey
-+Secret parts of primary key are stored on-card.
-+Please select what kind of key you want:
-+   (3) DSA (sign only)
-+   (4) RSA (sign only)
-+   (5) Elgamal (encrypt only)
-+   (6) RSA (encrypt only)
-+  (14) Existing key from card
-+Your selection? 14
-+Serial number of the card: FF020001008A77C1
-+Available keys:
-+   (1) 213D1825FDE0F8240CB4E4229F01AF90AC658C2E PIV.9A nistp384 (auth)
-+   (2) 7A53E6CFFE7220A0E646B4632EE29E5A7104499C PIV.9E nistp256 (auth)
-+   (3) 32A6C6FAFCB8421878608AAB452D5470DD3223ED PIV.9C rsa2048 (cert,sign)
-+   (4) 34798AAFE0A7565088101CC4AE31C5C8C74461CB PIV.9D rsa2048 (encr)
-+Your selection? 4
-+Please specify how long the key should be valid.
-+         0 = key does not expire
-+      <n>  = key expires in n days
-+      <n>w = key expires in n weeks
-+      <n>m = key expires in n months
-+      <n>y = key expires in n years
-+Key is valid for? (0)
-+Key does not expire at all
-+Is this correct? (y/N) y
-+Really create? (y/N) y
-+
-+sec  rsa2048/C3AFA9ED971BB365
-+     created: 2019-04-04  expires: never       usage: SC
-+     card-no: FF020001008A77C1
-+     trust: ultimate      validity: ultimate
-+ssb  rsa2048/7067860A98FCE6E1
-+     created: 2019-04-04  expires: never       usage: E
-+     card-no: FF020001008A77C1
-+[ultimate] (1). otto@example.net
-+
-+gpg> save
-+ 
-+/* 32A19-D90712   
-+LEVEL-5 CLEARANCE ONLY
-+ ‘--force’
-+authentication key 
-+-header-'010203040506070801020304050607080102030405060708'
-+SETDATA hexstring
-+to tell scdaemon about the data to be signed. The data must be given in hex notation. The actual signing is done using the command
-+
-+  PKSIGN keyid
-+where keyid is the hexified ID of the key to be used. The key id may have been retrieved using the command LEARN. If another hash algorithm than SHA-1 is used, that algorithm may be given like:
-+
-+  PKSIGN --hash=algoname keyid
-+READKEY hexified_certid
-+READCERT hexified_certid|keyid
-+SERIALNO
-+Return the serial number of the card using a status response like:
-+
-+  S SERIALNO D27600000000000000000000
-+ WRITEKEY [--force] keyid
-+SETDATA hexstring
-+to tell scdaemon about the data to be decrypted. The data must be given in hex notation. The actual decryption is then done using the command
-+
-+  PKDECRYPT keyid
-+CHECKPIN idstr
-+RESTART
-+APDU [--atr] [--more] [--exlen[=n]] [hexstring]
-+S CARD-ATR 3BFA1300FF813180450031C173C00100009000B1
-+
-+./configure --sysconfdir=/etc --localstatedir=/va
-+CN=Wurzel ZS 3,O=Intevation GmbH,C=DE
-+  A6935DD34EF3087973C706FC311AA2CCF733765B S
-+
-+  # CN=PCA-1-Verwaltung-02/O=PKI-1-Verwaltung/C=DE
-+  DC:BD:69:25:48:BD:BB:7E:31:6E:BB:80:D3:00:80:35:D4:F8:A6:CD S
-+
-+  # CN=Root-CA/O=Schlapphuete/L=Pullach/C=DE
-+  !14:56:98:D3:FE:9C:CA:5A:31:6E:BC:81:D3:11:4E:00:90:A3:44:C2 S
-+  
-+       # Key added on: 2011-07-20 20:38:46
-+       # Fingerprint:  5e:8d:c4:ad:e7:af:6e:27:8a:d6:13:e4:79:ad:0b:81
-+       34B62F25E277CF13D3C6BCEBFD3F85D08F0A864B 0 confirm
-+private-keys-v1.d/
-+gpg-connect-agent 'help COMMAND' /bye
-+SETKEY <keyGrip>
-+Tell the server about the key to be used for decryption. If this is not used, gpg-agent may try to figure out the key by trying to decrypt the message with each key available.
-+
-+  PKDECRYPT
-+The agent checks whether this command is allowed and then does an INQUIRY to get the ciphertext the client should then send the cipher text.
-+
-+    S: INQUIRE CIPHERTEXT
-+    C: D (xxxxxx
-+    C: D xxxx)
-+    C: END
-+Please note that the server may send status info lines while reading the data lines from the client. The data send is a SPKI like S-Exp with this structure:
-+
-+     (enc-val
-+       (<algo>
-+         (<param_name1> <mpi>)
-+     ...
-+         (<param_namen> <mpi>)))
-+Where algo is a string with the name of the algorithm; see the libgcrypt documentation for a list of valid algorithms. The number and names of the parameters depend on the algorithm. The agent does return an error if there is an inconsistency.
-+
-+If the decryption was successful the decrypted data is returned by means of "D" lines.
-+
-+Here is an example session:
-+
-+   C: PKDECRYPT
-+   S: INQUIRE CIPHERTEXT
-+   C: D (enc-val elg (a 349324324)
-+   C: D    (b 3F444677CA)))
-+   C: END
-+   S: # session key follows
-+   S: S PADDING 0
-+   S: D (value 1234567890ABCDEF0)
-+   S: OK decryption successful
-+The “PADDING” status line is only send if gpg-agent can tell what kind of padding is used. As of now only the value 0 is used to indicate that the padding has
-+SIGKEY <keyGrip>
-+This can be used multiple times to create multiple signature, the list of keys is reset with the next PKSIGN command or a RESET. The server tests whether the key is a valid key to sign something and responds with okay.
-+
-+   SETHASH --hash=<name>|<algo> <hexstring>
-+sig-val
-+       (<algo>
-+         (<param_name1> <mpi>)
-+     ...
-+         (<param_namen> <mpi>)))
-+The operation is affected by the option
-+
-+   OPTION use-cache-for-signing=0|1
-+The default of 1 uses the cache. Setting this option to 0 will lead gpg-agent to ignore the passphrase cache. Note, that there is also a global command line option for gpg-agent to globally disable the caching.
-+
-+Here is an example session:
-+
-+   C: SIGKEY <keyGrip>
-+   S: OK key available
-+   C: SIGKEY <keyGrip>
-+   S: OK key available
-+   C: PKSIGN
-+   S: # I did ask the user whether he really wants to sign
-+   S: # I did ask the user for the passphrase
-+   S: INQUIRE HASHVAL
-+   C: D ABCDEF012345678901234
-+   C: END
-+   S: # signature follows
-+   S: D (sig-val rsa (s 45435453654612121212))
-+   S: OK
-+  GENKEY [--no-protection] [--preset] [<cache_nonce>]
-+Invokes the key generation process and the server will then inquire on the generation parameters, like:
-+
-+   S: INQUIRE KEYPARM
-+   C: D (genkey (rsa (nbits  1024)))
-+   C: END
-+The format of the key parameters which depends on the algorithm is of the form:
-+
-+    (genkey
-+      (algo
-+        (parameter_name_1 ....)
-+          ....
-+        (parameter_name_n ....)))
-+If everything succeeds, the server returns the *public key* in a SPKI like S-Expression like this:
-+
-+     (public-key
-+       (rsa
-+   (n <mpi>)
-+   (e <mpi>)))
-+Here is an example session:
-+
-+   C: GENKEY
-+   S: INQUIRE KEYPARM
-+   C: D (genkey (rsa (nbits  1024)))
-+   C: END
-+   S: D (public-key
-+   S: D   (rsa (n 326487324683264) (e 10001)))
-+   S  OK key created
-+    ISTRUSTED <5e:8d:c4:ad:e7:af:6e:27:8a:d6:13:e4:79:ad:0b:81>
-+LISTTRUSTED
-+GpgAgent returns a list of trusted keys line by line:
-+
-+    S: D 000000001234454556565656677878AF2F1ECCFF P
-+    S: D 340387563485634856435645634856438576457A P
-+    S: D FEDC6532453745367FD83474357495743757435D S
-+    S: OK
-+The first item on a line is the hexified fingerprint where MD5 fingerprints are 00 padded to the left and the second item is a flag to indicate the type of key (so that gpg is able to only take care of PGP keys). P = OpenPGP, S = S/MIME. A client should ignore the rest of the line, so that we can extend the format in the future.
-+Ok
-+Finally a client should be able to mark a key as trusted:
-+
-+   MARKTRUSTED fingerprint "P"|"S"
-+The server will then pop up a window to ask the user whether she really trusts this key. For this it will probably ask for a text to be displayed like this:
-+
-+   S: INQUIRE TRUSTDESC
-+   C: D Do you trust the key with the fingerprint @FPR@
-+   C: D bla fasel blurb.
-+   C: END
-+   S: OK
-+GET_PASSPHRASE [--data] [--check] [--no-ask] [--repeat[=N]] \
-+                 [--qualitybar] cache_id                \
-+                 [error_message prompt description]
-+PRESET_PASSPHRASE [--inquire] <string_or_keygrip> <timeout> [<hexstring>]
-+
-+HAVEKEY keygrips
-+  GET_CONFIRMATION description
-+  LEARN [--send]
-+UPDATESTARTUPTTY
-+SETDATA hexstring
-+
-+
-+  PKSIGN keyid
-+
-+
-+  PKSIGN --hash=algoname keyid
-+
-+READCERT hexified_certid|keyid
-+READKEY hexified_certid
-+SETDATA hexstring
-+d
-+
-+  PKSIGN keyid
-+ LEARN
-+
-+  PKSIGN --hash=algoname keyid
-+
-+WRITEKEY [--force] keyid
-+WRITEKEY [--force] keyid
-+PASSWD [--reset] [--nullpin] chvno
-+CHECKPIN idstr
-+APDU [--atr] [--more] [--exlen[=n]] [hexstring]
-+this:
-+
-+     S CARD-ATR 3BFA1300FF813180450031C173C00100009000B1
-+--auto-key-import 
-+
-+command --locate-external-key
-+command --locate-external-key
-+github/workflows/release.yml:
-+ldap://keys.(thedomain)
-+‘--auto-key-locate
-+ --auto-key-locate
-+--auto-key-retrieve
-+
-+
-+ honor-keyserver-url 
-+
-+-sig-keyserver-url
-+--recv-key
-+honor-keyserver-url
-+--use-agent
-+--gpg-agent-info
-+
-+
-+--no-random-seed-file
-+Host: c7-use-3.algolianet. com
-+Accept: */*
-+Sec-Fetch-Site: cross-site
-+Accept-Language: en-US, en; q=0.9
-+Accept-Encoding: gzip, deflate, br
-+Sec-Fetch-Mode: cors x-algolia-application-id: A7KCVJZ91B
-+Origin: https://dashboard.algolia.com
-+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone 0S 17_3 like Mac 0S X) AppleWe
-+x-algolia-api-key: b3cf*************************米**
-+Content-Length: 27
-+Connection: keep-alive
-+Content-Type: application/x-www-form-urlencoded
-+Sec-Fetch-Dest: empty
-+
-+scdaemon.conf
-+1
-+HKCU\Software\GNU\GnuPG:DefaultLogFile,
-+--debug-level level
-+HKCU\Software\GNU\GnuPG:DefaultLogFile,
-+scd-event
-+HKCU\Software\GNU\GnuPG:HomeDir
-+HKCU\Software\GNU\GnuPG:DefaultLogFile,
-+reader_n.status
-+HKCU\Software\GNU\GnuPG:HomeDir
-+
-+trustlist.txt file
-+gpg-agent.conf
-+HKCU\Software\GNU\GnuPG:HomeDir
-+name: release
-+debug-pinentry 
-+--debug 1024
-+
-+global trustlist (/usr/local/etc/gnupg/trustlist.tx
-+
-+Active cards
-+Active cards (inserted into a card reader or plugged in tokens) are always tried; they are ordered by their serial numbers.
-+gpg-connect-agent updatestartuptty /bye
-+Although all GnuPG components try to start the gpg-agent as needed, this is not possible for the ssh support because ssh does not know about it. Thus if no GnuPG tool which accesses the agent has been run, there is no guarantee that ssh is able to use gpg-agent for authentication. To fix this you may start gpg-agent if needed using this simple command:
-+
-+gpg-connect-agent /bye
-+--scdaemon-program filename
-+Use program filename as the Smartcard daemon. The default is installation dependent and can be shown with the gpgconf
-+--check-passphrase-pattern file
-+--check-sym-passphrase-pattern file
-+Check the passphrase against the pattern given in file. When entering a new passphrase matching one of these pattern a warning will be displayed. If file does not contain any slashes and does not start with "~/" it is searched in the system configuration directory (/usr/local/etc/gnupg)
-+bin\pinentry.exe, ..\Gpg4win\bin\pinentry.exe, ..\Gpg4win\pinentry.exe, ..\GNU\GnuPG\pinentry.exe, ..\GNU\bin\pinentry.exe, bin\pinentry-basic.exe
-+Keys listed in the sshcontrol file
-+--disable-extended-key-format
-+These options are obsolete and have no effect. The extended key format is used for years now and has been supported since 2.1.12. Existing keys in the old format are migrated to the new format as soon as they are touched.
-+
-+--enable-ssh-support
-+--enable-win32-openssh-support
-+--enable-putty-support
-+
-+gpg-connect-agent 'GETINFO s2k_count' /bye
-+gpg-connect-agent 'GETINFO s2k_time' /bye
-+To view the auto-calibrated count use:
-+
-+gpg-connect-agent 'GETINFO s2k_count_cal' /bye
-+--ssh-fingerprint-digest
-+Keys listed in the sshcontrol file
-+
-+Active card
-+gpg-connect-agent /bye
-+bashrc or whatever initialization file is used for all shell invocations:
-+
-+GPG_TTY=$(tty)
-+export GPG_TTY
-+--daemon [command line]
-+server
-+
-+agent-program file ¶
-+Specify the agent program to be started if none is running. The default value is determined by running gpgconf with the option --list-dirs.
-+
-+--gpg-program file
-+Specify a non-default gpg binary to be used by certain commands.
-+
-+--gpgsm-program file
-+Specify a non-default gpgsm binary to be used by certain commands.
-+
-+--chuid uid
-+Change the current user to uid which may either be a number or a name. This can be used from the root account to run gpg-card for another user. If uid is not the current UID a standard PATH is set and the envvar GNUPGHOME is unset. To override the latter the option --homedir can be used. This option has only an effect when used on the command line. This option has currently no effect at all on Windows.
-+
-+gpg-card
-+AUTHENTICATE [--setkey] [--raw] [< file]|010203040506070801020304050607080102030405060708] ¶
-+AUTH
-+FETCH
-+GENERATE [--force] [--algo=algo{+algo2}] keyref
-+KDF-SETUP ¶
-+Prepare the OpenPGP card KDF feature for this card.
-+
-+LANG [--clear]
-+Change the language info for the card. This info can be used by applications for a personalized greeting. Up to 4 two-digit language identifiers can be entered as a preference. The option --clear removes all identifiers. GnuPG does not use this info.
-+
-+LIST [--cards] [--apps] [--info] [--no-key-lookup] [n] [app]
-+NAME [--clear]
-+PRIVATEDO [--clear] n [< file] file
-+READCERT [--openpgp] certref > file ¶
-+Read the certificate for key certref and store it in file. With option --openpgp an OpenPGP keyblock wrapped in a dedicated CMS content type (OID=1.3.6.1.4.1.11591.2.3.1) is expected and extracted to file. Note that for current OpenPGP cards a certificate may only be available at the certref "OPENPGP.3".
-+URL [--clear]
-+gpg's. --fetch 
-+WRITECERT certref < file ¶
-+WRITECERT --openpgp certref [< file|fpr]
-+WRITECERT --clear certref
-+ --openpgp
-+file 
-+fpr.
-+WRITEKEY [--force] keyref keygrip ¶
-+Write a private key object identified by keygrip to the card under the id keyref.
-+CHECKKEYS [--ondisk] [--delete-clear-copy] [--delete-protected-copy] ¶
-+Serial number
-+A hex-string with the serial number of the card.
-+
-+Type
-+This gives the type of the card’s application. For example "OpenPGP" or "PIV".
-+
-+Keygrip
-+A hex-string identifying a key.
-+
-+Keyref
-+The application slot where the key is stored on the card. For example "OpenPGP.1"
-+
-+Status
-+The status of the key. The most common value is "shadowed" for a key where only the public key along with the card’s serial number is stored on the disk. The value "clear" indicates that a copy of the card’s key is stored unprotected on disk. The value "protected" indicated that a copy of the car’s key is stored on disk but is protected by a password. The value "error" may also be shown if there was a problem reading information from the card.
-+
-+YUBIKEY cmd args
-+Various commands pertaining to Yubikey tokens with cmd being:
-+
-+LIST
-+List supported and enabled Yubikey applications.
-+
-+ENABLE usb|nfc|all [otp|u2f|opgp|piv|oath|fido2|all]
-+DISABLE
-+Enable or disable the specified or all applications on the given interface.
-+
-+The support for OpenPGP cards in gpg-card is not yet complete. For missing features, please continue to use gpg --card-edit.
-+
-+GnuPG has support for PIV cards (“Personal Identity Verification” as specified by NIST Special Publication 800-73-4). This section describes how to initialize (personalize) a fresh Yubikey token featuring the PIV application (requires Yubikey-5). We assume that the credentials have not yet been changed and thus are:
-+
-+Authentication key
-+This is a 24 byte key described by the hex string
-+010203040506070801020304050607080102030405060708.
-+
-+PIV Application PIN
-+This is the string 123456.
-+
-+PIN Unblocking Key
-+This is the string 12345678.
-+list (the string gpg/card>
-+card> list
-+Reader ...........: 1050:0407:X:0
-+Card type ........: yubikey
-+Card firmware ....: 5.1.2
-+Serial number ....: D2760001240102010006090746250000
-+Application type .: OpenPGP
-+Version ..........: 2.1
-+[...]
-+on:
-+  push:
-+    tags:
-+      - "v*"
-+
-+permissions:
-+  contents: write
-+
-+jobs:
-+  release:
-+    runs-on: ubuntu-latest
-+    steps:
-+      - uses: actions/checkout@v3
-+      - uses: cli/gh-extension-precompile@v1
-+        with:
-+          go_version: "1.16"
-+Then
-+- uses: cli/gh-extension-precompile@v1
-+  env:
-+    CGO_ENABLED: 1
-+- uses: cli/gh-extension-precompile@v1
-+  with:
-+    build_script_override: "script/build.sh"
-+name: release
-+
-+on:
-+  push:
-+    tags:
-+      - "v*"
-+
-+permissions:
-+  contents: write
-+
-+jobs:
-+  release:
-+    runs-on: ubuntu-latest
-+    steps:
-+      - uses: actions/checkout@v3
-+      - id: import_gpg
-+        uses: crazy-max/ghaction-import-gpg@v5
-+        with:
-+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
-+      - uses: cli/gh-extension-precompile@v1
-+        with:
-+          gpg_fingerprint: ${{ steps.import_gpg.outputs.fingerprint }}
-+# macOS
-+gpg --armor --export-secret-key joe@foo.bar | pbcopy
-+
-+# Ubuntu (assuming GNU base64)
-+gpg --armor --export-secret-key joe@foo.bar -w0 | xclip
-+
-+# Arch
-+gpg --armor --export-secret-key joe@foo.bar | xclip -selection clipboard -i
-+
-+# FreeBSD (assuming BSD base64)
-+gpg --armor --export-secret-key joe@foo.bar | xclip
-+
-+name: import-gpg
-+
-+on:
-+  push:
-+    branches: master
-+
-+jobs:
-+  import-gpg:
-+    runs-on: ubuntu-latest
-+    steps:
-+      -
-+        name: Checkout
-+        uses: actions/checkout@v4
-+      -
-+        name: Import GPG key
-+        uses: crazy-max/ghaction-import-gpg@v6
-+        with:
-+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-+          passphrase: ${{ secrets.PASSPHRASE }}
-+      -
-+        name: List keys
-+        run: gpg -K
-+name: import-gpg
-+
-+on:
-+  push:
-+    branches: master
- 
-+gpg/card> writekey PIV.9D 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-+gpg/card> writecert PIV.9D < encr.crt
-+
-+jobs:
-+  import-gpg:
-+    runs-on: ubuntu-latest
-+    steps:
-+      -
-+        name: Checkout
-+        uses: actions/checkout@v4
-+      -
-+        name: Import GPG key
-+        uses: crazy-max/ghaction-import-gpg@v6
-+        with:
-+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-+          passphrase: ${{ secrets.PASSPHRASE }}
-+          fingerprint: "C17D11ADF199F12A30A0910F1F80449BE0B08CB8"
-+      -
-+        name: List keys
-+        run: gpg -K
-+
-+pub   ed25519 2021-09-24 [C]
-+      87F257B89CE462100BEC0FFE6071D218380FDCC8
-+      Keygrip = F5C3ABFAAB36B427FD98C4EDD0387E08EA1E8092
-+uid           [ unknown] Joe Bar <joe@bar.foo>
-+sub   ed25519 2021-09-24 [S]
-+      C17D11ADF199F12A30A0910F1F80449BE0B08CB8
-+      Keygrip = DEE0FC98F441519CA5DE5D79773CB29009695FEB
-+name: import-gpg
-+/.gnupg/scdaemon.conf and by restarting scdaemon, either by killing the process or by using gpgconf --kill scdaemon. Finally the default order in which card applications are tried by scdaemon can be changed. For example to prefer PIV over OpenPGP it is sufficient to add
-+
-+application-priority piv
-+to ~/.gnupg/scdaemon.conf and to restart scdaemon. This has an effect only on tokens which support both, PIV and OpenPGP, but does not hamper the use of OpenPGP only tokens.
-+
-+With one of these methods employed the list command of gpg-card shows this:
-+
-+gpg/card> list
-+Reader ...........: 1050:0407:X:0
-+Card type ........: yubikey
-+Card firmware ....: 5.1.2
-+Serial number ....: FF020001008A77C1
-+Application type .: PIV
-+Version ..........: 1.0
-+Displayed s/n ....: yk-9074625
-+PIN usage policy .: app-pin
-+PIN retry counter : - 3 -
-+PIV authentication: [none]
-+      keyref .....: PIV.9A
-+Card authenticat. : [none]
-+      keyref .....: PIV.9E
-+Digital signature : [none]
-+      keyref .....: PIV.9C
-+Key management ...: [none]
-+      keyref .....: PIV.9D
-+34798AAFE0A7565088101CC4AE31C5C8C74461CB.key
-+list --cards
-+well. The PIV authentication key (internal reference PIV.9A
-+Card authentication key (PIV.9E) is also known as the CAK and used to support physical access applications. The private key is not protected by a PIN and can thus immediately be used. The Digital signature key (PIV.9C) is used to digitally sign documents. The use of the associated private key is protected by the Application PIN which needs to be provided for each signing operation. The Key management key (PIV.9D) is used for encryption
-+
-+gpg/card> auth 010203040506070801020304050607080102030405060708
-+gpg/card> auth < myauth.key
-+
-+gpg/card> generate --algo=nistp384 PIV.9A
-+PIV card no. yk-9074625 detected
-+gpg/card> generate --algo=nistp256 PIV.9E
-+PIV card no. yk-9074625 detected
-+gpg/card> generate --algo=rsa2048 PIV.9C
-+PIV card no. yk-9074625 detected
-+ ‘--force’
-+gpg/card> list
-+Reader ...........: 1050:0407:X:0
-+Card type ........: yubikey
-+Card firmware ....: 5.1.2
-+Serial number ....: FF020001008A77C1
-+Application type .: PIV
-+Version ..........: 1.0
-+Displayed s/n ....: yk-9074625
-+PIN usage policy .: app-pin
-+PIN retry counter : - 3 -
-+PIV authentication: 213D1825FDE0F8240CB4E4229F01AF90AC658C2E
-+      keyref .....: PIV.9A  (auth)
-+      algorithm ..: nistp384
-+Card authenticat. : 7A53E6CFFE7220A0E646B4632EE29E5A7104499C
-+      keyref .....: PIV.9E  (auth)
-+      algorithm ..: nistp256
-+Digital signature : 32A6C6FAFCB8421878608AAB452D5470DD3223ED
-+      keyref .....: PIV.9C  (sign,cert)
-+      algorithm ..: rsa2048
-+Key management ...: [none]
-+      keyref .....: PIV.9D
-+keygrip
-+gpg
-+self-signed X.509 certificate (exit the gpg-card tool, first):
-+
-+$ gpgsm --gen-key -o encr.crt
-+   (1) RSA
-+   (2) Existing key
-+   (3) Existing key from card
-+Your selection? 1
-+What keysize do you want? (3072) 2048
-+Requested keysize is 2048 bits
-+Possible actions for a RSA key:
-+   (1) sign, encrypt
-+   (2) sign
-+   (3) encrypt
-+Your selection? 3
-+Enter the X.509 subject name: CN=Encryption key for yk-9074625,O=example,C=DE
-+Enter email addresses (end with an empty line):
-+> otto@example.net
-+>
-+Enter DNS names (optional; end with an empty line):
-+>
-+Enter URIs (optional; end with an empty line):
-+>
-+Create self-signed certificate? (y/N) y
-+These parameters are used:
-+    Key-Type: RSA
-+    Key-Length: 2048
-+    Key-Usage: encrypt
-+    Serial: random
-+    Name-DN: CN=Encryption key for yk-9074625,O=example,C=DE
-+    Name-Email: otto@example.net
-+
-+Proceed with creation? (y/N)
-+Now creating self-signed certificate.  This may take a while ...
-+gpgsm: about to sign the certificate for key: &34798AAFE0A7565088101CC4AE31C5C8C74461CB
-+gpgsm: certificate created
-+Ready.
-+$ gpgsm --import encr.crt
-+gpgsm: certificate imported
-+gpgsm: total number processed: 1
-+gpgsm:               imported: 1
-+gpg/card> list
-+Reader ...........: 1050:0407:X:0
-+Card type ........: yubikey
-+Card firmware ....: 5.1.2
-+Serial number ....: FF020001008A77C1
-+Application type .: PIV
-+Version ..........: 1.0
-+Displayed s/n ....: yk-9074625
-+PIN usage policy .: app-pin
-+PIN retry counter : - 3 -
-+PIV authentication: 213D1825FDE0F8240CB4E4229F01AF90AC658C2E
-+      keyref .....: PIV.9A  (auth)
-+      algorithm ..: nistp384
-+Card authenticat. : 7A53E6CFFE7220A0E646B4632EE29E5A7104499C
-+      keyref .....: PIV.9E  (auth)
-+      algorithm ..: nistp256
-+Digital signature : 32A6C6FAFCB8421878608AAB452D5470DD3223ED
-+      keyref .....: PIV.9C  (sign,cert)
-+      algorithm ..: rsa2048
-+Key management ...: [none]
-+      keyref .....: PIV.9D
-+keygrip 
-+gpgsm --gen-key -o encr.crt
-+   (1) RSA
-+   (2) Existing key
-+   (3) Existing key from card
-+Your selection? 1
-+What keysize do you want? (3072) 2048
-+Requested keysize is 2048 bits
-+Possible actions for a RSA key:
-+   (1) sign, encrypt
-+   (2) sign
-+   (3) encrypt
-+Your selection? 3
-+Enter the X.509 subject name: CN=Encryption key for yk-9074625,O=example,C=DE
-+Enter email addresses (end with an empty line):
-+> otto@example.net
-+>
-+Enter DNS names (optional; end with an empty line):
-+>
-+Enter URIs (optional; end with an empty line):
-+>
-+Create self-signed certificate? (y/N) y
-+These parameters are used:
-+    Key-Type: RSA
-+    Key-Length: 2048
-+    Key-Usage: encrypt
-+    Serial: random
-+    Name-DN: CN=Encryption key for yk-9074625,O=example,C=DE
-+    Name-Email: otto@example.net
-+
-+Proceed with creation? (y/N)
-+Now creating self-signed certificate.  This may take a while ...
-+gpgsm: about to sign the certificate for key: &34798AAFE0A7565088101CC4AE31C5C8C74461CB
-+gpgsm: certificate created
-+Ready.
-+$ gpgsm --import encr.crt
-+gpgsm: certificate imported
-+gpgsm: total number processed: 1
-+gpgsm:               imported: 1
-+
-+gpg/card> writekey PIV.9D 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-+gpg/card> writecert PIV.9D < encr.crt
-+
-+gpgsm --with-keygrip -k 6309304695z@gmail.com
-+Key management ...: 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-+      keyref .....: PIV.9D  (encr)
-+      algorithm ..: rsa2048
-+      used for ...: X.509
-+        user id ..: CN=Encryption key for yk-9074625,O=example,C=DE
-+        user id ..: <6309304695z@gmail.com>
-+
-+34798AAFE0A7565088101CC4AE31C5C8C74461CB.key
-+
-+$ gpgsm --learn
-+$ gpgsm --gen-key -o sign.crt
-+Please select what kind of key you want:
-+   (1) RSA
-+   (2) Existing key
-+   (3) Existing key from card
-+Your selection? 3
-+Serial number of the card: FF020001008A77C1
-+Available keys:
-+   (1) 213D1825FDE0F8240CB4E4229F01AF90AC658C2E PIV.9A nistp384
-+   (2) 7A53E6CFFE7220A0E646B4632EE29E5A7104499C PIV.9E nistp256
-+   (3) 32A6C6FAFCB8421878608AAB452D5470DD3223ED PIV.9C rsa2048
-+   (4) 34798AAFE0A7565088101CC4AE31C5C8C74461CB PIV.9D rsa2048
-+Your selection? 3
-+Possible actions for a RSA key:
-+   (1) sign, encrypt
-+   (2) sign
-+   (3) encrypt
-+Your selection? 2
-+Enter the X.509 subject name: CN=Signing key for yk-9074625,O=example,C=DE
-+Enter email addresses (end with an empty line):
-+> 6309304695z@gmail.com
-+>
-+Enter DNS names (optional; end with an empty line):
-+>
-+Enter URIs (optional; end with an empty line):
-+>
-+Create self-signed certificate? (y/N)
-+These parameters are used:
-+    Key-Type: card:PIV.9C
-+    Key-Length: 1024
-+    Key-Usage: sign
-+    Serial: random
-+    Name-DN: CN=Signing key for yk-9074625,O=example,C=DE
-+    Name-Email: 6309304695z@gmail.com
-+
-+Proceed with creation? (y/N) y
-+Now creating self-signed certificate.  This may take a while ...
-+gpgsm: about to sign the certificate for key: &32A6C6FAFCB8421878608AAB452D5470DD3223ED
-+gpgsm: certificate created
-+Ready.
-+$ gpgsm --import sign.crt
-+gpgsm: certificate imported
-+gpgsm: total number processed: 1
-+gpgsm:               imported: 1
-+
-+‘gpgsm --learn’
-+Digital signature’ key
-+gpg-card:010203040506070801020304050607080102030405060708
-+
-+shellcode/eternalblue_sc_merge.py
-+
-+gpg/card> writecert PIV.9C < sign.crt
- on:
-   push:
-     branches: master
-
-AUTHENTICATE [--setkey] [--raw] [< file]|key]
-AUTH and set key
-
-GENERATE [--force] [--algo=algo{+algo2}] keyref
-Create a new key on a card. Use --force to overwrite an existing key. Use "help" for algo to get a list of known algorithms. For OpenPGP cards several algos may be given. Note that the OpenPGP key generation is done interactively unless --algo or keyref
-
-LIST [--cards] [--apps] [--info] [--no-key-lookup] [n] [app] ¶
-L
-
-READCERT [--openpgp] certref > file ¶
-
-openpgp an OpenPGP keyblock wrapped in a dedicated CMS content type (OID=1.3.6.1.4.1.11591.2.3.1) is expected and extracted to file. Note that for current OpenPGP cards a certificate may only be available at the certref "OPENPGP.3"
-
-WRITECERT certref < file ¶
-WRITECERT --openpgp certref [< file|fpr]
-WRITECERT --clear certref
-Write a certificate to the card under the id certref. 
-
-WRITEKEY [--force] keyref keygrip ¶
-Write a private key object identified by keygrip to the card under the id keyref. Option --force allows overwriting an existing key
-—Shadowed
-
-YUBIKEY cmd args ¶
-Various commands pertaining to Yubikey tokens with cmd being:
-
-LIST
-List supported and enabled Yubikey applications.
-
-ENABLE usb|nfc|all [otp|u2f|opgp|piv|oath|fido2|all]
-DISABLE
-Enable or disable the specified or all applications on the given interface.
-
-Authentication key
-This is a 24 byte key described by the hex string
-010203040506070801020304050607080102030405060708.
-
-PIV
-
-Authentication key
-This is a 24 byte key described by the hex string
-010203040506070801020304050607080102030405060708
-
-the string gpg/card> is the prompt
-
-gpg/card> list
-Reader ...........: 1050:0407:X:0
-Card type ........: yubikey
-Card firmware ....: 5.1.2
-Serial number ....: D2760001240102010006090746250000
-Application type .: OpenPGP
-Version ..........: 2.1
-[...]
-
-use help yubikey).
-
-use help yubikey)
-
-gpg/card> yubikey disable all opgp
-gpg/card> yubikey list
-Application  USB    NFC
------------------------
-OTP          yes    yes
-U2F          yes    yes
-OPGP         no     no
-PIV          yes    no
-OATH         yes    yes
-FIDO2        yes    yes
-gpg/card> reset
-
-/.gnupg/scdaemon.conf
-
-application-priority piv
-
-scdaemon
-
-gpg/card> list
-Reader ...........: 1050:0407:X:0
-Card type ........: yubikey
-Card firmware ....: 5.1.2
-Serial number ....: FF020001008A77C1
-Application type .: PIV
-Version ..........: 1.0
-Displayed s/n ....: yk-9074625
-PIN usage policy .: app-pin
-PIN retry counter : - 3 -
-PIV authentication: [none]
-      keyref .....: PIV.9A
-Card authenticat. : [none]
-      keyref .....: PIV.9E
-Digital signature : [none]
-      keyref .....: PIV.9C
-Key management ...: [none]
-      keyref .....: PIV.9D
-In
-
-Card authentication key (PIV.9E) is also known as the CAK and used to support physical access applications. The private key is not protected by a PIN and can thus immediately be used. The Digital signature key (PIV.9C) is used to digitally sign documents. The use of the associated private key is protected by the Application PIN which needs to be provided for each signing operation. The Key management key (PIV.9D)
-
-Card authentication key; however, that key is mandatory by the PIV standard and thus we create it too. Key generation requires that we authenticate to the card. This can be done either on the command line (which would reveal the key):
-
-gpg/card> auth 010203040506070801020304050607080102030405060708
-
-gpg/card> auth < myauth.key
-
-gpg/card> generate --algo=nistp384 PIV.9A
-PIV card no. yk-9074625 detected
-gpg/card> generate --algo=nistp256 PIV.9E
-PIV card no. yk-9074625 detected
-gpg/card> generate --algo=rsa2048 PIV.9C
-PIV card no. yk-9074625 detected
-
-gpg/card> list
-Reader ...........: 1050:0407:X:0
-Card type ........: yubikey
-Card firmware ....: 5.1.2
-Serial number ....: FF020001008A77C1
-Application type .: PIV
-Version ..........: 1.0
-Displayed s/n ....: yk-9074625
-PIN usage policy .: app-pin
-PIN retry counter : - 3 -
-PIV authentication: 213D1825FDE0F8240CB4E4229F01AF90AC658C2E
-      keyref .....: PIV.9A  (auth)
-      algorithm ..: nistp384
-Card authenticat. : 7A53E6CFFE7220A0E646B4632EE29E5A7104499C
-      keyref .....: PIV.9E  (auth)
-      algorithm ..: nistp256
-Digital signature : 32A6C6FAFCB8421878608AAB452D5470DD3223ED
-      keyref .....: PIV.9C  (sign,cert)
-      algorithm ..: rsa2048
-Key management ...: [none]
-      keyref .....: PIV.9D 
-—force
-
-$ gpgsm --gen-key -o encr.crt
-   (1) RSA
-   (2) Existing key
-   (3) Existing key from card
-Your selection? 1
-What keysize do you want? (3072) 2048
-Requested keysize is 2048 bits
-Possible actions for a RSA key:
-   (1) sign, encrypt
-   (2) sign
-   (3) encrypt
-Your selection? 3
-Enter the X.509 subject name: CN=Encryption key for yk-9074625,O=example,C=DE
-Enter email addresses (end with an empty line):
-> otto@example.net
->
-Enter DNS names (optional; end with an empty line):
->
-Enter URIs (optional; end with an empty line):
->
-Create self-signed certificate? (y/N) y
-These parameters are used:
-    Key-Type: RSA
-    Key-Length: 2048
-    Key-Usage: encrypt
-    Serial: random
-    Name-DN: CN=Encryption key for yk-9074625,O=example,C=DE
-    Name-Email: otto@example.net
-
-Proceed with creation? (y/N)
-Now creating self-signed certificate.  This may take a while ...
-gpgsm: about to sign the certificate for key: &34798AAFE0A7565088101CC4AE31C5C8C74461CB
-gpgsm: certificate created
-Ready.
-$ gpgsm --import encr.crt
-gpgsm: certificate imported
-gpgsm: total number processed: 1
-gpgsm:               imported: 1
-
-gpg/card> writekey PIV.9D 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-gpg/card> writecert PIV.9D < encr.crt
-
-[...]
-Key management ...: 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-      keyref .....: PIV.9D  (encr)
-      algorithm ..: rsa2048
-      used for ...: X.509
-        user id ..: CN=Encryption key for yk-9074625,O=example,C=DE
-        user id ..: <otto@example.net>
-
-34798AAFE0A7565088101CC4AE31C5C8C74461CB.key from the directory ~/.gnupg/private-keys-v1.d/
-
-$ gpgsm --learn
-$ gpgsm --gen-key -o sign.crt
-Please select what kind of key you want:
-   (1) RSA
-   (2) Existing key
-   (3) Existing key from card
-Your selection? 3
-Serial number of the card: FF020001008A77C1
-Available keys:
-   (1) 213D1825FDE0F8240CB4E4229F01AF90AC658C2E PIV.9A nistp384
-   (2) 7A53E6CFFE7220A0E646B4632EE29E5A7104499C PIV.9E nistp256
-   (3) 32A6C6FAFCB8421878608AAB452D5470DD3223ED PIV.9C rsa2048
-   (4) 34798AAFE0A7565088101CC4AE31C5C8C74461CB PIV.9D rsa2048
-Your selection? 3
-Possible actions for a RSA key:
-   (1) sign, encrypt
-   (2) sign
-   (3) encrypt
-Your selection? 2
-Enter the X.509 subject name: CN=Signing key for yk-9074625,O=example,C=DE
-Enter email addresses (end with an empty line):
-> otto@example.net
->
-Enter DNS names (optional; end with an empty line):
->
-Enter URIs (optional; end with an empty line):
->
-Create self-signed certificate? (y/N)
-These parameters are used:
-    Key-Type: card:PIV.9C
-    Key-Length: 1024
-    Key-Usage: sign
-    Serial: random
-    Name-DN: CN=Signing key for yk-9074625,O=example,C=DE
-    Name-Email: otto@example.net
-
-Proceed with creation? (y/N) y
-Now creating self-signed certificate.  This may take a while ...
-gpgsm: about to sign the certificate for key: &32A6C6FAFCB8421878608AAB452D5470DD3223ED
-gpgsm: certificate created
-Ready.
-$ gpgsm --import sign.crt
-gpgsm: certificate imported
-gpgsm: total number processed: 1
-gpgsm:               imported: 1
-
-gpg/card> writecert PIV.9C < sign.crt
-
-Reader ...........: 1050:0407:X:0
-Card type ........: yubikey
-Card firmware ....: 5.1.2
-Serial number ....: FF020001008A77C1
-Application type .: PIV
-Version ..........: 1.0
-Displayed s/n ....: yk-9074625
-PIN usage policy .: app-pin
-PIN retry counter : - [verified] -
-PIV authentication: 213D1825FDE0F8240CB4E4229F01AF90AC658C2E
-      keyref .....: PIV.9A  (auth)
-      algorithm ..: nistp384
-Card authenticat. : 7A53E6CFFE7220A0E646B4632EE29E5A7104499C
-      keyref .....: PIV.9E  (auth)
-      algorithm ..: nistp256
-Digital signature : 32A6C6FAFCB8421878608AAB452D5470DD3223ED
-      keyref .....: PIV.9C  (sign,cert)
-      algorithm ..: rsa2048
-      used for ...: X.509
-        user id ..: CN=Signing key for yk-9074625,O=example,C=DE
-        user id ..: <otto@example.net>
-Key management ...: 34798AAFE0A7565088101CC4AE31C5C8C74461CB
-      keyref .....: PIV.9D  (encr)
-      algorithm ..: rsa2048
-      used for ...: X.509
-        user id ..: CN=Encryption key for yk-9074625,O=example,C=DE
-        user id ..: <otto@example.net>
-
-PIV authentication’ key with ssh:
-
-$ ssh-add -l
-384 SHA256:0qnJ0Y0ehWxKcx2frLfEljf6GCdlO55OZed5HqGHsaU cardno:yk-9074625 (ECDSA)
-
-$ gpgsm --learn
-$ gpg --full-gen-key
-Please select what kind of key you want:
-   (1) RSA and RSA (default)
-   (2) DSA and Elgamal
-   (3) DSA (sign only)
-   (4) RSA (sign only)
-  (14) Existing key from card
-Your selection? 14
-Serial number of the card: FF020001008A77C1
-Available keys:
-   (1) 213D1825FDE0F8240CB4E4229F01AF90AC658C2E PIV.9A nistp384 (auth)
-   (2) 7A53E6CFFE7220A0E646B4632EE29E5A7104499C PIV.9E nistp256 (auth)
-   (3) 32A6C6FAFCB8421878608AAB452D5470DD3223ED PIV.9C rsa2048 (cert,sign)
-   (4) 34798AAFE0A7565088101CC4AE31C5C8C74461CB PIV.9D rsa2048 (encr)
-Your selection? 3
-Please specify how long the key should be valid.
-         0 = key does not expire
-      <n>  = key expires in n days
-      <n>w = key expires in n weeks
-      <n>m = key expires in n months
-      <n>y = key expires in n years
-Key is valid for? (0)
-Key does not expire at all
-Is this correct? (y/N) y
-
-GnuPG needs to construct a user ID to identify your key.
-
-Real name:
-Email address: otto@example.net
-Comment:
-You selected this USER-ID:
-    "otto@example.net"
-
-Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? o
-gpg: key C3AFA9ED971BB365 marked as ultimately trusted
-gpg: revocation certificate stored as '[...]D971BB365.rev'
-public and secret key created and signed.
-
-Note that this key cannot be used for encryption.  You may want to use
-the command "--edit-key" to generate a subkey for this purpose.
-pub   rsa2048 2019-04-04 [SC]
-      7F899AE2FB73159DD68A1B20C3AFA9ED971BB365
-uid                      otto@example.net
-$ gpg --edit-key 7F899AE2FB73159DD68A1B20C3AFA9ED971BB365
-Secret key is available.
-
-sec  rsa2048/C3AFA9ED971BB365
-     created: 2019-04-04  expires: never       usage: SC
-     card-no: FF020001008A77C1
-     trust: ultimate      validity: ultimate
-[ultimate] (1). otto@example.net
-gpg> addkey
-Secret parts of primary key are stored on-card.
-Please select what kind of key you want:
-   (3) DSA (sign only)
-   (4) RSA (sign only)
-   (5) Elgamal (encrypt only)
-   (6) RSA (encrypt only)
-  (14) Existing key from card
-Your selection? 14
-Serial number of the card: FF020001008A77C1
-Available keys:
-   (1) 213D1825FDE0F8240CB4E4229F01AF90AC658C2E PIV.9A nistp384 (auth)
-   (2) 7A53E6CFFE7220A0E646B4632EE29E5A7104499C PIV.9E nistp256 (auth)
-   (3) 32A6C6FAFCB8421878608AAB452D5470DD3223ED PIV.9C rsa2048 (cert,sign)
-   (4) 34798AAFE0A7565088101CC4AE31C5C8C74461CB PIV.9D rsa2048 (encr)
-Your selection? 4
-Please specify how long the key should be valid.
-         0 = key does not expire
-      <n>  = key expires in n days
-      <n>w = key expires in n weeks
-      <n>m = key expires in n months
-      <n>y = key expires in n years
-Key is valid for? (0)
-Key does not expire at all
-Is this correct? (y/N) y
-Really create? (y/N) y
-
-sec  rsa2048/C3AFA9ED971BB365
-     created: 2019-04-04  expires: never       usage: SC
-     card-no: FF020001008A77C1
-     trust: ultimate      validity: ultimate
-ssb  rsa2048/7067860A98FCE6E1
-     created: 2019-04-04  expires: never       usage: E
-     card-no: FF020001008A77C1
-[ultimate] (1). otto@example.net
-
-gpg> save
-Now you can use your PIV card also with gpg.
-
-
-     # 000006
-/* 32A19-D90712   
-LEVEL-5 CLEARANCE ONLY
- ‘--force’
-authentication key 
--header-'010203040506070801020304050607080102030405060708'
-SETDATA hexstring
-to tell scdaemon about the data to be signed. The data must be given in hex notation. The actual signing is done using the command
-
-  PKSIGN keyid
-where keyid is the hexified ID of the key to be used. The key id may have been retrieved using the command LEARN. If another hash algorithm than SHA-1 is used, that algorithm may be given like:
-
-  PKSIGN --hash=algoname keyid
-READKEY hexified_certid
-READCERT hexified_certid|keyid
-SERIALNO
-Return the serial number of the card using a status response like:
-
-  S SERIALNO D27600000000000000000000
- WRITEKEY [--force] keyid
-SETDATA hexstring
-to tell scdaemon about the data to be decrypted. The data must be given in hex notation. The actual decryption is then done using the command
-
-  PKDECRYPT keyid
-CHECKPIN idstr
-RESTART
-APDU [--atr] [--more] [--exlen[=n]] [hexstring]
-S CARD-ATR 3BFA1300FF813180450031C173C00100009000B1
-
-./configure --sysconfdir=/etc --localstatedir=/va
-CN=Wurzel ZS 3,O=Intevation GmbH,C=DE
-  A6935DD34EF3087973C706FC311AA2CCF733765B S
-
-  # CN=PCA-1-Verwaltung-02/O=PKI-1-Verwaltung/C=DE
-  DC:BD:69:25:48:BD:BB:7E:31:6E:BB:80:D3:00:80:35:D4:F8:A6:CD S
-
-  # CN=Root-CA/O=Schlapphuete/L=Pullach/C=DE
-  !14:56:98:D3:FE:9C:CA:5A:31:6E:BC:81:D3:11:4E:00:90:A3:44:C2 S
-  
-       # Key added on: 2011-07-20 20:38:46
-       # Fingerprint:  5e:8d:c4:ad:e7:af:6e:27:8a:d6:13:e4:79:ad:0b:81
-       34B62F25E277CF13D3C6BCEBFD3F85D08F0A864B 0 confirm
-private-keys-v1.d/
-gpg-connect-agent 'help COMMAND' /bye
-SETKEY <keyGrip>
-Tell the server about the key to be used for decryption. If this is not used, gpg-agent may try to figure out the key by trying to decrypt the message with each key available.
-
-  PKDECRYPT
-The agent checks whether this command is allowed and then does an INQUIRY to get the ciphertext the client should then send the cipher text.
-
-    S: INQUIRE CIPHERTEXT
-    C: D (xxxxxx
-    C: D xxxx)
-    C: END
-Please note that the server may send status info lines while reading the data lines from the client. The data send is a SPKI like S-Exp with this structure:
-
-     (enc-val
-       (<algo>
-         (<param_name1> <mpi>)
- 	   ...
-         (<param_namen> <mpi>)))
-Where algo is a string with the name of the algorithm; see the libgcrypt documentation for a list of valid algorithms. The number and names of the parameters depend on the algorithm. The agent does return an error if there is an inconsistency.
-
-If the decryption was successful the decrypted data is returned by means of "D" lines.
-
-Here is an example session:
-
-   C: PKDECRYPT
-   S: INQUIRE CIPHERTEXT
-   C: D (enc-val elg (a 349324324)
-   C: D    (b 3F444677CA)))
-   C: END
-   S: # session key follows
-   S: S PADDING 0
-   S: D (value 1234567890ABCDEF0)
-   S: OK decryption successful
-The “PADDING” status line is only send if gpg-agent can tell what kind of padding is used. As of now only the value 0 is used to indicate that the padding has
-SIGKEY <keyGrip>
-This can be used multiple times to create multiple signature, the list of keys is reset with the next PKSIGN command or a RESET. The server tests whether the key is a valid key to sign something and responds with okay.
-
-   SETHASH --hash=<name>|<algo> <hexstring>
-sig-val
-       (<algo>
-         (<param_name1> <mpi>)
- 	   ...
-         (<param_namen> <mpi>)))
-The operation is affected by the option
-
-   OPTION use-cache-for-signing=0|1
-The default of 1 uses the cache. Setting this option to 0 will lead gpg-agent to ignore the passphrase cache. Note, that there is also a global command line option for gpg-agent to globally disable the caching.
-
-Here is an example session:
-
-   C: SIGKEY <keyGrip>
-   S: OK key available
-   C: SIGKEY <keyGrip>
-   S: OK key available
-   C: PKSIGN
-   S: # I did ask the user whether he really wants to sign
-   S: # I did ask the user for the passphrase
-   S: INQUIRE HASHVAL
-   C: D ABCDEF012345678901234
-   C: END
-   S: # signature follows
-   S: D (sig-val rsa (s 45435453654612121212))
-   S: OK
-  GENKEY [--no-protection] [--preset] [<cache_nonce>]
-Invokes the key generation process and the server will then inquire on the generation parameters, like:
-
-   S: INQUIRE KEYPARM
-   C: D (genkey (rsa (nbits  1024)))
-   C: END
-The format of the key parameters which depends on the algorithm is of the form:
-
-    (genkey
-      (algo
-        (parameter_name_1 ....)
-          ....
-        (parameter_name_n ....)))
-If everything succeeds, the server returns the *public key* in a SPKI like S-Expression like this:
-
-     (public-key
-       (rsa
- 	 (n <mpi>)
- 	 (e <mpi>)))
-Here is an example session:
-
-   C: GENKEY
-   S: INQUIRE KEYPARM
-   C: D (genkey (rsa (nbits  1024)))
-   C: END
-   S: D (public-key
-   S: D   (rsa (n 326487324683264) (e 10001)))
-   S  OK key created
-    ISTRUSTED <5e:8d:c4:ad:e7:af:6e:27:8a:d6:13:e4:79:ad:0b:81>
-LISTTRUSTED
-GpgAgent returns a list of trusted keys line by line:
-
-    S: D 000000001234454556565656677878AF2F1ECCFF P
-    S: D 340387563485634856435645634856438576457A P
-    S: D FEDC6532453745367FD83474357495743757435D S
-    S: OK
-The first item on a line is the hexified fingerprint where MD5 fingerprints are 00 padded to the left and the second item is a flag to indicate the type of key (so that gpg is able to only take care of PGP keys). P = OpenPGP, S = S/MIME. A client should ignore the rest of the line, so that we can extend the format in the future.
-Ok
-Finally a client should be able to mark a key as trusted:
-
-   MARKTRUSTED fingerprint "P"|"S"
-The server will then pop up a window to ask the user whether she really trusts this key. For this it will probably ask for a text to be displayed like this:
-
-   S: INQUIRE TRUSTDESC
-   C: D Do you trust the key with the fingerprint @FPR@
-   C: D bla fasel blurb.
-   C: END
-   S: OK
-GET_PASSPHRASE [--data] [--check] [--no-ask] [--repeat[=N]] \
-                 [--qualitybar] cache_id                \
-                 [error_message prompt description]
-PRESET_PASSPHRASE [--inquire] <string_or_keygrip> <timeout> [<hexstring>]
-
-HAVEKEY keygrips
-  GET_CONFIRMATION description
-  LEARN [--send]
-UPDATESTARTUPTTY
-SETDATA hexstring
-
-
-  PKSIGN keyid
-
-
-  PKSIGN --hash=algoname keyid
-
-READCERT hexified_certid|keyid
-READKEY hexified_certid
-SETDATA hexstring
-d
-
-  PKSIGN keyid
- LEARN
-
-  PKSIGN --hash=algoname keyid
-
-WRITEKEY [--force] keyid
-WRITEKEY [--force] keyid
-PASSWD [--reset] [--nullpin] chvno
-CHECKPIN idstr
-APDU [--atr] [--more] [--exlen[=n]] [hexstring]
-this:
-
-     S CARD-ATR 3BFA1300FF813180450031C173C00100009000B1
---auto-key-import 
-
-command --locate-external-key
-command --locate-external-key
-github/workflows/release.yml:
-ldap://keys.(thedomain)
-‘--auto-key-locate
- --auto-key-locate
---auto-key-retrieve
-
-
- honor-keyserver-url 
-
--sig-keyserver-url
---recv-key
-honor-keyserver-url
---use-agent
---gpg-agent-info
-
-
---no-random-seed-file
-Host: c7-use-3.algolianet. com
-Accept: */*
-Sec-Fetch-Site: cross-site
-Accept-Language: en-US, en; q=0.9
-Accept-Encoding: gzip, deflate, br
-Sec-Fetch-Mode: cors x-algolia-application-id: A7KCVJZ91B
-Origin: https://dashboard.algolia.com
-User-Agent: Mozilla/5.0 (iPhone; CPU iPhone 0S 17_3 like Mac 0S X) AppleWe
-x-algolia-api-key: b3cf*************************米**
-Content-Length: 27
-Connection: keep-alive
-Content-Type: application/x-www-form-urlencoded
-Sec-Fetch-Dest: empty
-
-scdaemon.conf
-1
-HKCU\Software\GNU\GnuPG:DefaultLogFile,
---debug-level level
-HKCU\Software\GNU\GnuPG:DefaultLogFile,
-scd-event
-HKCU\Software\GNU\GnuPG:HomeDir
-HKCU\Software\GNU\GnuPG:DefaultLogFile,
-reader_n.status
-HKCU\Software\GNU\GnuPG:HomeDir
-
-trustlist.txt file
-gpg-agent.conf
-HKCU\Software\GNU\GnuPG:HomeDir
-name: release
-debug-pinentry 
---debug 1024
-
-global trustlist (/usr/local/etc/gnupg/trustlist.tx
-
-Active cards
-Active cards (inserted into a card reader or plugged in tokens) are always tried; they are ordered by their serial numbers.
-gpg-connect-agent updatestartuptty /bye
-Although all GnuPG components try to start the gpg-agent as needed, this is not possible for the ssh support because ssh does not know about it. Thus if no GnuPG tool which accesses the agent has been run, there is no guarantee that ssh is able to use gpg-agent for authentication. To fix this you may start gpg-agent if needed using this simple command:
-
-gpg-connect-agent /bye
---scdaemon-program filename
-Use program filename as the Smartcard daemon. The default is installation dependent and can be shown with the gpgconf
---check-passphrase-pattern file
---check-sym-passphrase-pattern file
-Check the passphrase against the pattern given in file. When entering a new passphrase matching one of these pattern a warning will be displayed. If file does not contain any slashes and does not start with "~/" it is searched in the system configuration directory (/usr/local/etc/gnupg)
-bin\pinentry.exe, ..\Gpg4win\bin\pinentry.exe, ..\Gpg4win\pinentry.exe, ..\GNU\GnuPG\pinentry.exe, ..\GNU\bin\pinentry.exe, bin\pinentry-basic.exe
-Keys listed in the sshcontrol file
---disable-extended-key-format
-These options are obsolete and have no effect. The extended key format is used for years now and has been supported since 2.1.12. Existing keys in the old format are migrated to the new format as soon as they are touched.
-
---enable-ssh-support
---enable-win32-openssh-support
---enable-putty-support
-
-gpg-connect-agent 'GETINFO s2k_count' /bye
-gpg-connect-agent 'GETINFO s2k_time' /bye
-To view the auto-calibrated count use:
-
-gpg-connect-agent 'GETINFO s2k_count_cal' /bye
---ssh-fingerprint-digest
-Keys listed in the sshcontrol file
-
-Active card
-gpg-connect-agent /bye
-bashrc or whatever initialization file is used for all shell invocations:
-
-GPG_TTY=$(tty)
-export GPG_TTY
---daemon [command line]
-server
-
-agent-program file ¶
-Specify the agent program to be started if none is running. The default value is determined by running gpgconf with the option --list-dirs.
-
---gpg-program file
-Specify a non-default gpg binary to be used by certain commands.
-
---gpgsm-program file
-Specify a non-default gpgsm binary to be used by certain commands.
-
---chuid uid
-Change the current user to uid which may either be a number or a name. This can be used from the root account to run gpg-card for another user. If uid is not the current UID a standard PATH is set and the envvar GNUPGHOME is unset. To override the latter the option --homedir can be used. This option has only an effect when used on the command line. This option has currently no effect at all on Windows.
-
-gpg-card
-AUTHENTICATE [--setkey] [--raw] [< file]|010203040506070801020304050607080102030405060708] ¶
-AUTH
-FETCH
-GENERATE [--force] [--algo=algo{+algo2}] keyref
-KDF-SETUP ¶
-Prepare the OpenPGP card KDF feature for this card.
-
-LANG [--clear]
-Change the language info for the card. This info can be used by applications for a personalized greeting. Up to 4 two-digit language identifiers can be entered as a preference. The option --clear removes all identifiers. GnuPG does not use this info.
-
-LIST [--cards] [--apps] [--info] [--no-key-lookup] [n] [app]
-NAME [--clear]
-PRIVATEDO [--clear] n [< file] file
-READCERT [--openpgp] certref > file ¶
-Read the certificate for key certref and store it in file. With option --openpgp an OpenPGP keyblock wrapped in a dedicated CMS content type (OID=1.3.6.1.4.1.11591.2.3.1) is expected and extracted to
+++Although all GnuPG components try to start the gpg-agent as needed, this is not possible for the ssh support because ssh does not know about it. Thus if no GnuPG tool which accesses the agent has been run, there is no guarantee that ssh is able to use gpg-agent for authentication. To fix this you may start 
