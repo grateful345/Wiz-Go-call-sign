@@ -1,4 +1,667 @@
-count Manager REST API
+degicert user id : fa5e727c-0527-44e0-9004-5fdc347b0b3f
+account id: 90171939-7ae7-4884-85d4-9a5ccc670fa6
+account id: da65e6a3-1962-4316-a1d3-9aa39e6f29c7
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/audit-log?sort=action%3Adesc&offset=1&limit=1000' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/audit-log?sort=action%3Adesc&offset=1&limit=1000
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:41:37 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 8 
+ x-frame-options: same-origin 
+ x-iinfo: 16-98174421-98174426 NNNY CT(35 39 0) RT(1710574896704 41) q(0 0 0 -1) r(0 0) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+200	
+List of audit log entries
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+{
+  "total": 1,
+  "offset": 0,
+  "limit": 20,
+  "items": [
+    {
+      "id": "90edebb0-e706-4d09-bdfc-1b6a5917e7c5",
+      "account": {
+        "id": "88dd63d3-af43-4517-8222-70511968aed8",
+        "name": "Example Account"
+      },
+      "resource_type": "user",
+      "resource_id": "62646824-9462-42f2-b061-c43bb6f19cf3",
+      "resource_name": "john.doe",
+      "action": "create",
+      "user": {
+        "id": "8384e9e5-2eb5-42d8-8615-218a97237143",
+        "name": "jane.doe"
+      },
+      "timestamp": "2023-05-26T17:09:30Z",
+      "description": "User has been created by api",
+      "status": "success"
+    }
+  ]
+}
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/api-access-token?user_id=fa5e727c-0527-44e0-9004-5fdc347b0b3f' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/api-access-token?user_id=fa5e727c-0527-44e0-9004-5fdc347b0b3f
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:34:22 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 15-83515187-83515192 NNNN CT(35 39 0) RT(1710574461283 42) q(0 0 1 -1) r(1 1) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+200	
+Success
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": "7b5d83e7-6e5f-4ade-ad48-111c6f3420f7",
+    "user_id": "e7ea1214-d688-48ba-aa1b-131fb2867ac5",
+    "name": "API token name",
+    "end_date": "2022-05-30T23:59:59Z",
+    "start_date": "2021-06-25T21:20:06Z",
+    "active": true,
+    "enabled": true,
+    "masked_api_key": "*************9e2a1"
+  }
+]
+) 
+ID of the account to query.
+
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:30:12 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 16-98139753-98139761 NNNY CT(37 39 0) RT(1710574211791 141) q(0 0 0 -1) r(0 0) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+Account details
+
+Media type
+
+Controls Accept header.
+Examples
+
+Example Value
+Schema
+{
+  "id": "ad65390a-0380-4522-bab6-f007c447757a",
+  "name": "Example account 1",
+  "active": true,
+  "service_period": {
+    "from": "2021-05-26",
+    "to": "2022-05-26"
+  },
+  "friendly_identifier": "7092363",
+  "admins": [
+    {
+      "id": "f7e866c9-768c-4442-adc9-abe2ba4b69d1",
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    }
+  ],
+  "sign_in_methods": [
+    {
+      "signInMethod": "standard",
+      "status": "enabled",
+      "mfaStatus": "disabled",
+      "clientAuthCertLoginEnabled": false
+    }
+  ],
+  "oauth_clients": [],
+  "locale": "en_US"
+}
+
+Use this endpoint to get a list of DigiCert ONE accounts.
+
+Parameters
+Cancel
+Name Description
+active
+string
+(query) 
+Filters results by account status. If not provided, returns a list of active accounts. Accepts all (all accounts), true (active accounts), or false (inactive accounts).
+
+name
+string
+(query) 
+Name of a specific account to fetch.
+
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/account?active=all' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/account?active=all
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:33:00 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 16-98146487-98146492 NNNY CT(36 39 0) RT(1710574379985 55) q(0 0 0 -1) r(0 0) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+List of accounts
+
+Media type
+
+Controls Accept header.
+Examples
+
+Example Value
+Schema
+[
+  {
+    "id": "50580ac7-60e4-4df2-a834-d12c1ab79afb",
+    "name": "Example account 1",
+    "active": true,
+    "service_period": {
+      "from": "2021-05-25",
+      "to": "2022-05-25"
+    },
+    "friendly_identifier": "5258283",
+    "admins": [
+      {
+        "id": "833e4906-fc45-4bd3-841e-40506c0e8ca8",
+        "email": "api_service_user_1@example.com"
+      },
+      {
+        "id": "fa8285c7-5e35-4ea8-8cc4-dc95f7dc3cd6",
+        "email": "api_service_user_2@example.com"
+      },
+      {
+        "id": "7d78b46a-c635-4bda-8b6d-13802046a963",
+        "name": "John Doe",
+        "email": "account_user_1@example.com"
+      }
+    ],
+    "sign_in_methods": [
+      {
+        "signInMethod": "standard",
+        "status": "enabled",
+        "mfaStatus": "disabled",
+        "clientAuthCertLoginEnabled": false
+      }
+    ],
+    "locale": "en_US"
+  },
+  {
+    "id": "be5ffbd2-1a50-4675-912f-2fe015812f87",
+    "name": "Example account 2",
+    "active": true,
+    "service_period": {
+      "from": "2021-05-26",
+      "to": "2022-05-26"
+    },
+    "friendly_identifier": "7092363",
+    "admins": [],
+    "sign_in_methods": [
+      {
+        "signInMethod": "standard",
+        "status": "enabled",
+        "mfaStatus": "disabled",
+        "clientAuthCertLoginEnabled": false
+      }
+    ],
+    "locale": "en_US"
+  }
+].
+
+
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/api-access-token?user_id=fa5e727c-0527-44e0-9004-5fdc347b0b3f' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/api-access-token?user_id=fa5e727c-0527-44e0-9004-5fdc347b0b3f
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:34:22 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 15-83515187-83515192 NNNN CT(35 39 0) RT(1710574461283 42) q(0 0 1 -1) r(1 1) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+200	
+Success
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": "7b5d83e7-6e5f-4ade-ad48-111c6f3420f7",
+    "user_id": "e7ea1214-d688-48ba-aa1b-131fb2867ac5",
+    "name": "API token name",
+    "end_date": "2022-05-30T23:59:59Z",
+    "start_date": "2021-06-25T21:20:06Z",
+    "active": true,
+    "enabled": true,
+    "masked_api_key": "*************9e2a1"
+  }
+]
+
+Use this endpoint to get a list of DigiCert ONE accounts.
+
+Parameters
+Cancel
+Name	Description
+active
+string
+(query)	
+Filters results by account status. If not provided, returns a list of active accounts. Accepts all (all accounts), true (active accounts), or false (inactive accounts).
+
+
+name
+string
+(query)	
+Name of a specific account to fetch.
+
+
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/account?active=all' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/account?active=all
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:33:00 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 16-98146487-98146492 NNNY CT(36 39 0) RT(1710574379985 55) q(0 0 0 -1) r(0 0) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+200	
+List of accounts
+
+Media type
+
+Controls Accept header.
+Examples
+
+Example Value
+Schema
+[
+  {
+    "id": "50580ac7-60e4-4df2-a834-d12c1ab79afb",
+    "name": "Example account 1",
+    "active": true,
+    "service_period": {
+      "from": "2021-05-25",
+      "to": "2022-05-25"
+    },
+    "friendly_identifier": "5258283",
+    "admins": [
+      {
+        "id": "833e4906-fc45-4bd3-841e-40506c0e8ca8",
+        "email": "api_service_user_1@example.com"
+      },
+      {
+        "id": "fa8285c7-5e35-4ea8-8cc4-dc95f7dc3cd6",
+        "email": "api_service_user_2@example.com"
+      },
+      {
+        "id": "7d78b46a-c635-4bda-8b6d-13802046a963",
+        "name": "John Doe",
+        "email": "account_user_1@example.com"
+      }
+    ],
+    "sign_in_methods": [
+      {
+        "signInMethod": "standard",
+        "status": "enabled",
+        "mfaStatus": "disabled",
+        "clientAuthCertLoginEnabled": false
+      }
+    ],
+    "locale": "en_US"
+  },
+  {
+    "id": "be5ffbd2-1a50-4675-912f-2fe015812f87",
+    "name": "Example account 2",
+    "active": true,
+    "service_period": {
+      "from": "2021-05-26",
+      "to": "2022-05-26"
+    },
+    "friendly_identifier": "7092363",
+    "admins": [],
+    "sign_in_methods": [
+      {
+        "signInMethod": "standard",
+        "status": "enabled",
+        "mfaStatus": "disabled",
+        "clientAuthCertLoginEnabled": false
+      }
+    ],
+    "locale": "en_US"
+  }
+])	
+ID of the account to query.
+
+
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:30:12 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 16-98139753-98139761 NNNY CT(37 39 0) RT(1710574211791 141) q(0 0 0 -1) r(0 0) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+200	
+Account details
+
+Media type
+
+Controls Accept header.
+Examples
+
+Example Value
+Schema
+{
+  "id": "ad65390a-0380-4522-bab6-f007c447757a",
+  "name": "Example account 1",
+  "active": true,
+  "service_period": {
+    "from": "2021-05-26",
+    "to": "2022-05-26"
+  },
+  "friendly_identifier": "7092363",
+  "admins": [
+    {
+      "id": "f7e866c9-768c-4442-adc9-abe2ba4b69d1",
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    }
+  ],
+  "sign_in_methods": [
+    {
+      "signInMethod": "standard",
+      "status": "enabled",
+      "mfaStatus": "disabled",
+      "clientAuthCertLoginEnabled": false
+    }
+  ],
+  "oauth_clients": [],
+  "locale": "en_US"
+}
+
+
+ Manager REST API
  0.1 
 OAS3
 Welcome to the DigiCert® Account Manager API reference documentation! The DigiCert® Account Manager API provides operations for managing DigiCert ONE users and accounts.
