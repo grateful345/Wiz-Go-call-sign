@@ -1,4 +1,235 @@
-# FamousToday
+Host github.com-repo-0
+        Hostname github.com
+        IdentityFile=/home/user/.ssh/repo-0_deploy_key
+
+Host github.com-repo-1
+        Hostname github.com
+        IdentityFile=/home/user/.ssh/repo-1_deploy_key
+Host github.com-repo-0 - The repository's alias.
+Hostname github.com - Configures the hostname to use with the alias.
+IdentityFile=/home/user/.ssh/repo-0_deploy_key - Assigns a private key to the alias.
+You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
+
+git clone git@github.com-repo-1:OWNER/repo-1.git
+
+curl --request GET \
+--url "https://api.github.com/app" \
+--header "Accept: application/vnd.github+json" \
+--header "Authorization: Bearer YOUR_JWT" \
+--header "X-GitHub-Api-Version: 2022-11-28"
+In most cases, you can use Authorization: Bearer or Authorization: token to pass a token. However, if you are passing a JSON web token (JWT), you must use Authorization: Bearer
+
+require 'openssl'
+require 'jwt'  # https://rubygems.org/gems/jwt
+
+# Private key contents
+private_pem = File.read("YOUR_PATH_TO_PEM")
+private_key = OpenSSL::PKey::RSA.new(private_pem)
+
+# Generate the JWT
+payload = {
+  # issued at time, 60 seconds in the past to allow for clock drift
+  iat: Time.now.to_i - 60,
+  # JWT expiration time (10 minute maximum)
+  exp: Time.now.to_i + (10 * 60),
+  # GitHub App's identifier
+  iss: "YOUR_APP_ID"
+}
+
+jwt = JWT.encode(payload, private_key, "RS256")
+puts jwt
+Example: Using Python to generate a JWT
+
+Note: You must run pip install jwt to install the jwt package in order to use this script.
+Python
+#!/usr/bin/env python3
+from jwt import JWT, jwk_from_pem
+import time
+import sys
+
+# Get PEM file path
+if len(sys.argv) > 1:
+    pem = sys.argv[1]
+else:
+    pem = input("Enter path of private PEM file: ")
+
+# Get the App ID
+if len(sys.argv) > 2:
+    app_id = sys.argv[2]
+else:
+    app_id = input("Enter your APP ID: ")
+
+# Open PEM
+with open(pem, 'rb') as pem_file:
+    signing_key = jwk_from_pem(pem_file.read())
+
+payload = {
+    # Issued at time
+    'iat': int(time.time()),
+    # JWT expiration time (10 minutes maximum)
+    'exp': int(time.time()) + 600,
+    # GitHub App's identifier
+    'iss': app_id
+}
+
+# Create JWT
+jwt_instance = JWT()
+encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
+
+print(f"JWT:  {encoded_jwt}")
+This script will prompt you for the file path where your private key is stored and for the ID of your app. Alternatively, you can pass those values as inline arguments when you execute the script.
+
+Example: Using Bash to generate a JWT
+
+Note: You must pass your App ID and the file path where your private key is stored as arguments when running this script.
+Bash
+#!/usr/bin/env bash
+
+set -o pipefail
+
+app_id=$1 # App ID as first argument
+pem=$( cat $2 ) # file path of the private key as second argument
+
+now=$(date +%s)
+iat=$((${now} - 60)) # Issues 60 seconds in the past
+exp=$((${now} + 600)) # Expires 10 minutes in the future
+
+b64enc() { openssl base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n'; }
+
+header_json='{
+    "typ":"JWT",
+    "alg":"RS256"
+}'
+# Header encode
+header=$( echo -n "${header_json}" | b64enc )
+
+payload_json='{
+    "iat":'"${iat}"',
+    "exp":'"${exp}"',
+    "iss":'"${app_id}"'
+}'
+# Payload encode
+payload=$( echo -n "${payload_json}" | b64enc )
+
+# Signature
+header_payload="${header}"."${payload}"
+signature=$( 
+    openssl dgst -sha256 -sign <(echo -n "${pem}") \
+    <(echo -n "${header_payload}") | b64enc 
+)
+
+# Create JWT
+JWT="${header_payload}"."${signature}"
+printf '%s\n' "JWT: $JWT"
+Example: Using PowerShell to generate a JWT
+
+In the following example, replace YOUR_PATH_TO_PEM with the file path where your private key is stored. Replace YOUR_APP_ID with the ID of your app. Make sure to enclose the values for YOUR_PATH_TO_PEM in double quotes.
+
+PowerShell
+#!/usr/bin/env pwsh
+
+$app_id = YOUR_APP_ID
+$private_key_path = "YOUR_PATH_TO_PEM"
+
+$header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
+  alg = "RS256"
+  typ = "JWT"
+}))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+
+$payload = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
+  iat = [System.DateTimeOffset]::UtcNow.AddSeconds(-10).ToUnixTimeSeconds()  
+  exp = [System.DateTimeOffset]::UtcNow.AddMinutes(10).ToUnixTimeSeconds()
+  iss = $app_id    
+}))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+
+$rsa = [System.Security.Cryptography.RSA]::Create()
+$rsa.ImportFromPem((Get-Content $private_key_path -Raw))
+
+$signature = [Convert]::ToBase64String($rsa.SignData([System.Text.Encoding]::UTF8.GetBytes("$header.$payload"), [System.Security.Cryptography.HashAlgorithmName]::SHA256, [System.Security.Cryptography.RSASignaturePadding]::Pkcs1)).TrimEnd('=').Replace('+', '-').Replace('/', '_')
+$jwt = "$header.$payload.$signature"
+Write-Host $jwt
+
+
+$ git config --global --unset gpg.format
+Use the gpg --list-secret-keys --keyid-format=long command to list the long form of the GPG keys for which you have both a public and private key. A private key is required for signing commits or tags.
+Shell
+gpg --list-secret-keys --keyid-format=long
+Note: Some GPG installations on Linux may require you to use gpg2 --list-keys --keyid-format LONG to view a list of your existing keys instead. In this case you will also need to configure Git to use gpg2 by running git config --global gpg.program gpg2.
+From the list of GPG keys, copy the long form of the GPG key ID you'd like to use. In this example, the GPG key ID is 3AA5C34371567BD2:
+Shell
+
+$ gpg --list-secret-keys --keyid-format=long
+/Users/hubot/.gnupg/secring.gpg
+------------------------------------
+sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
+uid                          Hubot <hubot@example.com>
+ssb   4096R/4BB6D45482678BE3 2016-03-10
+To set your primary GPG signing key in Git, paste the text below, substituting in the GPG primary key ID you'd like to use. In this example, the GPG key ID is 3AA5C34371567BD2:
+git config --global user.signingkey 3AA5C34371567BD2
+Alternatively, when setting a subkey include the ! suffix. In this example, the GPG subkey ID is 4BB6D45482678BE3:
+git config --global user.signingkey 4BB6D45482678BE3!
+Optionally, to configure Git to sign all commits by default, enter the following command:
+git config --global commit.gpgsign true
+For more information, see "Signing commits."
+If you aren't using the GPG suite, run the following command in the zsh shell to add the GPG key to your .zshrc file, if it exists, or your .zprofile file:
+$ if [ -r ~/.zshrc ]; then echo -e '\nexport GPG_TTY=$(tty)' >> ~/.zshrc; \
+  else echo -e '\nexport GPG_TTY=$(tty)' >> ~/.zprofile; fi
+Alternatively, if you use the bash shell, run this command:
+$ if [ -r ~/.bash_profile ]; then echo -e '\nexport GPG_TTY=$(tty)' >> ~/.bash_profile; \
+  else echo -e '\nexport GPG_TTY=$(tty)' >> ~/.profile; fi
+Optionally, to prompt you to enter a PIN or passphrase when required, install pinentry-mac. For example, using Homebrew:
+brew install pinentry-mac
+echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+killall gpg-agent
+Telling Git about your SSH key
+
+You can use an existing SSH key to sign commits and tags, or generate a new one specifically for signing. For more information, see "Generating a new SSH key and adding it to the ssh-agent."
+
+Note: SSH signature verification is available in Git 2.34 or later. To update your version of Git, see the Git website.
+Open Terminal.
+Configure Git to use SSH to sign commits and tags:
+git config --global gpg.format ssh
+To set your SSH signing key in Git, paste the text below, substituting /PATH/TO/.SSH/KEY.PUB with the path to the public key you'd like to use.
+git config --global user.signingkey /PATH/TO/.SSH/KEY.PUB
+Telling Git about your X.509 key
+
+You can use smimesign to sign commits and tags using S/MIME.
+
+Note: S/MIME signature verification is available in Git 2.19 or later. To update your version of Git, see the Git website.
+Install smimesign.
+Open Terminal.
+Configure Git to use S/MIME to sign commits and tags. In Git 2.19 or later, use the git config gpg.x509.program and git config gpg.format commands:
+To use S/MIME to sign for all repositories:
+git config --global gpg.x509.program smimesign
+git config --global gpg.format x509
+To use S/MIME to sign for a single repository:
+cd PATH-TO-REPOSITORY
+git config --local gpg.x509.program smimesign
+git config --local gpg.format x509
+In Git 2.18 or earlier, use the git config gpg.program command:
+To use S/MIME to sign for all repositories:
+git config --global gpg.program smimesign
+To use S/MIME to sign for a single repository:
+cd  PATH-TO-REPOSITORY
+git config --local gpg.program smimesign
+If you're using an X.509 key that matches your committer identity, you can begin signing commits and tags.
+If you're not using an X.509 key that matches your committer identity, list X.509 keys for which you have both a certificate and private key using the smimesign --list-keys command.
+smimesign --list-keys
+From the list of X.509 keys, copy the certificate ID of the X.509 key you'd like to use. In this example, the certificate ID is 0ff455a2708394633e4bb2f88002e3cd80cbd76f:
+$ smimesign --list-keys
+             ID: 0ff455a2708394633e4bb2f88002e3cd80cbd76f
+            S/N: a2dfa7e8c9c4d1616f1009c988bb70f
+      Algorithm: SHA256-RSA
+       Validity: 2017-11-22 00:00:00 +0000 UTC - 2020-11-22 12:00:00 +0000 UTC
+         Issuer: CN=DigiCert SHA2 Assured ID CA,OU=www.digicert.com,O=DigiCert Inc,C=US
+        Subject: CN=Octocat,O=GitHub\, Inc.,L=San Francisco,ST=California,C=US
+         Emails: octocat@github.com
+To set your X.509 signing key in Git, paste the text below, substituting in the certificate ID you copied earlier.
+To use your X.509 key to sign for all repositories:
+git config --global user.signingkey 0ff455a2708394633e4bb2f88002e3cd80cbd76f
+To use your X.509 key to sign for a single repository:
+cd  PATH-TO-REPOSITORY
+git config --local user.signingkey 0ff455a2708394633e4bb2f88002e3cd80cbd76f
   $ RoadRunner ReadMe
 
 gh pr checkout 1
