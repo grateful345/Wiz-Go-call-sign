@@ -1,6 +1,456 @@
+Orginization ID: e3ff35d1-cea4-4508-acb5-99d9cbd91e80
 degicert user id : fa5e727c-0527-44e0-9004-5fdc347b0b3f
 account id: 90171939-7ae7-4884-85d4-9a5ccc670fa6
 account id: da65e6a3-1962-4316-a1d3-9aa39e6f29c7
+Degicert certificate ID: 6a136ee8-5129-4716-b0ca-7c28b6aca5c1
+Account id orginizations: 979310f6-db24-4c67-bcb9-6926d92cd6ec
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/organization/e3ff35d1-cea4-4508-acb5-99d9cbd91e80' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/organization/e3ff35d1-cea4-4508-acb5-99d9cbd91e80
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:58:01 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 7 
+ x-frame-options: same-origin 
+ x-iinfo: 16-98237590-98237597 NNNY CT(36 39 0) RT(1710575880312 49) q(0 0 0 -1) r(1 1) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+200	
+Organization details.
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": "70a9fe0e-4ae8-4a5a-940a-c2526970885f",
+  "name": "DigiCert Inc.",
+  "address": "2801 N Thanksgiving Way",
+  "address2": "Suite 500",
+  "zip_code": 84043,
+  "city": "Lehi",
+  "state": "Utah",
+  "country": "US",
+  "phone": "+1 (123) 456-7890",
+  "account": {
+    "id": "ff89491b-4477-431d-95d6-780f535df61e",
+    "name": "Example Account"
+  },
+  "active": true
+}
+No links
+
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/organization?account_id=979310f6-db24-4c67-bcb9-6926d92cd6ec' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/organization?account_id=979310f6-db24-4c67-bcb9-6926d92cd6ec
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:55:47 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 15-83572221-83572222 NNNY CT(36 39 0) RT(1710575746169 88) q(0 0 0 -1) r(1 1) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+200	
+Organization list
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": "d9674d8f-7ad6-4280-89b5-136c2aded288",
+    "name": "DigiCert Inc.",
+    "address": "2801 N Thanksgiving Way",
+    "address2": "Suite 500",
+    "zip_code": 84043,
+    "city": "Lehi",
+    "state": "Utah",
+    "country": "US",
+    "phone": "+1 (123) 456-7890",
+    "account": {
+      "id": "ff94b6dc-d360-4245-9918-0d0cf7ac347a",
+      "name": "Example Account"
+    },
+    "active": true
+  }
+]
+
+
+Curl
+
+curl -X 'PUT' \
+  'https://one.digicert.com/account/api/v1/client-auth-certificate/6a136ee8-5129-4716-b0ca-7c28b6aca5c1/enable' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "enabled": true
+}'
+Request URL
+https://one.digicert.com/account/api/v1/client-auth-certificate/6a136ee8-5129-4716-b0ca-7c28b6aca5c1/enable
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:50:53 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 9 
+ x-frame-options: same-origin 
+ x-iinfo: 10-34654079-34654080 NNNY CT(35 39 0) RT(1710575452352 41) q(0 0 0 -1) r(1 1) U6 
+ x-incap-sess-cookie-hdr: je//d1m+sHJOpzqTTq2UFFxP9WUAAAAAd81/FwurYXCmFJG2kOTn7Q== 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+200	
+Updated certificate information
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": "e281fe3b-fb97-4183-a4fa-205913a7aee4",
+  "user_id": "8b210e38-b8a9-41df-a96e-1ffe4512f6d1",
+  "name": "Certificate Name",
+  "common_name": "59997243-34b2-42ef-8d7e-0401f39aa6b3",
+  "end_date": "2023-04-30T23:59:59Z",
+  "start_date": "2021-06-10T00:00:00Z",
+  "enabled": true,
+  "serial_number": "<auth-cert-serial>",
+  "public_key": "<public-key>"
+}
+
+{
+  "enabled": true
+}
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/locales' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/locales
+Server response
+Code	Details
+200	
+Response body
+Download
+[
+  {
+    "code": "de_DE",
+    "language": "Deutsch"
+  },
+  {
+    "code": "en_US",
+    "language": "English"
+  },
+  {
+    "code": "es_ES",
+    "language": "Español"
+  },
+  {
+    "code": "fr_FR",
+    "language": "Français"
+  },
+  {
+    "code": "it_IT",
+    "language": "Italiano"
+  },
+  {
+    "code": "ja_JP",
+    "language": "日本語"
+  },
+  {
+    "code": "ko_KR",
+    "language": "한국어"
+  },
+  {
+    "code": "nl_NL",
+    "language": "Nederlands"
+  },
+  {
+    "code": "pt_BR",
+    "language": "Português"
+  },
+  {
+    "code": "ru_RU",
+    "language": "Русский"
+  },
+  {
+    "code": "zh_CN",
+    "language": "简体中文"
+  },
+  {
+    "code": "zh_TW",
+    "language": "繁體中文"
+  }
+]
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:53:06 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 11 
+ x-frame-options: same-origin 
+ x-iinfo: 9-29591969-29591970 NNNY CT(35 39 0) RT(1710575585144 41) q(0 0 0 -1) r(1 1) U2 
+ x-xss-protection: 1; mode=block 
+Responses
+
+Curl
+
+curl -X 'POST' \
+  'https://one.digicert.com/account/api/v1/client-auth-certificate' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "csr": "-----BEGIN CERTIFICATE REQUEST-----\n•••\n•••\n-----END CERTIFICATE REQUEST-----\n",
+  "name": "Certificate Name",
+  "expiration_date": "2024-04-30T00:00:00Z"
+}'
+Request URL
+https://one.digicert.com/account/api/v1/client-auth-certificate
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:48:23 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 10 
+ x-frame-options: same-origin 
+ x-iinfo: 10-34653066-34653067 NNNY CT(36 38 0) RT(1710575302488 44) q(0 0 0 -1) r(0 0) U6 
+ x-incap-sess-cookie-hdr: aKqudEiyJG1OpzqTTq2UFMZO9WUAAAAAEEVGB1TvxfW1diJ0b2/AjQ== 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+201	
+Client authentication certificate created
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": "e281fe3b-fb97-4183-a4fa-205913a7aee4",
+  "user_id": "8b210e38-b8a9-41df-a96e-1ffe4512f6d1",
+  "name": "Certificate Name",
+  "common_name": "59997243-34b2-42ef-8d7e-0401f39aa6b3",
+  "end_date": "2023-04-30T23:59:59Z",
+  "start_date": "2021-06-10T00:00:00Z",
+  "enabled": true,
+  "serial_number": "<auth-cert-serial>",
+  "public_key": "<public-key>",
+  "x509_cert": "-----BEGIN CERTIFICATE-----<authentication_certificate_data>-----END CERTIFICATE-----\\n",
+  "ca_cert": "-----BEGIN CERTIFICATE-----<ca_cert_data>-----END CERTIFICATE-----\\n"
+}
+  "csr": "-----BEGIN CERTIFICATE REQUEST-----\n•••\n•••\n-----END CERTIFICATE REQUEST-----\n",
+  "name": "Certificate Name",
+  "expiration_date": "2024-04-30T00:00:00Z"
+}curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/client-auth-certificate?user_id=979310f6-db24-4c67-bcb9-6926d92cd6ec' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: B6OXQLCEGV2LJ5KWB6E3DT5AW4R7AONEERVGOVBZNXRCMAKDLKC6MGIIJPVEUJNPQTMVZ6WGFJCDDG2TO'
+Request URL
+https://one.digicert.com/account/api/v1/client-auth-certificate?user_id=979310f6-db24-4c67-bcb9-6926d92cd6ec
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 07:46:38 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 8 
+ x-frame-options: same-origin 
+ x-iinfo: 11-43647552-43647553 NNNY CT(35 39 0) RT(1710575197800 45) q(0 0 0 -1) r(0 0) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+200	
+List of client authentication certificates
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": "e281fe3b-fb97-4183-a4fa-205913a7aee4",
+    "user_id": "8b210e38-b8a9-41df-a96e-1ffe4512f6d1",
+    "name": "Certificate Name",
+    "common_name": "59997243-34b2-42ef-8d7e-0401f39aa6b3",
+    "end_date": "2023-04-30T23:59:59Z",
+    "start_date": "2021-06-10T00:00:00Z",
+    "enabled": true,
+    "serial_number": "<auth-cert-serial>",
+    "public_key": "<public-key>",
+    "x509_cert": "-----BEGIN CERTIFICATE-----<authentication_certificate_data>-----END CERTIFICATE-----\\n",
+    "ca_cert": "-----BEGIN CERTIFICATE-----<ca_cert_data>-----END CERTIFICATE-----\\n"
+  }
+]
+No links
+
 Curl
 
 curl -X 'GET' \
