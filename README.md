@@ -23,7 +23,7 @@ ba_1OR7BGGF83d3fsgWxwDM4lDf
  
 $ Stripe endpoint
 we_1Ova66GF83d3fsgW2nbowkDw
-
+Webhook signing secret:  whsec_ 5V2GHGaht2mGJGNOmesTtTaxuJWFRssS
 
 why? 
 
@@ -22270,4 +22270,4 @@ https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator
 
 https://upload.wikimedia.org/wikipedia/commons/8/83/RIAA_logo_colored.svg
 
-{ "name": "sigma-theme", "description": "SCP Wiki site theme (build process)", "version": "1.0.0", "authors": "SCP Wiki Technical Team", "license": "CC-BY-SA-3.0", "private": true, "repository": { "type": "git", "url": "https://github.com/scpwiki/sigma" }, "devDependencies": { "minify": "^9.2.0", "prettier": "^2.8.7", "styl
+{ "name": "sigma-theme", "description": "SCP Wiki site theme (build process)", "version": "1.0.0", "authors": "SCP Wiki Technical Team", "license": "CC-BY-SA-3.0", "private": true, "repository": { "type": "git", "url": "https://github.com/scpwiki/sigma" }, "devDependencies": { "minify": "^9
