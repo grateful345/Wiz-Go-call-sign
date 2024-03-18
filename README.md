@@ -1,8 +1,9 @@
+BHAHZGCJZK3BEVS7IRGZMKDF6USLO runner token apply to all commands
 
 Download
 Stripe client secret 
 
-const {client_secret: seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ} = await res.json();
+const {client_secret: seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ/ } = await res.json();
 
 const {error} = await stripe.confirmPayment({
   //`Elements` instance that was used to create the Payment Element
@@ -489,7 +490,15 @@ Schema
   "locale": "en_US"
 }
 No links
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
 
+<stripe-buy-button
+  buy-button-id="buy_btn_1OvZeLGF83d3fsgWAamtMu9r"
+  publishable-key="pk_live_51OR5ePGF83d3fsgW22PwNtYiShCVYIsrzZq2WxlxN2UAaB2qEIu0aUFJzjJxPtNT3rAs0Rvdo9XIVPb7rRMaeo3W00ALk76MVR"
+>
+</stripe-buy-button>
 GET
 ​/account​/api​/v1​/account
 List accounts
@@ -22284,38 +22293,4 @@ return 0;
 
 Note that we use a c++ file to test the engine. Running the tester gives us the following result: oezgan@kehf-dev1:~/workspace3/oezganEngineTester/Debug$ ./oezganEngineTester Oezgan Engine successfully loaded Oezgan Engine Initializatzion! Engine name: oezgan engine by Fraunhofer FKIE init result : 786 Our engine is successfully loaded and when it`s asked it gives back its name. Now we proceed by implementing our own random function. Cleanup memory leaks For OpenSSL version prior to 1.1.0, users are required to call ENGINE_cleanup, EVP_cleanup, etc. to prevent memory leak. See Library Initialization page. For OpenSSL version 1.1.0 and 1.1.1, cleanup happens automatically, users should not worry about it. ENGINE_set_finish_function & ENGINE_set_destroy_function are still available to do implementation specific cleanup. The Random Function
 
-OpenSSL has its own method declarations which our engine has to comply with. In the header file ossl_typ.h we find the declaration s: typedef struct rand_meth_st RAND_METHOD; typedef struct ecdh_method ECDH_METHOD; typedef struct ecdsa_method ECDSA_METHOD; For now we are only interested in the RAND_METHOD declaration. The RAND_METHOD declaration is actually a macro for the rand_method_st declaration which can be found in rand.h of the OpenSSL includes. Here we see that the rand_method_st has the following format: struct rand_meth_st { void (*seed) (const void *buf, int num); int (*bytes) (unsigned char *buf, int num); void (*cleanup) (void); void (*add) (const void *buf, int num, double entropy); int (*pseudorand) (unsigned char *buf, int num); int (*status) (void); }; Thus we see that the OpenSSL random method structure defines six functions where the headers of these functions have specific formats. For simplicity purposes we will only implement the “bytes” and the “status” methods. The status method should return an integer and takes no arguments. Presumably this method is used for indication of the state of the random machine. Our engine`s random machine has no states, therefore we only return a positive integer to indicate a thumbs up state. The random status method: int oezgan_random_status(void) { return 1; } Now we implement our own method for generating a number of random bytes as follows: //new includes #include <string.h> #include <openssl/ossl_typ.h>
-
-int get_random_bytes(unsigned char buffer, int num) { printf("oezgan engine random length %d\n", num); memset(buffer,1,num); return 99; } This method will fill the given buffer with num many ones. Now we indicate our random machine structure as: RAND_METHOD oezgan_random_method = { NULL, / seed / get_random_bytes, NULL, / cleanup / NULL, / add */ NULL, oezgan_random_status }; We also modify the bind_helper function from above: int bind_helper(ENGINE * e, const char *id) { if (!ENGINE_set_id(e, engine_oezgan_id) || !ENGINE_set_name(e, engine_oezgan_name) || !ENGINE_set_init_function(e, oezgan_init) || !ENGINE_set_RAND(e, &oezgan_random_method) ) return 0; return 1; } In the tester we add the following lines: ENGINE_set_default_RAND(oezgan_engine);
-
-unsigned char * rand_buf= new unsigned char[5]; int err = RAND_bytes(rand_buf,5); for(int i= 0; i < 5; i++) { printf("%x",rand_buf[i]); } printf("\n"); free(rand_buf); The result is seen below: oezgan@kehf-dev1:~/workspace3/oezganEngineTester/Debug$ ./oezganEngineTester Oezgan Engine successfully loaded Oezgan Engine Initializatzion! Engine name: oezgan engine by Fraunhofer FKIE init result : 786 oezgan engine random length 5 11111 We now successfully implemented an OpenSSL engine that gives always returns a lot of 1s as random values. Digests
-
-Now we want OpenSSL not only to use our own random function but also to use our sha2 family hash functions. We first implement a digest selector function, which tells OpenSSL which digests are available in our engine. This kind of implementation is adapted from the OpenSSL`s build-in engine ccghost. We will implement only one hash function namely SHA256. Following the the ossl_typ.h header to the evp.h header one can see that the Message Digest Structure is defined as follows: struct env_md_st { int type; int pkey_type; int md_size; unsigned long flags; int (*init) (EVP_MD_CTX *ctx); int (*update) (EVP_MD_CTX *ctx, const void *data, size_t count); int (*final) (EVP_MD_CTX *ctx, unsigned char *md); int (*copy) (EVP_MD_CTX *to, const EVP_MD_CTX *from); int (*cleanup) (EVP_MD_CTX ctx); / FIXME: prototype these some day */ int (*sign) (int type, const unsigned char *m, unsigned int m_length, unsigned char *sigret, unsigned int *siglen, void *key); int (*verify) (int type, const unsigned char *m, unsigned int m_length, const unsigned char *sigbuf, unsigned int siglen, void key); int required_pkey_type[5]; / EVP_PKEY_xxx / int block_size; int ctx_size; / how big does the ctx->md_data need to be / / control function */ int (*md_ctrl) (EVP_MD_CTX *ctx, int cmd, int p1, void p2); } / EVP_MD / ; (Commentaries are original form OpenSSL code). From this we use our own message digest hash SHA256 declaration: static EVP_MD oezgan_engine_sha256_method= { NID_sha256, NID_undef, 32, EVP_MD_FLAG_PKEY_METHOD_SIGNATURE, oezgan_engine_sha256_init, oezgan_engine_sha256_update, oezgan_engine_sha256_final, oezgan_engine_sha256_copy, oezgan_engine_sha256_cleanup, / FIXME: prototype these some day / NULL, NULL, {NID_undef, NID_undef, 0, 0, 0}, 64, /Block Size/ 32, / how big does the ctx->md_data need to be / / control function / NULL, } ; SHA256 uses a block size of 512 Bit = 64 byte and resulting digest is 256 Bit = 32 byte long. You can also use your own block size and outcome size but for a realistic approach we stick to the original sha256 standard. Now we need to implement the init, update, final and copy functions for our own sha256 implementation. In our implementation the SHA256 Value is always 2222… Note Since 1.1.0, EVP_MD cannot be directly accessed. Users have to call EVP_MD_meth_new to get EVP_MD instance, and use EVP_MD_meth_set_ to set functions and properties list above. OID and NID In above example, we reused sha256's nid. For those who want to implement new algorithms, use OBJ_create to create new nid and OBJ_*2nid to translate names to nids. static int oezgan_engine_sha256_init(EVP_MD_CTX *ctx) { ctx->update = &oezgan_engine_sha256_update; printf("initialized! SHA256\n"); return 1; }
-
-static int oezgan_engine_sha256_update(EVP_MD_CTX *ctx,const void data,size_t count) { printf("SHA256 update \n"); unsigned char * digest256 = (unsigned char) malloc(sizeof(unsigned char)*32); memset(digest256,2,32); count = 32; ctx->md_data = digest256; return 1; }
-
-static int oezgan_engine_sha256_final(EVP_MD_CTX *ctx,unsigned char md) { printf("SHA256 final size of EVP_MD: %d\n", sizeof(EVP_MD)); memcpy(md,(unsigned char)ctx->md_data,32); return 1; }
-
-int oezgan_engine_sha256_copy(EVP_MD_CTX *to, const EVP_MD_CTX *from) { printf("Copy SHA256\n"); if (to->md_data && from->md_data) { memcpy(to->md_data, from->md_data,sizeof(from->md_data)); } return 1; }
-
-static int oezgan_engine_sha256_cleanup(EVP_MD_CTX *ctx) { printf("SHA256 cleanup\n"); if (ctx->md_data) memset(ctx->md_data, 0, 32); return 1; } Now we have to tell OpenSSL that whenever a SHA256 digest is requested use the engine implementation of sha256 this will be the digest selector function. static int oezgan_digest_ids[] = {NID_sha256};
-
-static int oezgan_engine_digest_selector(ENGINE *e, const EVP_MD **digest, const int **nids, int nid) { int ok = 1; if (!digest) { *nids = oezgan_digest_ids; printf("\n Digest is empty! Nid:%d\n", nid); return 2; } printf("Digest no %d requested\n",nid); if (nid == NID_sha256) { *digest = &oezgan_engine_sha256_method; } else { ok = 0; *digest = NULL; } return ok; } We also need to modify the bind_helper function again: int bind_helper(ENGINE * e, const char *id) { if (!ENGINE_set_id(e, engine_oezgan_id) || !ENGINE_set_name(e, engine_oezgan_name) || !ENGINE_set_RAND(e, &oezgan_random_method) || !ENGINE_set_init_function(e, oezgan_init) || !ENGINE_set_digests(e, &oezgan_engine_digest_selector) ) return 0; return 1; } And we modify our tester to generate us a SHA256 Hash function. char * str = "Fraunhofer FKIE Wachtberg!"; int str_len = 26; int er = ENGINE_set_default_digests(oezgan_engine); printf("ENGINE SETTING DEFAULT DIGESTS %d\n",er);
-
-unsigned char * digest = new unsigned char[32];
-unsigned int digestSize = -1;
-
-EVP_MD_CTX *evp_ctx;
-evp_ctx = EVP_MD_CTX_create();
-er = EVP_DigestInit_ex(evp_ctx, EVP_sha256(),oezgan_engine);
-printf("Digest INIT %d\n",er);
-er = EVP_DigestUpdate(evp_ctx, (unsigned char*)str, str_len);
-printf("Digest Update %d\n",er);
-er = EVP_DigestFinal(evp_ctx, digest, &digestSize);
-printf("Digest Final %d Digest size:%d\n",er,digestSize);
-for(int i= 0; i< digestSize; i++) {
-    printf("%x", digest[i]);
-}
-printf("\n");
-EVP_MD_CTX_destroy(evp_ctx);
-The result is: oezgan@k
+OpenSSL has its own method declarations which our engine has to comply with. In the header file ossl_typ.h we find the declaration s: typedef struct rand_meth_st RAND_METHOD; typedef struct ecdh_method ECDH_METHOD; typedef st
