@@ -1,5 +1,5 @@
 BHAHZGCJZK3BEVS7IRGZMKDF6USLO runner token apply to all commands
-
+stripe login --api-key sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq
 stripe login
 stripe trigger payment_intent.succeeded
 Secret key
@@ -22303,8 +22303,4 @@ if( oezgan_engine == NULL )
 printf("Oezgan Engine successfully loaded\n");
 
 int init_res = ENGINE_init(oezgan_engine);
-printf("Engine name: %s init result : %d \n",ENGINE_get_name(oezgan_engine), init_res);
-return 0;
-}
-
-Note that we use a c++ file to test the engine. Running the tester gives us the following result: oezgan@kehf-dev1:~/workspace3/oezganEngineTester/Debug$ ./oezganEngineTester Oezgan Engine successfully loaded Oezgan Engine Initializatzion! Engine name: oezgan engine by Fraunhofer FKIE init result : 786 Our engine is successfully loaded and when it`s asked it gives back its name. Now we proceed by implementing our own random function. Cleanup memory leaks For OpenSSL version prior to 1.1.0, users are required to call ENGINE_cleanup, EVP_cleanup, etc. to prevent memory leak. See Library Initialization page. For OpenSSL version 1.1.0 and 1.1.1, cleanup happens automatically, users should not worry about it. EN
+printf("Engine name: %s init result : %d \n"
