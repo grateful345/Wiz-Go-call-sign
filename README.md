@@ -1,5 +1,238 @@
 
 Download
+Stripe client secret 
+
+const {client_secret: seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ} = await res.json();
+
+const {error} = await stripe.confirmPayment({
+  //`Elements` instance that was used to create the Payment Element
+  elements,
+  clientSecret,
+  confirmParams: {
+    return_url: 'https://example.com/order/123/complete',
+  },
+});
+
+if (error) {
+  // This point will only be reached if there is an immediate error when
+  // confirming the payment. Show error to your customer (for example, payment
+  // details incomplete)
+  setErrorMessage(error.message);
+} else {
+  // Your customer will be redirected to your `return_url`. For some payment
+  // methods like iDEAL, your customer will be redirected to an intermediate
+  // site first to authorize the payment, then redirected to the `return_url`.
+}
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Event.list(limit=3)
+RESPONSE
+{
+  "object": "list",
+  "url": "/v1/events",
+  "has_more": false,
+  "data": [
+    {
+      "id": "evt_1NG8Du2eZvKYlo2CUI79vXWy",
+      "object": "event",
+      "api_version": "2019-02-19",
+      "created": 1686089970,
+      "data": {
+        "object": {
+          "id": "seti_1NG8Du2eZvKYlo2C9XMqbR0x",
+          "object": "setup_intent",
+          "application": null,
+          "automatic_payment_methods": null,
+          "cancellation_reason": null,
+          "client_secret": "seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ",
+          "created": 1686089970,
+          "customer": null,
+          "description": null,
+          "flow_directions": null,
+          "last_setup_error": null,
+          "latest_attempt": null,
+          "livemode": false,
+          "mandate": null,
+          "metadata": {},
+          "next_action": null,
+          "on_behalf_of": null,
+          "payment_method": "pm_1NG8Du2eZvKYlo2CYzzldNr7",
+          "payment_method_options": {
+            "acss_debit": {
+              "currency": "cad",
+              "mandate_options": {
+                "interval_description": "First day of every month",
+                "payment_schedule": "interval",
+                "transaction_type": "personal"
+              },
+              "verification_method": "automatic"
+            }
+          },
+          "payment_method_types": [
+            "acss_debit"
+          ],
+          "single_use_mandate": null,
+          "status": "requires_confirmation",
+          "usage": "off_session"
+        }
+      },
+      "livemode": false,
+      "pending_webhooks": 0,
+      "request": {
+        "id": null,
+        "idempotency_key": null
+      },
+      "type": "setup_intent.created"
+    }
+    {...}
+    {...}
+  ],
+}
+
+  OK
+ID
+req_ZIIVfKfNp6QrOh
+
+const {client_secret: seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ} = await res.json();
+
+const {error} = await stripe.confirmPayment({
+  //`Elements` instance that was used to create the Payment Element
+  elements,
+  clientSecret,
+  confirmParams: {
+    return_url: 'https://example.com/order/123/complete',
+  },
+});
+
+if (error) {
+  // This point will only be reached if there is an immediate error when
+  // confirming the payment. Show error to your customer (for example, payment
+  // details incomplete)
+  setErrorMessage(error.message);
+} else {
+  // Your customer will be redirected to your `return_url`. For some payment
+  // methods like iDEAL, your customer will be redirected to an intermediate
+  // site first to authorize the payment, then redirected to the `return_url`.
+}
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Event.list(limit=3)
+RESPONSE
+{
+  "object": "list",
+  "url": "/v1/events",
+  "has_more": false,
+  "data": [
+    {
+      "id": "evt_1NG8Du2eZvKYlo2CUI79vXWy",
+      "object": "event",
+      "api_version": "2019-02-19",
+      "created": 1686089970,
+      "data": {
+        "object": {
+          "id": "seti_1NG8Du2eZvKYlo2C9XMqbR0x",
+          "object": "setup_intent",
+          "application": null,
+          "automatic_payment_methods": null,
+          "cancellation_reason": null,
+          "client_secret": "seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ",
+          "created": 1686089970,
+          "customer": null,
+          "description": null,
+          "flow_directions": null,
+          "last_setup_error": null,
+          "latest_attempt": null,
+          "livemode": false,
+          "mandate": null,
+          "metadata": {},
+          "next_action": null,
+          "on_behalf_of": null,
+          "payment_method": "pm_1NG8Du2eZvKYlo2CYzzldNr7",
+          "payment_method_options": {
+            "acss_debit": {
+              "currency": "cad",
+              "mandate_options": {
+                "interval_description": "First day of every month",
+                "payment_schedule": "interval",
+                "transaction_type": "personal"
+              },
+              "verification_method": "automatic"
+            }
+          },
+          "payment_method_types": [
+            "acss_debit"
+          ],
+          "single_use_mandate": null,
+          "status": "requires_confirmation",
+          "usage": "off_session"
+        }
+      },
+      "livemode": false,
+      "pending_webhooks": 0,
+      "request": {
+        "id": null,
+        "idempotency_key":  6f5410cb-1ecc-4302-8130-baf8dd8c0a50
+      },
+      "type": "setup_intent.created"
+    }
+    {...}
+    {...}
+  ],
+}
+
+
+stripe
+  .retrieveSetupIntent(
+    '{fcsess_client_secret_KRJTKvCY3IKoYTrW18EazcO3 /seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ }',
+  )
+  .then(function(result) {
+    // Handle result.error or result.paymentIntent
+  });
+stripe.collectFinancialConnectionsAccounts({
+  clientSecret: '{fcsess_client_secret_KRJTKvCY3IKoYTrW18EazcO3}'
+})
+  .then(function(result) {
+    if (result.error) {
+      // Inform the customer that there was an error.
+      console.log(result.error.message);
+
+    // Handle next step based on length of accounts array
+    } else if (result.financialConnectionsSession.accounts.length === 0) {
+      console.log('No accounts were linked');
+    } else {
+      console.log(result.financialConnectionsSession.accounts)
+    }
+  });
+
+{
+  "object": "customer_session",
+  "client_secret": "_POpxYpmkXdtttYtZQYhrsOJZ2RCQ9kCqqXRU6qrP5c4Jgje",
+  "components": {
+    "buy_button": {
+      "enabled": false
+    },
+    "pricing_table": {
+      "enabled": true
+    }
+  },
+  "customer": "cus_PO34b57IOUb83c",
+  "expires_at": 1684790027,
+  "livemode": false
+} {
+  "object": "customer_session",
+  "client_secret": "_POpxYpmkXdtttYtZQYhrsOJZ2RCQ9kCqqXRU6qrP5c4Jgje",
+  "components": {
+    "buy_button": {
+      "enabled": false
+    },
+    "pricing_table": {
+      "enabled": true
+    }
+  },
+  "customer": "cus_PO34b57IOUb83c",
+  "expires_at": 1684790027,
+  "livemode": false
+}
 
 Create a folder
 $ mkdir actions-runner && cd actions-runner
