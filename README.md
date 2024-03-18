@@ -16,6 +16,36 @@ ba_1OR7BGGF83d3fsgWxwDM4lDf
 we_1Ova66GF83d3fsgW2nbowkDw
  Stripe endpoint
 
+why? The payment failed.
+{
+  "consent": {
+    "terms_of_service": "accepted"
+  },
+  "eid": "**",
+  "expected_amount": "100000",
+  "expected_payment_method_type": "link",
+  "guid": "14b84001-905a-42f3-9e2b-18a9ebf0e15c540853",
+  "init_checksum": "MXofbfTYAaKG1no6FZxkzMndcSrERGp3",
+  "js_checksum": "qto~d^n0=QU>azbu]Vn<D\\^vUO[_esYxY=dwU~ca$<`P<`m^o?U^`w",
+  "key": "pk_live_*********************************************************************************************k76MVR",
+  "last_displayed_line_item_group_details": {
+    "shipping_rate_amount": "0",
+    "subtotal": "100000",
+    "total_discount_amount": "0",
+    "total_exclusive_tax": "0",
+    "total_inclusive_tax": "0"
+  },
+  "muid": "eb78b5f0-bdd7-45f9-a924-dcf3e95a1a647d0ae4",
+  "passive_captcha_ekey": "",
+  "passive_captcha_token": "P1_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNza2V5IjoibGxxQlR1SURGNkd1WWhCWTh4N1RXY2dLbWJHYUhpdk5DeTZBMDdPTnZ4NUNqdy9XcDkrR0hJTHo0bDdUbHFGSmVjSkNpSFR3N1AyVnZwVHh5RlUyVlgyL0lyZHVCZkc2eTd3RE9tTFRHcUsvUEwxK2V2SWpQcEhwNFRCaVJMaVV2eURPRG4wWnFPa1pONS9NNXVka0dsNER2R3E4djNaMHEvRXRESWZ0ZllNZTBCRVFZTklIU1dROXY3QVRZWHMxWUwvRXhQK3pubmlDUHkvOTQ3Z0kxdjd1Zzk1cG8ycnJGS0ErK2FKeHJsR3lnb3JzRTUwaVNtYm1mNlJuUURPYWcvbWh2OE9GNXg0bE1KMXVNdUw0Rm1UQzNpS2lMell3eDUyNDc2QWlvdEw4aEEzWWVYbEJySkdlT3lxSVRtaytraWY1M05Xd2VjdDY0KytnM3NGL0UrMjg4a04vSUFIQ0FEdEYxbU1vZEFSTjZjL3pvMlBTYUFtdGUzTVV5TTJXT09ZTENWM01VOHRhOHk0emc0d0txSXg0U3lKemxwcCtXVTRvRy9DU0ZRNXYwa29iNVBPMnJtc3QxTkVQT3ozMlNUQ1BFUkZReFdXeWtBaVErc01QbFVmZmhsYnBEcldrMnF6VEQxR0dxQ254MksxeExvYUlhVW5yWWxyNXFZZTVLVHJ4bnNQNUlDVTNrNjBlWVdwbzZBVVJCaGFiOE4rK1g3TEpuRzlLRmJTM2YxM2R5dDM5MlA1WTJZcEFGYUxnT0laSnppSjJOZHkvMXRxbURucFZXaVZrRG1xSjZJRU5UNTh4Y0NvS1oyRjRqVWtGSk5DVWRaejZYdVpLMHY5bGhtRmxoZGRSNGdjVWZQWWFtUjAwUG5wL3c5dXAySkF4UDRRc2RjN2RHUWhCOFJrL0NSVVdFTll5NEFLbXBLeldsMlNscy9SOEpUQUdraGRFdTZvbjNBb2Z5NmZJbC9kK0NCYzlwYjBHeDhaaU9qUmZFbjVMSWNBTUN0Ymp0TFkwaURWWFdQZUM1UUtaMUF1c051TVk2L1lVdFhNZk03eUNyeUVBMG45ajNlYy9hbk9zT01WUWxlWkFDT3RjRmx1KzIvVmlpUDVORG14VGRZc2R4MWU4VFR0MWFpL05IRmxVNXh4cGVmMEFldkx2NXRmWW41WTkxeU1vdGlZaXhvMnhFWkp6NmgycHZRVnpIVnN4aDNNeFRWMWlOZ1kySHVXbVNPbTZjOWdBRWtGZkZCSVM3V2VwY2g2Tng0TzlFVWh0VnpXaW5KRDFvNXZlYkdGMnBJakVYR0lSWVZNSCtWbnJaM2t1V2djOUpiRWtyYStiRjBkd0pxY2F2VityRkdqOW9ENFFSZkMwNmpSMzlvdU5CTmVzSU8xNWRFVE9TdDRHOGxMaUJ4QkhyL283VnR6bHZ2djdhbFI3K3VidlNXdlQ2QlI4cjdOQmxXR3BOM0lCRllnby96a0VJUmRnN0Fzb3RKWndPZENGdnBSbWhDYWJKVklzZTlwSXlrTWl3WGYvUnpTU2wzdkJiMSs4UDBtbFVkNEVCZS9CTnNTcmF4Nm9NWEVmR1c0N29YNFBmMTlqcm9qWnhyaDBOOWJ1b04yWlF0QWQwU255ZndQNUZYYTh2dWp0OGtrUXNlRHZaWVpCRi9TSW1BM2ZRdmM3VnZ5YVNSQktabHBzdFlzMElzYVhpU1pGbFg3NUdrbFVpZWNSREdleFROQVpObWtlN0lTbm4xbVpJaFpUOVlhN1RIdU0yM2dReEs3RnlFcUlzcjNadjYwVDBOSHptdk5lN0w0NkFudDFSbEIxZWQxWW1VN3pvVzdXbGZpOUc0MTZXZ28wQloyUDR6K1hmTXFQc2cwTFdKTytZVFI4Ym0wVzFpQ0ZEdWpUM3l5RGJJN0JWUTlwWDlEMnRjVXE0ajlpSTZjZktrb0d3Z2tCa1dtRmFuQ0QvV3BjTmVnSkJCMEJ0WHR2Z2NSeGQwbmpxR3F2aXIrZGF1TTlNZ0lrZDNLeHNCVXJkd2tySVJhOElvaDlCQmlkUDJMY0pkU1RWUittdFBMRW1iaWZoZVh5clRybUtEcEEvVnNCSmc2MEpBNXp3Q1E5NTlWWWQ5TFh5VnFhdnlrMzRwTC9NaTBPL1dnWmllbUhUNGFVSDdZVG5TekxMYmFQdW1aYVdpMkt4RFFkWmY0cW96akVya21iVnFOSk1XbXYzd2E3QkZhNzdyY0E2RjdXQmRUVkt0V0pqeXp0WWpyTHllNEpST0tsQlh1WmtxbVpnOGNsQlFoNGJobTI4c1FtQzI3UlBkM0dEMGwwTTFyMGpsZitpWDVLc3JGTitHNFJPMzFLT2ZNM2o1ajVzQzBaYytDa2JaNklwK1VKVmk2RmRESUFoMU5LOTl6eWhZR2QwMzlVU2FqdU02TmQxeG4zMTYxVUJQZGpkTFZpb3pFUFZqdXpEZUN6QXNmcDJWUTZyS1JmWUFjNEtVeVdmaEExTThUVHVXL1pJUW5ja2gzUm9UVm5JVE81bkh1YXNGYitYVEJZL0FaOEJzVjRkanFMdUVHc01YQThoV0FYMGxrejJXN1VWZVVINFpHald0T0d0SHZBZURJOTJiT0V4OXk0YWhrWU93czYyWURHL1F5c1FNc2pFWFMzb3d4ekcvNVBZaVJ6RlAwaDFYS09McXhNdmYrM2NlYlN3UkNOdkhMV2tYT2k1bk82TzROait5OGR2UGhVSWVBS0tWTTBGTmw5UW1XNzBFTEdPZjVOZzdWZGRBY3RWd3VsOUo0elAyUGhsOFF5bi8xK1l2bFpXMmpHUmQ3eXd2cUZVVVlPU2htNkk2VFB2eG4vVCtKWHJ4WUlaMmVnbVoyVy91UEhXbVFucGtZUUYzaEhIYnlkbnhDOEpGa2E3NGJNQjZRR3J0VHBvaGhUOFo1U0lXU1Iwbkt3UHhBOGdZaThDRlhKRXErcFpkT1RNYUhiay9RcDJmMFFCQXA4aEpKMU5IUWdrRCtZdEFBTnV5bWR5YW90RmJQeS9STnJyS1AyOTZiUlF5SVV4aU10dlo2Z1piMFRqK252WTRUVFU4UzNNWW14Nysrd242N1Rxcm11Zytjc3FMNEJVdnhmdGlCWnI3b0M1cnNmRFQ5d21XSS8iLCJleHAiOjE3MTA3NDI1OTksInNoYXJkX2lkIjo4MzM0NDA4OTcsInBkIjowLCJjZGF0YSI6IjRKOGNUeDBPRjd6byszdzB1WHNtZ0dzSEpubE5Geml0VUZON0dhYWNzQWpFdWZsbmlta3lydXpwT2FGVnl5S2hXSk9tVmdwcEdtOFZtMWNWOWJnL3BacDhHcDVmN1N0ZEpvTlU5M0JhaHRKbmE4V2pNZkVEWnp0QUUwTXRMQ0Qxb1Z2dzc4SDlJREdqK0FmTXVaZFp0OFpiT0JmZ1dmZUluRVVLNUx0dHhnOGtaUU93dW91S0ExTmxRamxiQk9vM1NGT1ZFdERPdTlESjdsN2JZL0x0OU9KME9NNTBZTjQ9VkpFeHI4ZHFFQWpuenI1UiJ9.pPcNQ2Y328R8U7Sar4Z5U0GO9y1caCAAPmbIy3aCnYo",
+  "payment_method": "pm_1OvZUOGF83d3fsgWiXYpUHQh",
+  "rv_timestamp": "qto>n<Q=U&CyY&`>X^r<YNr<YN`<Y_C<Y_C<Y^`zY_`<Y^n{U>o&U&CyY=P=eO`DdbL%e&areOMrY=n=YxnDd_Mv[bL>[OTCdOaveu`%euUyX%n{U>e&U&Cyd&auY_n=d&;;X_d%d&UxdRP#[bd#exQxX=L&X&n%eu\\$ex]sY&ovXOUu[_$reunDd&osd=MueOP;d&<yY_<sX^o?U^`w",
+  "sid": "f931f0fd-f83a-4921-903f-45f5b359d9925f3b2a",
+  "version": "2d3a08de7b"
+}
+
+
+
 pip3 install stripe
 python3 -m flask run --port=4242
 python3 -m flask run --port=4242
@@ -22314,63 +22344,4 @@ mod primary_key_of_12 {
         pub id_1: String,
         #[sea_orm(primary_key, auto_increment = false)]
         pub id_2: i8,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_3: u8,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_4: i16,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_5: u16,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_6: i32,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_7: u32,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_8: i64,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_9: u64,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_10: f32,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_11: f64,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_12: bool,
-        pub owner: String,
-        pub name: String,
-        pub description: String,
-    }
-
-    #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
-    pub enum Relation {}
-
-    impl ActiveModelBehavior for ActiveModel {}
-}
-} $ WEB3_PROVIDER_URI=http://localhost:7545 panoramix 0x0d94D81FD712126E7f320b5B10537D01d6a01563 $ panoramix 6004600d60003960046000f30011223344 From d2ba91c135cbf290c2da04cc2497d09f1c1f12ce Mon Sep 17 00:00:00 2001 From: GOD/GRATEFUL MIB OPERATOR 6309304695z@gmail.com Date: Tue, 30 Jan 2024 11:20:36 -0600 Subject: [PATCH] Update ReadMe.md MIME-Version: 1.0 Content-Type: text/plain; charset=UTF-8 Content-Transfer-Encoding: 8bit
-
-sudo ln –s ~/workspace/oezganEngine/Debug/liboezganengine.so liboezgan.so You can also copy the compiled shared library into the /usr/lib/engines/ directory but this should be done when the engine is ready to be deployed.You can find the OpenSSL include files in /usr/include/openssl. Beginning
-
-We will start with implementing an engine which only has its name and nothing else. The oezganEngine.c file: #include <openssl/engine.h> static const char *engine_oezgan_id = "oezgan"; static const char *engine_oezgan_name = "oezgan engine by Fraunhofer FKIE";
-
-IMPLEMENT_DYNAMIC_CHECK_FN(); IMPLEMENT_DYNAMIC_BIND_FN(bind_helper);
-
-int oezgan_init(ENGINE *e) { printf("Oezgan Engine Initializatzion!\n"); return 786; }
-
-int bind_helper(ENGINE * e, const char *id) { if (!ENGINE_set_id(e, engine_oezgan_id) || !ENGINE_set_name(e, engine_oezgan_name) || !ENGINE_set_init_function(e,oezgan_init) ) return 0;
-
-return 1;
-}
-
-and the tester oezganEngineTester.cc file: #include <openssl/engine.h> #include <stdio.h> #include <string.h>
-
-int main(int argc, const char* argv[] ) { OpenSSL_add_all_algorithms();
-
-ERR_load_crypto_strings();
-
-ENGINE_load_dynamic();
-ENGINE *oezgan_engine = ENGINE_by_id("oezgan");
-
-if( oezgan_engine == NULL )
-{
-    printf("Could not Load Oezgan Engine!\n");
-    exit(1);
-}
-print
+        #[sea_orm(
