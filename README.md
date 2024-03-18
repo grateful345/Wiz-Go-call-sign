@@ -1,22 +1,36 @@
 BHAHZGCJZK3BEVS7IRGZMKDF6USLO runner token apply to all commands
 
 stripe login --api-key sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq
+
 stripe login
+
 stripe trigger payment_intent.succeeded
+
 Secret key
+
 pst_test_YWNjdF8xTTJKVGtMa2RJd0h1N2l4LE81ZEdIalZ6NlVuMUdjM3c3WkRnN0ZYRHZxRURwTXo_00gNK2DWAV
 run payment id
+
 po_1OZNhvGF83d3fsgWC9jdBgcQ
+
 run bank data 
 DJqIeyHlhjb55r0K
 Routing number
 031101279
 ID
 ba_1OR7BGGF83d3fsgWxwDM4lDf
-we_1Ova66GF83d3fsgW2nbowkDw
- Stripe endpoint
 
-why? The payment failed.
+ 
+$ Stripe endpoint
+we_1Ova66GF83d3fsgW2nbowkDw
+
+
+why? 
+
+req_3SnomkF11VBTwG
+
+
+The payment failed.
 {
   "consent": {
     "terms_of_service": "accepted"
@@ -22256,92 +22270,4 @@ https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator
 
 https://upload.wikimedia.org/wikipedia/commons/8/83/RIAA_logo_colored.svg
 
-{ "name": "sigma-theme", "description": "SCP Wiki site theme (build process)", "version": "1.0.0", "authors": "SCP Wiki Technical Team", "license": "CC-BY-SA-3.0", "private": true, "repository": { "type": "git", "url": "https://github.com/scpwiki/sigma" }, "devDependencies": { "minify": "^9.2.0", "prettier": "^2.8.7", "stylelint": "^15.10.1", "stylelint-config-standard": "^32.0.0" }, "scripts": { "build": "./build.sh", "clean": "rm -rf dist", "minify": "minify sigma.css > dist/css/sigma.min.css", "stylelint": "stylelint sigma.css", "stylelint:fix": "stylelint --fix sigma.css", "prettier": "prettier -c sigma.css", "prettier:fix": "prettier -w sigma.css" } } semi = true semi = true singleQuote = true singleQuote = true quoteProps = "consistent" quoteProps = "consistent" 29,878 changes: 11,965 additions & 17,913 deletions 29,878
-ReadMe.md → ReadMe.crt
-
-11,965 additions, 17,913 deletions not shown because the diff is too large. Please use a local Git client to view these changes. 20 changes: 18 additions & 2 deletions 20
-build.sh
-
-@@ -25,7 +25,7 @@ jobs: steps: steps: - uses: actions/labeler@v4 - uses: actions/labeler@v4 with: with: repo-token: ${{ secrets.GITHUB_TOKEN }} repo-token: ${{ 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 }}
-
-name: Pull request labeler name: Pull request labeler on: [ pull_request_target ] on: [ pull_request_target ] @@ -39,6 +39,22 @@ jobs: steps: steps: - uses: actions/labeler@v4 - uses: actions/labeler@v4 with: with: repo-token: ${{ secrets.GITHUB_TOKEN }} repo-token: ${{ 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 }}
-
-      curl --location 'https://informatics.netify.ai/api/v2/lookup/signatures/applications?settings_version=4.2.5&settings_format=normal'
---header '2b0kkNvjIBFuBl15nGxtnMd5B3P_37bwJDJ2GYRMTicczqhEG' curl --request POST --url "https://api.github.com/applications/YOUR_CLIENT_ID/token" --user "e77a119a5fbd3e2942dc" --header "Accept: application/vnd.github+json" --header "X-GitHub-Api-Version: 2022-11-28" --data '{ "access_token": "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" }'
-
-jobs: use_api: runs-on: ubuntu-latest permissions: {} steps: - env: GH_TOKEN: ${{ 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 }} run: | gh api /
-
-We have their Flag Game Over.
-
-++ Sigma 9 ++
-
-      #000006 $ Breadcrumbs X 4
-$ pip install panoramix-decompiler /// Method to call to perform AUTOINCREMENT operation on a Primary Kay fn auto_increment() -> bool; /// Method to map a primary key to a column in an Entity fn into_column(self) -> Self::Column;
-
-/// Method to map a primary key from a column in an Entity fn from_column(col: Self::Column) -> Option where Self: Sized; #[derive(Clone, Debug, PartialEq, DeriveEntityModel)] #[sea_orm(table_name = "primary_key_of_1")] pub struct Model { #[sea_orm(primary_key)] pub id: i32, pub owner: String, pub name: String, pub description: String, }
-
-    #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
-    pub enum Relation {}
-
-    impl ActiveModelBehavior for ActiveModel {}
-}
-
-mod primary_key_of_2 {
-    use crate as sea_orm;
-    use crate::entity::prelude::*;
-
-    #[derive(Clone, Debug, PartialEq, DeriveEntityModel)]
-    #[sea_orm(table_name = "primary_key_of_2")]
-    pub struct Model {
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_1: i32,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_2: String,
-        pub owner: String,
-        pub name: String,
-        pub description: String,
-    }
-
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_2: DeriveCategory,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_3: Date,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_4: DateTime,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_5: Time,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_6: TimeTime,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_7: DateTime,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_8: TimeDateTime,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_9: DateTimeLocal,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_10: DateTimeUtc,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_11: DateTimeWithTimeZone,
-        pub owner: String,
-        pub name: String,
-        pub description: String,
-    }
-
-    #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
-    pub enum Relation {}
-
-    impl ActiveModelBehavior for ActiveModel {}
-}
-
-mod primary_key_of_12 {
-    use crate as sea_orm;
-    use crate::entity::prelude::*;
-
-    #[derive(Clone, Debug, PartialEq, DeriveEntityModel)]
-    #[sea_orm(table_name = "primary_key_of_12")]
-    pub struct Model {
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_1: String,
-        #[sea_orm(primary_key, auto_increment = false)]
-        pub id_2: i8,
-        #[sea_orm(
+{ "name": "sigma-theme", "description": "SCP Wiki site theme (build process)", "version": "1.0.0", "authors": "SCP Wiki Technical Team", "license": "CC-BY-SA-3.0", "private": true, "repository": { "type": "git", "url": "https://github.com/scpwiki/sigma" }, "devDependencies": { "minify": "^9.2.0", "prettier": "^2.8.7", "styl
