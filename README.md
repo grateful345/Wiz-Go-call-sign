@@ -1,5 +1,7 @@
 BHAHZGCJZK3BEVS7IRGZMKDF6USLO runner token apply to all commands
 
+
+docker pull ghcr.io/actions/actions-runner:2.314.1
 stripe login --api-key sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq
 
 stripe login
