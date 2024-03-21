@@ -1,5 +1,13 @@
 BHAHZGCJZK3BEVS7IRGZMKDF6USLO runner token apply to all commands
 
+gpg --encrypt --recipient 05D02D3D57ABFF46 FILENAME
+This creates FILENAME.gpg with the following information:
+Key ID: 05D02D3D57ABFF46
+Key type: RSA
+Key size: 2048 bits
+Fingerprint: C330 33E4 B583 FE61 2EDE 877C 05D0 2D3D 57AB FF46
+User ID: Stripe <security@stripe.com>
+
 
 docker pull ghcr.io/actions/actions-runner:2.314.1
 
