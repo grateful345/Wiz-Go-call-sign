@@ -2,6 +2,74 @@ BHAHZGCJZK3BEVS7IRGZMKDF6USLO runner token apply to all commands
 
 
 docker pull ghcr.io/actions/actions-runner:2.314.1
+
+Signed-off-by: keith T bieszczat sr. <163609752+grateful345@users.noreply.github.com>
+---
+ README.md | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index ba39fc8..d806b29 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,7 @@
+ BHAHZGCJZK3BEVS7IRGZMKDF6USLO runner token apply to all commands
+
++
++docker pull ghcr.io/actions/actions-runner:2.314.1
+ stripe login --api-key sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq
+
+ stripe login
+@@ -22270,4 +22272,4 @@ https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator
+
+ https://upload.wikimedia.org/wikipedia/commons/8/83/RIAA_logo_colored.svg
+
+-{ "name": "sigma-theme", "description": "SCP Wiki site theme (build process)", "version": "1.0.0", "authors": "SCP Wiki Technical Team", "license": "CC-BY-SA-3.0", "private": true, "repository": { "type": "git", "url": "https://github.com/scpwiki/sigma" }, "devDependencies": { "minify": "^9
+\ No newline at end of file
++{ "name": "sigma-theme", "description": "SCP Wiki site theme (build process)", "version": "1.0.0", "authors": "SCP Wiki Technical Team", "license": "CC-BY-SA-3.0", "private": true, "repository": { "type": "git", "url": "https://github.com/scpwiki/sigma" }, "devDependencies": { "minify": "^9
+
+Signed-off-by: keith T bieszczat sr. <163609752+grateful345@users.noreply.github.com>
+---
+ README.md | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+
+diff --git a/README.md b/README.md
+index d806b29..59eb2f1 100644
+--- a/README.md
++++ b/README.md
+@@ -2,6 +2,31 @@ BHAHZGCJZK3BEVS7IRGZMKDF6USLO runner token apply to all commands
+ 
+ 
+ docker pull ghcr.io/actions/actions-runner:2.314.1
++Signed-off-by: keith T bieszczat sr. <163609752+grateful345@users.noreply.github.com>
++---
++ README.md | 4 +++-
++ 1 file changed, 3 insertions(+), 1 deletion(-)
++
++diff --git a/README.md b/README.md
++index ba39fc8..d806b29 100644
++--- a/README.md
+++++ b/README.md
++@@ -1,5 +1,7 @@
++ BHAHZGCJZK3BEVS7IRGZMKDF6USLO runner token apply to all commands
++ 
+++
+++docker pull ghcr.io/actions/actions-runner:2.314.1
++ stripe login --api-key sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq
++ 
++ stripe login
++@@ -22270,4 +22272,4 @@ https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator
++ 
++ https://upload.wikimedia.org/wikipedia/commons/8/83/RIAA_logo_colored.svg
++ 
++-{ "name": "sigma-theme", "description": "SCP Wiki site theme (build process)", "version": "1.0.0", "authors": "SCP Wiki Technical Team", "license": "CC-BY-SA-3.0", "private": true, "repository": { "type": "git", "url": "https://github.com/scpwiki/sigma" }, "devDependencies": { "minify": "^9
++\ No newline at end of file
+++{ "name": "sigma-theme", "description": "SCP Wiki site theme (build process)", "version": "1.0.0", "authors": "SCP Wiki Technical Team", "license": "CC-BY-SA-3.0", "private": true, "repository": { "type": "git", "url": "https://github.com/scpwiki/sigma" }, "devDependencies": { "minify": "^9
++
+ stripe login --api-key sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq
+ 
+ stripe login
+
 Signed-off-by: keith T bieszczat sr. <163609752+grateful345@users.noreply.github.com>
 ---
  README.md | 4 +++-
