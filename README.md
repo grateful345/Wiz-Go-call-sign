@@ -25,6 +25,7 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu
 # Install the xz-utils package
 RUN apt-get update && apt-get install -y xz-utils
 Next, remove the image property from devcontainer.json (if it exists) and add the build and dockerfile properties instead:
+docker pull ghcr.io/actions/actions-runner:2.314.1
 
 {
     "build": {
