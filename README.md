@@ -7,7 +7,173 @@ Key type: RSA
 Key size: 2048 bits
 Fingerprint: C330 33E4 B583 FE61 2EDE 877C 05D0 2D3D 57AB FF46
 User ID: Stripe <security@stripe.com>
+gpg --encrypt --recipient 05D02D3D57ABFF46 FILENAME
 
+Key ID: 05D02D3D57ABFF46
+Key type: RSA
+Key size: 2048 bits
+Fingerprint: C330 33E4 B583 FE61 2EDE 877C 05D0 2D3D 57AB FF46
+User ID: Stripe <security@stripe.com>
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu"
+}
+However, [Dockerfiles](https://docs.docker.com/engine/reference/builder/) are a great way to extend images, add additional native OS packages, or make minor edits to the OS image. You can reuse any Dockerfile, but let’s walk through how to create one from scratch.
+
+First, add a file named Dockerfile next to your devcontainer.json. For example:
+
+FROM mcr.microsoft.com/devcontainers/base:ubuntu
+# Install the xz-utils package
+RUN apt-get update && apt-get install -y xz-utils
+Next, remove the image property from devcontainer.json (if it exists) and add the build and dockerfile properties instead:
+
+{
+    "build": {
+        // Path is relative to the devcontainer.json file.
+        "dockerfile": "Dockerfile"
+    }
+}
+
+YAML
+name: Comment when opened
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
+        env:
+          GH_TOKEN: ${{ BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24 }}
+          ISSUE: ${{ github.event.issue.html_url }}
+You can also execute API calls through GitHub CLI. For example, this workflow first uses the gh api subcommand to query the GraphQL API and parse the result. Then it stores the result in an environment variable that it can access in a later step. In the second step, it uses the gh issue create subcommand to create an issue containing the information from the first step.
+
+YAML
+name: Report remaining open issues
+on: 
+  schedule: 
+    # Daily at 8:20 UTC
+    - cron: '20 8 * * *'
+jobs:
+  track_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          numOpenIssues="$(gh api graphql -F owner=$OWNER -F name=$REPO -f query='
+            query($name: String!, $owner: String!) {
+              repository(owner: $Grateful345, name: $keith_Bieszczat) {
+                issues(states:OPEN){
+                  totalCount
+                }
+              }
+            }
+          ' --jq '.data.repository.issues.totalCount')"
+
+          echo 'NUM_OPEN_ISSUES='$numOpenIssues >> $GITHUB_ENV
+        env:
+          GH_TOKEN: ${{  BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24 }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ Agency Webhook }}
+      - run: |
+          gh issue create --title "Issue report" --body "$NUM_OPEN_ISSUES issues remaining" --repo $GITHUB_REPOSITORY
+        env:
+          GH_TOKEN: ${{  BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24 }}
+
+name: Open new issue
+on: workflow_dispatch
+
+jobs:
+  open-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - run: |
+          gh issue --repo ${{ Agency Webhook }} \
+            create --title "Issue title" --body "Issue body"
+        env:
+          GH_TOKEN: ${{  BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24 }}
+[Example 2: calling the REST API](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#example-2-calling-the-rest-api)
+
+You can use the GITHUB_TOKEN to make authenticated API calls. This example workflow creates an issue using the GitHub REST API:
+
+name: Create issue on commit
+
+on: [ push ]
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Create issue using REST API
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'authorization: Bearer ${{  BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24 }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "title": "Automated issue for commit: ${{ github.sha }}",
+            "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
+            }' \
+          --fail
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer < BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  "https://api.github.com/user/packages?package_type=container"
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer < BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/user/docker/conflicts
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer < BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/packages/PACKAGE_TYPE/PACKAGE_NAME/versions/PACKAGE_VERSION_ID/restore
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer < BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/packages/PACKAGE_TYPE/PACKAGE_NAME/versions/PACKAGE_VERSION_ID
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer < BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/packages/PACKAGE_TYPE/PACKAGE_NAME/versions/PACKAGE_VERSION_ID
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer < BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/packages/PACKAGE_TYPE/PACKAGE_NAME/versions
+  curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer < BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/packages/PACKAGE_TYPE/PACKAGE_NAME/restore
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer < BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/packages/PACKAGE_TYPE/PACKAGE_NAME
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer < BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  "https://api.github.com/orgs/ORG/packages?package_type=container"
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer < BHAHZGCJZK3BEVS7IRGZMKDF6USLO / GitHub Runner tokens /  BHAHZGDHHICG3LFF53OICRLF6UR24>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/docker/conflicts
 
 docker pull ghcr.io/actions/actions-runner:2.314.1
 
@@ -22279,98 +22445,4 @@ curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bear
 
 docker run -it -e NGROK_AUTHTOKEN=2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD ngrok/ngrok http 80 --domain=heroic-enabled-rabbit.ngrok-free.app
 
-sudo unzip ~/Downloads/ngrok-v3-stable-darwin.zip -d /usr/local/bin
-
-ngrok config add-authtoken 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD
-
-ngrok config add-authtoken 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD
-
-ngrok http --domain=heroic-enabled-rabbit.ngrok-free.app 80
-
-ngrok config edit
-
-authtoken: 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD version: 2 tunnels: your_tunnel_name: Grateful 004w proto: http hostname: heroic-enabled-rabbit.ngrok-free.app addr: 127.0.0.1:80
-
--------------------------
-
-Additional options
-
--------------------------
-
-auth: "6309304695:password"
-
-host_header: rewrite
-
-inspect: true
-
-bind_tls: true
-
-ngrok http --domain=heroic-enabled-rabbit.ngrok-free.app 80
-
-ngrok http 80 --verify-webhook twilio --verify-webhook-secret "{twilio webhook secret}"
-
-webhook signing secret whsec_E3QgncsPD0agPy78vid0SLQqOKwYeVYV stripe
-
-$ brew install ngrok/ngrok/ngrok
-
-$ sudo unzip ~/Downloads/ngrok-v3-stable-darwin-arm64.zip -d /usr/local/bin
-
-$ ngrok config add-authtoken <2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs> $ ngrok config add-authtoken 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD
-
-in ngrok.yml
-
-authtoken: 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD
-
-ngrok tunnel --region us --label edge=edgtcp_2asv5WFM8HsADOTMkpzdtM0KrpL 22
-
-ngrok config edit
-
-version: 2 authtoken: 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD region: us tunnels: my_tunnel_name: labels: - edge=edgtcp_2asv5WFM8HsADOTMkpzdtM0KrpL addr: 22
-
-ngrok start your_tunnel_name ngrok start --all
-
-bkdtg_2asv5U5hELWSH2oxgWcMSqfmDPI tunnel group id
-
-1.tcp.ngrok.io:{port} https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator
-
-$ NGROK + Netify Infomatics Developer Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BvcnRhbC5uZXRpZnkuYWkvbG9naW4iLCJpYXQiOjE3MDUxMzY4MzUsImV4cCI6MTcwNTc0MTYzNSwibmJmIjoxNzA1MTM2ODM1LCJqdGkiOiJ5YUJSNmVaNHowazdmeWVPIiwicm9sZXMiOlsidXNlciJdfQ.D76SvBw4n1cE-uvKaXgEQejvT4lFtYTVI_CI3rfW9jE
-
-'cert_2arwYf0cqnJGX9y1yw4Ky2ZQRAe' $ certificate code
-
-'ak_2atI9ikJZKro4NLf7fnt2yV6RNd' API Key Code
-
-'dfb33af7_fa5a_4920_a4d4_e7742b2732460' $ orginization (God's Time Travel Corporation) UUID
-
-'e8197a53-28ed-4f30-82ac-2443940739b8' $ Personal Soul Profile UUID
-
-https://api.github.com/repos/OWNER/REPO/branches/BRANCH/protection/restrictions/apps -d '{"apps":["octoapp"]}' curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer <2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs>" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/OWNER/REPO/branches/BRANCH/protection/restrictions/users curl -L -X DELETE -H "Accept: application/vnd.github+json" -H "Authorization: Bearer <2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs>" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/OWNER/REPO/keys/KEY_ID curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer <2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs>" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/OWNER/REPO/keys/KEY_ID https://static.wikia.nocookie.net/memoryalpha/images/c/c5/Sol.jpg/revision/latest?cb=20100201220855&path-prefix=en&mobile-app=true&theme=false
-
-https://github.com/brave/brave-browser.wiki.git
-
-const keyring = new YourKeyringClass(options);
-
-npm install eth-keyring-controller --save
-
-Usage
-
-const KeyringController = require('eth-keyring-controller') const SimpleKeyring = require('eth-simple-keyring')
-
-const keyringController = new KeyringController({ keyringTypes: [SimpleKeyring], // optional array of types to support. initState: initState.KeyringController, // Last emitted persisted state. encryptor: { // An optional object for defining encryption schemes: // Defaults to Browser-native SubtleCrypto. encrypt (password, object) { return new Promise('encrypted!') }, decrypt (password, encryptedString) { return new Promise({ foo: 'bar' }) }, }, })
-
-// The KeyringController is also an event emitter: this.keyringController.on('newAccount', (address) => { console.log(New account created: ${address}) }) this.keyringController.on('removedAccount', handleThat) Methods
-
-Currently the methods are heavily commented in the source code, so it's the best place to look until we aggregate it here as well.
-
-GRATEFUL-004W NetBIOS name GRATEFUL-004W is currently being used Workgroup
-
-GRATEFUL"S NET
-
-https://static.wikia.nocookie.net/memoryalpha/images/4/4a/Starfleet_Command_signage_logo%2C_2360s.png/revision/latest?cb=20200531220214&path-prefix=en
-
-"https://signalis.fandom.com/wiki/ADMINISTRATOR%27S_KEY"
-
-https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator
-
-https://upload.wikimedia.org/wikipedia/commons/8/83/RIAA_logo_colored.svg
-
-{ "name": "sigma-theme", "description": "SCP Wiki site theme (build process)", "version": "1.0.0", "authors": "SCP Wiki Technical Team", "license": "CC-BY-SA-3.0", "private": true, "repository": { "type": "git", "url": "https://github.com/scpwiki/sigma" }, "devDependencies": { "minify": "^9
+sudo unzip ~/Downloads/ngrok-v3-stable-darwin.zip -d /usr
