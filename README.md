@@ -1,4 +1,4 @@
-Secret api token for Trello input whete neccessary: (b6ffa170da74846855071ebb9a12c2195e0a0373ef269a815e93da498ac2175c)
+Secret api token for Trello input where neccessary: (b6ffa170da74846855071ebb9a12c2195e0a0373ef269a815e93da498ac2175c)
 
 
 
