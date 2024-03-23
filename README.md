@@ -172,6 +172,2541 @@ curl -L \
   https://api.github.com/repos/OWNER/REPO/actions/oidc/customization/sub \
   -d '{"use_default":false,"include_claim_keys":["repo","context"]}'
 
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <LLBF3JGZDX3P5PMEXLND6TS6FCWO6/ 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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/runners
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <LLBF3JGZDX3P5PMEXLND6TS6FCWO6/ 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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/runners/downloads
+
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <LLBF3JGZDX3P5PMEXLND6TS6FCWO6/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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/runners/generate-jitconfig \
+  -d '{"name":"New runner","runner_group_id":1,"labels":["self-hosted","X64","macOS","no-gpu"],"work_folder":"_work"}'
+
+runner:
+
+./config.sh --url https://github.com/octo-org --token TOKEN {LLBF3JGZDX3P5PMEXLND6TS6FCWO6/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}
+
+
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <LLBF3JGZDX3P5PMEXLND6TS6FCWO6/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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/runners/registration-token
+
+{
+  "token": "LLBF3JGZDX3P5PMEXLND6TS6FCWO6",
+  "expires_at": "2020-01-22T12:13:35.123-08:00"
+}
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <AABF3JGZDX3P5PMEXLND6TS6FCWO6>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/runners/remove-token
+
+Status: 201
+{
+  "token": "AABF3JGZDX3P5PMEXLND6TS6FCWO6",
+  "expires_at": "2020-01-29T12:13:35.123-08:00"
+}
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <BHAHZGCJZK3BEVS7IRGZMKDF6USLO>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/runners/RUNNER_ID
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <BHAHZGCJZK3BEVS7IRGZMKDF6USLO>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/runners/RUNNER_ID/labels
+
+curl -L \
+  -X PUT \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <BHAHZGCJZK3BEVS7IRGZMKDF6USLO>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/runners/RUNNER_ID/labels \
+  -d '{"labels":["gpu","accelerated"]}'
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <BHAHZGCJZK3BEVS7IRGZMKDF6USLO>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/runners
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <LLBF3JGZDX3P5PMEXLND6TS6FCWO6/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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/runners/downloads
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <LLBF3JGZDX3P5PMEXLND6TS6FCWO6/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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/runners/generate-jitconfig \
+  -d '{"name":"New runner","runner_group_id":1,"labels":["self-hosted","X64","macOS","no-gpu"],"work_folder":"_work"}'
+
+runner:
+
+./config.sh --url https://github.com/octo-org --token TOKEN {runner:BHAHZGCJZK3BEVS7IRGZMKDF6USLO}
+
+./config.sh --url https://github.com/octo-org --token TOKEN {LLBF3JGZDX3P5PMEXLND6TS6FCWO6/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}
+
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <LLBF3JGZDX3P5PMEXLND6TS6FCWO6/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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/runners/registration-token
+
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <AABF3JGZDX3P5PMEXLND6TS6FCWO6>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/runners/remove-token
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/runners/downloads
+
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/runners/generate-jitconfig \
+  -d '{"name":"New runner","runner_group_id":1,"labels":["self-hosted","X64","macOS","no-gpu"],"work_folder":"_work"}'
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/secrets
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/secrets/public-key
+
+Status: 200
+{
+  "key_id": "012345678912345678",
+  "key": "2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234"
+}
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/secrets/SECRET_NAME
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/secrets/public-key
+
+Status: 200
+{
+  "key_id": "012345678912345678",
+  "key": "2Sg8iYjAxxmI2LvUXpJjkYrMxURPc8r+dB7TJyvv1234"
+}
+import * as sodium from '@devtomio/sodium';
+
+const { public_key, secret_key } = sodium.crypto_box_keypair();
+$ yarn bench
+
+Running "keypair generation" suite...
+Progress: 100%
+
+  libsodium-wrappers:
+    5 109 ops/s, ±3.12%    | 85.44% slower
+
+  tweetnacl:
+    1 108 ops/s, ±1.11%    | slowest, 96.84% slower
+
+  chloride:
+    21 946 ops/s, ±7.45%   | 37.46% slower
+
+  sodium:
+    23 691 ops/s, ±1.00%   | 32.49% slower
+
+  @devtomio/sodium:
+    35 092 ops/s, ±2.84%   | fastest
+
+Finished 5 cases!
+  Fastest: @devtomio/sodium
+  Slowest: tweetnacl
+
+const sodium = require('libsodium-wrappers')
+
+const secret = 'YOUR_SECRET'
+const key = 'YOUR_BASE64_KEY'
+
+//Check if libsodium is ready and then proceed.
+sodium.ready.then(() => {
+  // Convert the secret and key to a Uint8Array.
+  let binkey = sodium.from_base64(key, sodium.base64_variants.ORIGINAL)
+  let binsec = sodium.from_string(secret)
+
+  // Encrypt the secret using libsodium
+  let encBytes = sodium.crypto_box_seal(binsec, binkey)
+
+  // Convert the encrypted Uint8Array to Base64
+  let output = sodium.to_base64(encBytes, sodium.base64_variants.ORIGINAL)
+
+  // Print the output
+  console.log(output)
+});
+
+from base64 import b64encode
+from nacl import encoding, public
+
+def encrypt(public_key: str, secret_value: str) -> str:
+  """Encrypt a Unicode string using the public key."""
+  public_key = public.PublicKey(public_key.encode("utf-8"), encoding.Base64Encoder())
+  sealed_box = public.SealedBox(public_key)
+  encrypted = sealed_box.encrypt(secret_value.encode("utf-8"))
+  return b64encode(encrypted).decode("utf-8")
+
+encrypt("YOUR_BASE64_KEY", "YOUR_SECRET")
+
+var secretValue = System.Text.Encoding.UTF8.GetBytes("YOUR_SECRET");
+var publicKey = Convert.FromBase64String("YOUR_BASE64_KEY");
+
+var sealedPublicKeyBox = Sodium.SealedPublicKeyBox.Create(secretValue, publicKey);
+
+Console.WriteLine(Convert.ToBase64String(sealedPublicKeyBox));
+
+require "rbnacl"
+require "base64"
+
+key = Base64.decode64("YOUR_BASE64_KEY")
+public_key = RbNaCl::PublicKey.new(key)
+
+box = RbNaCl::Boxes::Sealed.from_public_key(public_key)
+encrypted_secret = box.encrypt("YOUR_SECRET")
+
+# Print the base64 encoded secret
+puts Base64.strict_encode64(encrypted_secret)
+
+brew install libsodium
+pkg install libsodium
+cd /usr/ports/security/libsodium; make install clean
+gem 'rbnacl'
+$ bundle
+
+$ gem install rbnacl
+
+require 'rbnacl'
+
+# encoding: binary
+# frozen_string_literal: true
+
+module RbNaCl
+  module SecretBoxes
+    # The SecretBox class boxes and unboxes messages
+    #
+    # This class uses the given secret key to encrypt and decrypt messages.
+    #
+    # It is VITALLY important that the nonce is a nonce, i.e. it is a number used
+    # only once for any given pair of keys.  If you fail to do this, you
+    # compromise the privacy of the messages encrypted. Give your nonces a
+    # different prefix, or have one side use an odd counter and one an even counter.
+    # Just make sure they are different.
+    #
+    # The ciphertexts generated by this class include a 16-byte authenticator which
+    # is checked as part of the decryption.  An invalid authenticator will cause
+    # the unbox function to raise.  The authenticator is not a signature.  Once
+    # you've looked in the box, you've demonstrated the ability to create
+    # arbitrary valid messages, so messages you send are repudiable.  For
+    # non-repudiable messages, sign them before or after encryption.
+    class XSalsa20Poly1305
+      extend Sodium
+
+      sodium_type :secretbox
+      sodium_primitive :xsalsa20poly1305
+      sodium_constant :KEYBYTES
+      sodium_constant :NONCEBYTES
+      sodium_constant :ZEROBYTES
+      sodium_constant :BOXZEROBYTES
+
+      sodium_function :secretbox_xsalsa20poly1305,
+                      :crypto_secretbox_xsalsa20poly1305,
+                      %i[pointer pointer ulong_long pointer pointer]
+
+      sodium_function :secretbox_xsalsa20poly1305_open,
+                      :crypto_secretbox_xsalsa20poly1305_open,
+                      %i[pointer pointer ulong_long pointer pointer]
+
+      # Create a new SecretBox
+      #
+      # Sets up the Box with a secret key fro encrypting and decrypting messages.
+      #
+      # @param key [String] The key to encrypt and decrypt with
+      #
+      # @raise [RbNaCl::LengthError] on invalid keys
+      #
+      # @return [RbNaCl::SecretBox] The new Box, ready to use
+      def initialize(key)
+        @key = Util.check_string(key, KEYBYTES, "Secret key")
+      end
+
+      # Encrypts a message
+      #
+      # Encrypts the message with the given nonce to the key set up when
+      # initializing the class.  Make sure the nonce is unique for any given
+      # key, or you might as well just send plain text.
+      #
+      # This function takes care of the padding required by the NaCL C API.
+      #
+      # @param nonce [String] A 24-byte string containing the nonce.
+      # @param message [String] The message to be encrypted.
+      #
+      # @raise [RbNaCl::LengthError] If the nonce is not valid
+      #
+      # @return [String] The ciphertext without the nonce prepended (BINARY encoded)
+      def box(nonce, message)
+        Util.check_length(nonce, nonce_bytes, "Nonce")
+        msg = Util.prepend_zeros(ZEROBYTES, message)
+        ct  = Util.zeros(msg.bytesize)
+
+        success = self.class.secretbox_xsalsa20poly1305(ct, msg, msg.bytesize, nonce, @key)
+        raise CryptoError, "Encryption failed" unless success
+
+        Util.remove_zeros(BOXZEROBYTES, ct)
+      end
+      alias encrypt box
+
+      # Decrypts a ciphertext
+      #
+      # Decrypts the ciphertext with the given nonce using the key setup when
+      # initializing the class.
+      #
+      # This function takes care of the padding required by the NaCL C API.
+      #
+      # @param nonce [String] A 24-byte string containing the nonce.
+      # @param ciphertext [String] The message to be decrypted.
+      #
+      # @raise [RbNaCl::LengthError] If the nonce is not valid
+      # @raise [RbNaCl::CryptoError] If the ciphertext cannot be authenticated.
+      #
+      # @return [String] The decrypted message (BINARY encoded)
+      def open(nonce, ciphertext)
+        Util.check_length(nonce, nonce_bytes, "Nonce")
+        ct = Util.prepend_zeros(BOXZEROBYTES, ciphertext)
+        message = Util.zeros(ct.bytesize)
+
+        success = self.class.secretbox_xsalsa20poly1305_open(message, ct, ct.bytesize, nonce, @key)
+        raise CryptoError, "Decryption failed. Ciphertext failed verification." unless success
+
+        Util.remove_zeros(ZEROBYTES, message)
+      end
+      alias decrypt open
+
+      # The crypto primitive for the SecretBox instance
+      #
+      # @return [Symbol] The primitive used
+      def primitive
+        self.class.primitive
+      end
+
+      # The nonce bytes for the SecretBox class
+      #
+      # @return [Integer] The number of bytes in a valid nonce
+      def self.nonce_bytes
+        NONCEBYTES
+      end
+
+      # The nonce bytes for the SecretBox instance
+      #
+      # @return [Integer] The number of bytes in a valid nonce
+      def nonce_bytes
+        NONCEBYTES
+      end
+
+      # The key bytes for the SecretBox class
+      #
+      # @return [Integer] The number of bytes in a valid key
+      def self.key_bytes
+        KEYBYTES
+      end
+
+      # The key bytes for the SecretBox instance
+      #
+      # @return [Integer] The number of bytes in a valid key
+      def key_bytes
+        KEYBYTES
+      end
+    end
+  end
+end
+
+  tar -xf libsodium-1.0.19.tar.gz
+  cd libsodium-1.0.19
+  ./configure
+  make && make check
+  sudo make install
+  sudo ldconfig
+
+    <!--  As of v1.0.4, libsodium-jna is in the maven central. -->
+    <dependency>
+        <groupId>com.muquit.libsodiumjna</groupId>
+        <artifactId>libsodium-jna</artifactId>
+        <version>1.0.4</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
+    <dependency>
+        <groupId>net.java.dev.jna</groupId>
+        <artifactId>jna</artifactId>
+        <version>5.5.0</version>
+    </dependency>
+    git clone https://github.com/muquit/libsodium-jna.git
+    cd libsodium-jna
+    mvn clean install
+    mvn test
+
+mvn -f pom_java11.xml clean install
+mvn -f pom_java11.xml test
+
+private static String libraryPath = null;
+
+if (Platform.isMac())
+{
+    // MacOS
+    libraryPath = "/usr/local/lib/libsodium.dylib";
+    libraryPath = libraryPath;
+    logger.info("Library path in Mac: " + libraryPath);
+}
+else if (Platform.isWindows())
+{
+    // Windows
+    libraryPath = "C:/libsodium/libsodium.dll";
+    logger.info("Library path in Windows: " + libraryPath);
+}
+else
+{
+    // Linux
+    libraryPath = "/usr/local/lib/libsodium.so";
+    logger.info("Library path: " + libraryPath);
+}
+
+logger.info("loading libsodium...");
+SodiumLibrary.setLibraryPath(libraryPath);
+// To check the native library is actually loaded, print the version of 
+// native sodium library
+String v = SodiumLibrary.libsodiumVersionString();
+logger.info("libsodium version: " + v);
+}
+/**
+ * Return the version of native sodium library. After loading the native C library, it is a good idea 
+ * to make this call to make sure that the expected version of the sodium library is loaded.
+ */
+public static String libsodiumVersionString()
+
+  logger.info("libsodium version: " + SodiumLibrary.libsodiumVersionString());
+
+/**
+ * Return unpredictable sequence of bytes.
+ *
+ * Excerpt from libsodium documentation:
+ * 
+ *  - On Windows systems, the RtlGenRandom() function is used
+ *  - On OpenBSD and Bitrig, the arc4random() function is used
+ *  - On recent Linux kernels, the getrandom system call is used (since Sodium 1.0.3)
+ *  - On other Unices, the /dev/urandom device is used
+ *  - If none of these options can safely be used, custom implementations can easily be hooked.
+ *
+ * Parameters:
+ *   size Number of random bytes to generate
+ *
+ * Return:
+ *   Array of random bytes
+ */
+ public static byte[] randomBytes(int size)
+
+// generate 16 bytes of random data
+byte[] randomBytes = SodiumLibrary.randomBytes(16);
+String hex = SodiumUtils.binary2Hex(salt);
+
+// generate libsodium's standard number of salt bytes
+int n = SodiumLibrary.cryptoNumberSaltBytes();
+logger.info("Generate " + n + " random bytes");
+byte[] salt = SodiumLibrary.randomBytes(n);
+logger.info("Generated " + salt.length + " random bytes");
+String hex = SodiumUtils.binary2Hex(salt);
+logger.info("Random bytes: " + hex);
+
+/**
+ * Encrypts a message with a key and a nonce
+ *
+ * Parameters:
+ *  message    message bytes to encrypt
+ *  nonce      nonce bytes. Generate it by calling  public static NativeLong cryptoBoxNonceBytes()
+ *
+ * Returns:
+ *  Encrypted cipher text bytes 
+ *
+ * Throws SodiumLibraryException in case of error
+ */
+
+public static byte[] crytoSecretBoxEasy(byte[] message, byte[] nonce, byte[] key)
+
+/**
+ * Verify and decrypt the message encrypted with crytoSecretBoxEasy()
+ *
+ * Parameters:
+ *   cipherText  - encrypted bytes
+ *   nonce        - nonce bytes used during encryption
+ *   key          - key bytes used in encryption
+ * 
+ * Returns:
+ *   Decrypted message bytes
+ *  
+ * Throws SodiumLibraryException in case of error
+ */
+public static byte[] cryptoSecretBoxOpenEasy(byte[] cipherText,byte[] nonce, byte[] key)
+
+// don't forget to load the libsodium library first
+
+String message = "This is a message";
+
+// generate nonce
+int nonceBytesLength = SodiumLibrary.cryptoSecretBoxNonceBytes().intValue();
+byte[] nonceBytes = SodiumLibrary.randomBytes(nonceBytesLength);
+byte[] messageBytes = message.getBytes();
+
+// generate the encryption key
+byte[] key = SodiumLibrary.randomBytes(SodiumLibrary.cryptoSecretBoxKeyBytes().intValue());
+
+// encrypt
+byte[] cipherText = SodiumLibrary.cryptoSecretBoxEasy(messageBytes, nonceBytes, key);
+
+// now decrypt
+byte[] decryptedMessageBytes = SodiumLibrary.cryptoSecretBoxOpenEasy(cipherText, nonceBytes, key);
+String decryptedMessage;
+try
+{
+    decryptedMessage = new String(decryptedMessageBytes, "UTF-8");
+    System.out.println("Decrypted message: " + decryptedMessageBytes);
+} catch (UnsupportedEncodingException e)
+{
+    e.printStackTrace();
+}
+/**
+ * Randomly generates a secret key and a corresponding public key
+ *
+ * Return:
+ *   SodiumKeyPair
+ */
+ public static SodiumKeyPair cryptoBoxKeyPair()
+
+
+// generate key pair
+ SodiumKeyPair kp  = SodiumLibrary.cryptoBoxKeyPair();
+ byte[] publicKey  = kp.getPublicKey();
+ byte[] privateKey = kp.getPrivateKey();
+
+ String hexPublicKey  = SodiumUtils.binary2Hex(publicKey);
+ String hexPrivateKey = SodiumUtils.binary2Hex(privateKey);
+
+/**
+ * Alice encrypts a message with recipient's (Bob) public key and 
+ * creates authentication tag with her private key
+ * 
+ * Parameters:
+ *   message            The message to encrypt
+ *   nonce              SodiumLibrary.crytoBoxNonceBytes() bytes of nonce. 
+ *                      It must be preserved because it will be needed during decryption
+ *   recipientPublicKey Recipient's public key for encrypting the message
+ *   senderPrivateKey   Sender's private key for creating authentication tag
+ *
+ * Returns:
+ *    encrypted message as an array of bytes
+ */
+ public static byte[] cryptoBoxEasy(byte[] message, 
+    byte[] nonce
+    byte[] recipientPublicKey, byte[] senderPrivateKey) throws SodiumLibraryException
+
+/**
+ * Bob (recipient) verifies the message with Alice's (sender) public key and 
+ * decrypts the message with his private key
+ *
+ * Parameters:
+ *  cipherText          Message to decrypt
+ *  nonce               Nonce used during encryption 
+ *  senderPublicKey     Sender's (Alice) public key for verifying message
+ *  recipientPrivateKey Recipient's (Bob)  Private key to decrypt the message
+ * 
+ * Returns: 
+ * Decrypted message as an array of bytes.
+ * In case of error SodiumLibraryException() run time exception will be thrown 
+ */
+ public static byte[] cryptoBoxOpenEasy(byte[] cipherText,
+    byte[]nonce, 
+    byte[] senderPublicKey, byte[] recipientPrivateKey) throws SodiumLibraryException
+/**
+ * Encrypts a message with recipient's public key.
+ * 
+ * Usage: Alice can anonymously send a message to Bob by encrypting the message 
+ * with his public key.
+ * 
+ * Parameters:
+ *  message           The message bytes to encrypt
+ * recipientPublicKey Recipient's public key 
+ *
+ * Rreturn:
+ * Encrypted message bytes. The length of the cipher text will be 
+ * SodiumLibrary#cryptoBoxSealBytes() + message.length
+ *
+ * Tthrows SodiumLibraryException on error
+ */
+ public static byte[] cryptoBoxSeal(byte[] message, byte[] recipientPublicKey) 
+    throws SodiumLibraryException
+
+/**
+ * Decrypts a ciphertext using recipient's  key pair.
+ * 
+ * Only the recipient can decrypt the message with his private key but the 
+ * recipient can not identify the sender.
+ * 
+ * Parameters:
+ *  cipherText Ciphertext to decrypt
+ *  pk Recipient's public key
+ *  sk Recipient's private Key
+ *
+ * Returns:
+ * Decrypted plaintext bytes. 
+ * @throws SodiumLibraryException on error
+ */
+public static byte[] cryptoBoxSealOpen(byte[] cipherText,byte[] pk, byte[] sk) throws SodiumLibraryException
+// Alice generates key pair
+SodiumKeyPair aliceKeyPair = SodiumLibrary.cryptoBoxKeyPair();
+byte[] alicePublicKey = aliceKeyPair.getPublicKey();
+byte[] alicePrivateKey = aliceKeyPair.getPrivateKey();
+
+// Bob generates key pair
+SodiumKeyPair bobKeyPair = SodiumLibrary.cryptoBoxKeyPair();
+byte[] bobPublicKey = bobKeyPair.getPublicKey();
+byte[] bobPrivateKey = bobKeyPair.getPrivateKey();
+
+// Generate nonce
+// This API will be changed to return int in future version of libsodium-jna
+byte[] nonce = SodiumLibrary.randomBytes(SodiumLibrary.cryptoBoxNonceBytes().intValue());
+
+String secretMessage = "Hi Bob, This is Alice";
+// Alice encrypts the message with Bob's public key, creates authentication tag
+// with her private key
+byte[] cipherText = SodiumLibrary.cryptoBoxEasy(
+    secretMessage.getBytes(), nonce, 
+    bobPublicKey,
+    alicePrivateKey);
+String cipherHex = SodiumUtils.binary2Hex(cipherText);
+logger.info("Ciphertext: " + cipherHex);
+
+// Bob Verifies with Alice's public key and decrypts ciphertext with his Private key
+byte[] decrypted = SodiumLibrary.cryptoBoxOpenEasy(
+        cipherText, nonce,
+        alicePublicKey,
+        bobPrivateKey);
+String decrypteString;
+try
+{
+    decrypteString = new String(decrypted, "UTF-8");
+    logger.info("decrypted: " + decrypteString);
+} catch (UnsupportedEncodingException e)
+{
+    e.printStackTrace();
+}
+
+// Bob generates key pair
+SodiumKeyPair bobKeyPair = SodiumLibrary.cryptoBoxKeyPair();
+byte[] bobPublicKey = bobKeyPair.getPublicKey();
+byte[] bobPrivateKey = bobKeyPair.getPrivateKey();
+
+String secretMessage = "Hi Bob, This is Alice";
+// Alice encrypts with Bob's public key
+byte[] cipherText = SodiumLibrary.cryptoBoxSeal(secretMessage.getBytes(), bobPublicKey);
+String cipherHex = SodiumUtils.binary2Hex(cipherText);
+logger.info("Ciphertext: " + cipherHex);
+logger.info("Ciphertext length : " + cipherText.length);
+
+long ciperTextlength = SodiumLibrary.cryptoBoxSealBytes() + secretMessage.length();
+logger.info("length: " + ciperTextlength);
+
+// Bob decrypts with his private key
+byte[] decrypted = SodiumLibrary.cryptoBoxSealOpen(cipherText, bobPublicKey, bobPrivateKey);
+
+try
+{
+    String decrypteString = new String(decrypted, "UTF-8");
+    logger.info("decrypted: " + decrypteString);
+} catch (UnsupportedEncodingException e)
+{
+    e.printStackTrace();
+}
+/**
+ * Derives a key from a password and the given salt using Argon2i 
+ *
+ * Parameters:
+ *  password    The password
+ *  salt        The salt. The salt must be SodiumLibrary.cryptoPwhashSaltBytes() bytes long
+ *
+ * Comments:
+ *  This method uses:
+ *   opslimit as crypto_pwhash_opslimit_interactive()
+ *   memlimit as crypto_pwhash_memlimit_interactive()
+ *   algorithm as crypto_pwhash_alg_argon2id13() (default n libsodium v1.0.15)
+ *
+ * Returns:
+ *  The derived key as array of bytes. 
+ * In case of error SodiumLibraryException() run time exception will be thrown 
+ */
+public static byte[] cryptoPwhashArgon2i(byte[] passwd, byte[] salt) throws SodiumLibraryException
+
+  String passPhrase = "This is a passphrase";
+  byte[] salt = SodiumLibrary.randomBytes(SodiumLibrary.cryptoPwhashSaltBytes());
+  String hex = SodiumUtils.binary2Hex(salt);
+
+  // create salt for deriving key from the pass phrase
+  // salt is public but needs to be saved
+  logger.info("Generated " + salt.length + " bytes of salt");
+  logger.info(hex);
+  logger.info("Derive key from passphrase");
+  byte[] key = SodiumLibrary.cryptoPwhashArgon2i(passPhrase.getBytes(), salt);
+  logger.info("Derived " + key.length + " bytes long key");
+  hex = SodiumUtils.binary2Hex(key);
+  logger.info(hex);
+
+  // Later when you need to derive the key from the passphrase, use the saved salt 
+
+/**
+ * Returns a US-ASCII encoded key derived from the password. The key can be stored for 
+ * verification. 
+ *
+ * Parameters:
+ *  password  The password
+ *
+ * Comments:
+ *  Memory-hard, CPU-intensive hash function is applied to the
+ *  password in key generation process.
+ *
+ *  Automatically generated salt is used in the key generation
+ *
+ *  Uses opslimit as crypto_pwhash_opslimit_interactive()
+ *  Uses memlimit as crypto_pwhash_memlimit_interactive()
+ *  
+ * Returns:
+ *  derived key as US-ASCII encoded string
+ */
+public static String cryptoPwhashStr(byte[] password) throws SodiumLibraryException
+
+    String password = new String("বাংলা");
+		// convert to UTF-8 encoded bytes
+		byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8); // requires jdk 1.7+
+		String key = SodiumLibrary.cryptoPwhashStr(passwordBytes);
+
+/**
+ * Verify a US-ASCII encoded key derived previously by calling 
+ * cryptoPwhashStr()
+ *
+ * Parameters:
+ *  key         US-ASCII encoded key to verify
+ *  password    The password
+ *
+ * Returns:
+ *  true if the key can be verified, false otherwise
+ */
+ public static boolean cryptoPwhashStrVerify(String usAsciiKey, 
+    byte[] password)
+
+String password = new String("বাংলা");
+// convert to UTF-8 encoded bytes
+byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8); // requires jdk 1.7+
+String key = SodiumLibrary.cryptoPwhashStr(passwordBytes);
+// verify the password
+boolean rc = SodiumLibrary.cryptoPwhashStrVerify(key, passwordBytes);
+if (rc)
+{
+    logger.info("Password is verified");
+}
+
+  byte[] salt = SodiumLibrary.randomBytes(SodiumLibrary.cryptoPwhashSaltBytes);
+
+  byte[] key = SodiumLibrary.cryptoPwhashArgon2i(passPhrase, salt);
+
+  byte[] nonce = SodiumLibrary.randomBytes(SodiumLibrary.cryptoSecretBoxNonceBytes().intValue());
+
+  byte[] encryptedPrivateKey = SodiumLibrary.cryptoSecretBoxEasy(privateKey, nonce, key);
+
+  byte[] privateKey = SodiumLibrary.cryptoSecretBoxOpenEasy(encryptedPrivateKey, nonce, key);
+
+License is MIT
+
+Copyright © 2018-2023 muquit@muquit.com
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+    $ cd libsodium-jna
+    $ mvn dependency:tree
+...
+[INFO] ------------------------------------------------------------------------
+[INFO] Building com.muquit.libsodiumjna 1.0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ libsodium-jna ---
+[INFO] com.muquit.libsodiumjna:libsodium-jna:jar:1.0.1
+[INFO] +- net.java.dev.jna:jna:jar:4.2.2:compile
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.21:compile
+[INFO] +- org.slf4j:slf4j-log4j12:jar:1.7.21:compile
+[INFO] |  \- log4j:log4j:jar:1.2.17:compile
+[INFO] +- commons-codec:commons-codec:jar:1.10:compile
+[INFO] \- junit:junit:jar:4.11:test
+[INFO]    \- org.hamcrest:hamcrest-core:jar:1.3:test
+...    
+import {
+  crypto_auth,
+  crypto_auth_verify,
+  crypto_auth_BYTES,
+  crypto_auth_KEYBYTES,
+  crypto_auth_keygen,
+  crypto_aead_xchacha20poly1305_ietf_decrypt,
+  crypto_aead_xchacha20poly1305_ietf_encrypt,
+  crypto_aead_xchacha20poly1305_ietf_KEYBYTES,
+  crypto_aead_xchacha20poly1305_ietf_NPUBBYTES,
+  crypto_aead_xchacha20poly1305_ietf_keygen,
+  crypto_box_easy,
+  crypto_box_keypair,
+  crypto_box_open_easy,
+  crypto_box_PUBLICKEYBYTES,
+  crypto_box_SECRETKEYBYTES,
+  crypto_box_seal,
+  crypto_box_seal_open,
+  crypto_kdf_CONTEXTBYTES,
+  crypto_kdf_derive_from_key,
+  crypto_kdf_KEYBYTES,
+  crypto_kdf_keygen,
+  crypto_pwhash, // only with loadSumoVersion with react-native-web
+  crypto_pwhash_ALG_DEFAULT, // only with loadSumoVersion with react-native-web
+  crypto_pwhash_MEMLIMIT_INTERACTIVE, // only with loadSumoVersion with react-native-web
+  crypto_pwhash_OPSLIMIT_INTERACTIVE, // only with loadSumoVersion with react-native-web
+  crypto_pwhash_SALTBYTES, // only with loadSumoVersion with react-native-web
+  crypto_generichash,
+  crypto_generichash_BYTES,
+  crypto_generichash_BYTES_MIN,
+  crypto_generichash_BYTES_MAX,
+  crypto_generichash_KEYBYTES,
+  crypto_generichash_KEYBYTES_MIN,
+  crypto_generichash_KEYBYTES_MAX,
+  crypto_secretbox_easy,
+  crypto_secretbox_KEYBYTES,
+  crypto_secretbox_keygen,
+  crypto_secretbox_NONCEBYTES,
+  crypto_secretbox_open_easy,
+  crypto_sign_detached,
+  crypto_sign_keypair,
+  crypto_sign_SEEDBYTES,
+  crypto_sign_verify_detached,
+  from_base64,
+  randombytes_buf,
+  randombytes_uniform,
+  to_base64,
+  to_hex,
+  to_string,
+  ready, // only needed for react-native-web
+  loadSumoVersion, // only relevant for react-native-web
+  _unstable_crypto_kdf_hkdf_sha256_BYTES_MAX, // has no counterpart in libsodium-wrappers yet
+  _unstable_crypto_kdf_hkdf_sha256_BYTES_MIN, // has no counterpart in libsodium-wrappers yet
+  _unstable_crypto_kdf_hkdf_sha256_KEYBYTES, // has no counterpart in libsodium-wrappers yet
+  _unstable_crypto_kdf_hkdf_sha256_extract, // has no counterpart in libsodium-wrappers yet
+  _unstable_crypto_kdf_hkdf_sha256_expand, // has no counterpart in libsodium-wrappers yet
+} from 'react-native-libsodium';
+
+// ...
+
+crypto_aead_aegis128l_decrypt(ciphertext, ad, nonce, key)
+crypto_aead_aegis128l_encrypt(message, ad, nonce, key)
+crypto_aead_aegis128l_decrypt_detached(ciphertext, mac, ad, nonce, key)
+crypto_aead_aegis128l_encrypt_detached(message, ad, nonce, key)
+crypto_aead_aegis256_decrypt(ciphertext, ad, nonce, key)
+crypto_aead_aegis256_encrypt(message, ad, nonce, key)
+crypto_aead_aegis256_decrypt_detached(ciphertext, mac, ad, nonce, key)
+crypto_aead_aegis256_encrypt_detached(message, ad, nonce, key)
+crypto_aead_chacha20poly1305_decrypt(ciphertext, ad, nonce, key)
+crypto_aead_chacha20poly1305_encrypt(message, ad, nonce, key)
+crypto_aead_chacha20poly1305_decrypt_detached(ciphertext, mac, ad, nonce, key)
+crypto_aead_chacha20poly1305_encrypt_detached(message, ad, nonce, key)
+crypto_aead_chacha20poly1305_ietf_decrypt(ciphertext, ad, nonce, key)
+crypto_aead_chacha20poly1305_ietf_encrypt(message, ad, nonce, key)
+crypto_aead_chacha20poly1305_ietf_decrypt_detached(ciphertext, mac, ad, nonce, key)
+crypto_aead_chacha20poly1305_ietf_encrypt_detached(message, ad, nonce, key)
+crypto_aead_xchacha20poly1305_ietf_decrypt(ciphertext, ad, nonce, key)
+crypto_aead_xchacha20poly1305_ietf_encrypt(message, ad, nonce, key)
+crypto_auth(message, key)
+crypto_auth_verify(tag, message, key)
+crypto_box_afternm(msg, nonce, k)
+crypto_box_beforenm(pk, sk)
+crypto_box_detached(msg, nonce, pk, sk)
+crypto_box_keypair()
+crypto_box(msg, nonce, pk, sk)
+crypto_box_open_afternm(c, nonce, k)
+crypto_box_open(c, nonce, pk, sk)
+crypto_box_open_detached(c, mac, nonce, pk, sk)
+crypto_box_seal(msg, pk)
+crypto_box_seal_open(c, pk, sk)
+crypto_box_seed_keypair(seed)
+crypto_generichash_blake2b_salt_personal(message, outlen = crypto_generichash_blake2b_BYTES, key = b'', salt = b'', personal = b'')
+crypto_generichash_final(state, outlen=crypto_generichash_BYTES)
+crypto_generichash_init(outlen=crypto_generichash_BYTES, k=b'')
+crypto_generichash(m, k=b'', outlen=crypto_generichash_BYTES)
+crypto_generichash_update(state, m)
+crypto_hash_sha256(message)
+crypto_hash_sha512(message)
+crypto_hash_sha512_init()
+crypto_hash_sha512_update(state, data)
+crypto_hash_sha512_final(state)
+crypto_kx_client_session_keys(client_pk, client_sk, server_pk)
+crypto_kx_keypair()
+crypto_kx_server_session_keys(server_pk, server_sk, client_pk)
+crypto_pwhash(outlen, passwd, salt, opslimit, memlimit, alg)
+crypto_pwhash_scryptsalsa208sha256(outlen, passwd, salt, opslimit, memlimit)
+crypto_pwhash_scryptsalsa208sha256_str(passwd, opslimit, memlimit)
+crypto_pwhash_scryptsalsa208sha256_str_verify(stored, passwd)
+crypto_pwhash_str(passwd, opslimit, memlimit)
+crypto_pwhash_str_verify(pstr, passwd)
+crypto_scalarmult_base(n)
+crypto_scalarmult_curve25519_base(n)
+crypto_scalarmult_curve25519(n, p)
+crypto_secretbox(msg, nonce, k)
+crypto_secretbox_detached(msg, nonce, k)
+crypto_secretbox_open(c, nonce, k)
+crypto_secretbox_open_detached(c, mac, nonce, k)
+crypto_secretstream_xchacha20poly1305_keygen():
+crypto_secretstream_xchacha20poly1305_init_push(key):
+crypto_secretstream_xchacha20poly1305_init_pull(header, key):
+crypto_secretstream_xchacha20poly1305_rekey(state):
+crypto_secretstream_xchacha20poly1305_push(state, message, ad, tag):
+crypto_secretstream_xchacha20poly1305_pull(state, ciphertext, ad):
+crypto_sign_init()
+crypto_sign_update(state, m)
+crypto_sign_final_create(state, sk)
+crypto_sign_final_verify(state, sig, pk)
+crypto_sign_detached(m, sk)
+crypto_sign_keypair()
+crypto_sign(m, sk)
+crypto_sign_open(sm, pk)
+crypto_sign_pk_to_box_pk(pk)
+crypto_sign_seed_keypair(seed)
+crypto_sign_sk_to_box_sk(sk)
+crypto_sign_sk_to_pk(sk)
+crypto_sign_sk_to_seed(sk)
+crypto_sign_verify_detached(sig, msg, pk)
+crypto_stream_chacha20_xor(message, nonce, key)
+crypto_stream_chacha20_xor_ic(message, nonce, initial_counter, key)
+crypto_stream_chacha20_ietf_xor(message, nonce, key)
+crypto_stream_chacha20_ietf_xor_ic(message, nonce, initial_counter, key)
+crypto_stream_xchacha20_xor(message, nonce, key)
+crypto_stream_xchacha20_xor_ic(message, nonce, initial_counter, key)
+crypto_stream(cnt, nonce=None, key=None)
+crypto_stream_xor(msg, cnt, nonce=None, key=None)
+randombytes(size)
+sodium_increment(bytes)
+crypto_core_ristretto255_is_valid_point(p)
+crypto_core_ristretto255_from_hash(r)
+crypto_scalarmult_ristretto255(n, p)
+crypto_scalarmult_ristretto255_base(n)
+crypto_core_ristretto255_scalar_random()
+crypto_core_ristretto255_scalar_invert(s)
+crypto_core_ristretto255_scalar_reduce(s)
+crypto_core_ristretto255_add(p, q)
+crypto_core_ristretto255_sub(p,q)
+crypto_core_ristretto255_random()
+crypto_core_ristretto255_scalar_negate(s)
+crypto_core_ristretto255_scalar_complement(s)
+crypto_core_ristretto255_scalar_add(x,y)
+crypto_core_ristretto255_scalar_sub(x,y)
+crypto_core_ristretto255_scalar_mul(x,y)
+crypto_auth_hmacsha256_keygen
+crypto_auth_hmacsha256
+crypto_auth_hmacsha256_verify
+crypto_auth_hmacsha512_keygen
+crypto_auth_hmacsha512
+crypto_auth_hmacsha512_verify
+crypto_auth_hmacsha512256_keygen
+crypto_auth_hmacsha512256
+crypto_auth_hmacsha512256_verify
+crypto_kdf_derive_from_key(subkey_len, subkey_id, ctx, key)
+crypto_kdf_keygen()
+crypto_kdf_hkdf_sha256_extract_init(salt=b'')
+crypto_kdf_hkdf_sha256_extract_update(state, ikm=b'')
+crypto_kdf_hkdf_sha256_extract_final(state)
+crypto_kdf_hkdf_sha256_extract(salt=b'', ikm=b'')
+crypto_kdf_hkdf_sha256_keygen()
+crypto_kdf_hkdf_sha256_expand(outlen, prk, ctx=b'')
+crypto_kdf_hkdf_sha512_extract_init(salt=b'')
+crypto_kdf_hkdf_sha512_extract_update(state, ikm=b'')
+crypto_kdf_hkdf_sha512_extract_final(state)
+crypto_kdf_hkdf_sha512_extract(salt=b'', ikm=b'')
+crypto_kdf_hkdf_sha512_keygen()
+crypto_kdf_hkdf_sha512_expand(outlen, prk, ctx=b'')
+
+crypto_aead_chacha20poly1305_ABYTES
+crypto_aead_chacha20poly1305_KEYBYTES
+crypto_aead_chacha20poly1305_NPUBBYTES
+crypto_aead_chacha20poly1305_ietf_KEYBYTES
+crypto_aead_chacha20poly1305_ietf_NPUBBYTES
+crypto_aead_chacha20poly1305_ietf_ABYTES
+crypto_aead_xchacha20poly1305_ietf_KEYBYTES
+crypto_aead_xchacha20poly1305_ietf_NPUBBYTES
+crypto_aead_xchacha20poly1305_ietf_ABYTES
+crypto_auth_BYTES
+crypto_auth_KEYBYTES
+crypto_box_BEFORENMBYTES
+crypto_box_BOXZEROBYTES
+crypto_box_MACBYTES
+crypto_box_NONCEBYTES
+crypto_box_PUBLICKEYBYTES
+crypto_box_SEALBYTES
+crypto_box_SECRETKEYBYTES
+crypto_box_SEEDBYTES
+crypto_box_ZEROBYTES
+crypto_generichash_KEYBYTES_MAX
+crypto_generichash_BYTES
+crypto_generichash_BYTES_MAX
+crypto_generichash_BYTES_MIN
+crypto_generichash_STATEBYTES
+crypto_generichash_blake2b_BYTES
+crypto_generichash_blake2b_BYTES_MAX
+crypto_generichash_blake2b_BYTES_MIN
+crypto_generichash_blake2b_KEYBYTES_MAX
+crypto_generichash_blake2b_PERSONALBYTES
+crypto_generichash_blake2b_SALTBYTES
+crypto_hash_sha256_BYTES
+crypto_hash_sha512_BYTES
+crypto_hash_sha512_STATEBYTES
+crypto_kx_PUBLICKEYBYTES
+crypto_kx_SECRETKEYBYTES
+crypto_kx_SESSIONKEYBYTES
+crypto_pwhash_ALG_DEFAULT
+crypto_pwhash_ALG_ARGON2I13
+crypto_pwhash_ALG_ARGON2ID13
+crypto_pwhash_BYTES_MAX
+crypto_pwhash_BYTES_MIN
+crypto_pwhash_MEMLIMIT_MAX
+crypto_pwhash_MEMLIMIT_MIN
+crypto_pwhash_MEMLIMIT_INTERACTIVE
+crypto_pwhash_MEMLIMIT_MODERATE
+crypto_pwhash_MEMLIMIT_SENSITIVE
+crypto_pwhash_OPSLIMIT_MAX
+crypto_pwhash_OPSLIMIT_MIN
+crypto_pwhash_OPSLIMIT_INTERACTIVE
+crypto_pwhash_OPSLIMIT_MODERATE
+crypto_pwhash_OPSLIMIT_SENSITIVE
+crypto_pwhash_PASSWD_MAX
+crypto_pwhash_PASSWD_MIN
+crypto_pwhash_argon2i_MEMLIMIT_INTERACTIVE
+crypto_pwhash_argon2i_MEMLIMIT_MODERATE
+crypto_pwhash_argon2i_MEMLIMIT_SENSITIVE
+crypto_pwhash_argon2i_OPSLIMIT_INTERACTIVE
+crypto_pwhash_argon2i_OPSLIMIT_MODERATE
+crypto_pwhash_argon2i_OPSLIMIT_SENSITIVE
+crypto_pwhash_argon2id_MEMLIMIT_INTERACTIVE
+crypto_pwhash_argon2id_MEMLIMIT_MODERATE
+crypto_pwhash_argon2id_MEMLIMIT_SENSITIVE
+crypto_pwhash_argon2id_OPSLIMIT_INTERACTIVE
+crypto_pwhash_argon2id_OPSLIMIT_MODERATE
+crypto_pwhash_argon2id_OPSLIMIT_SENSITIVE
+crypto_pwhash_SALTBYTES
+crypto_pwhash_STRBYTES
+crypto_pwhash_scryptsalsa208sha256_BYTES_MAX
+crypto_pwhash_scryptsalsa208sha256_BYTES_MIN
+crypto_pwhash_scryptsalsa208sha256_MEMLIMIT_MAX
+crypto_pwhash_scryptsalsa208sha256_MEMLIMIT_MIN
+crypto_pwhash_scryptsalsa208sha256_MEMLIMIT_INTERACTIVE
+crypto_pwhash_scryptsalsa208sha256_MEMLIMIT_SENSITIVE
+crypto_pwhash_scryptsalsa208sha256_OPSLIMIT_MAX
+crypto_pwhash_scryptsalsa208sha256_OPSLIMIT_MIN
+crypto_pwhash_scryptsalsa208sha256_OPSLIMIT_INTERACTIVE
+crypto_pwhash_scryptsalsa208sha256_OPSLIMIT_SENSITIVE
+crypto_pwhash_scryptsalsa208sha256_PASSWD_MAX
+crypto_pwhash_scryptsalsa208sha256_PASSWD_MIN
+crypto_pwhash_scryptsalsa208sha256_SALTBYTES
+crypto_pwhash_scryptsalsa208sha256_STRBYTES
+crypto_pwhash_scryptsalsa208sha256_STRPREFIX
+crypto_scalarmult_BYTES
+crypto_scalarmult_SCALARBYTES
+crypto_scalarmult_curve25519_BYTES
+crypto_secretbox_BOXZEROBYTES
+crypto_secretbox_KEYBYTES
+crypto_secretbox_KEYBYTES
+crypto_secretbox_MACBYTES
+crypto_secretbox_NONCEBYTES
+crypto_secretbox_ZEROBYTES
+crypto_secretstream_xchacha20poly1305_STATEBYTES
+crypto_secretstream_xchacha20poly1305_ABYTES
+crypto_secretstream_xchacha20poly1305_HEADERBYTES
+crypto_secretstream_xchacha20poly1305_KEYBYTES
+crypto_secretstream_xchacha20poly1305_MESSAGEBYTES_MAX
+crypto_secretstream_xchacha20poly1305_TAG_MESSAGE
+crypto_secretstream_xchacha20poly1305_TAG_PUSH
+crypto_secretstream_xchacha20poly1305_TAG_REKEY
+crypto_secretstream_xchacha20poly1305_TAG_FINAL
+crypto_sign_BYTES
+crypto_sign_PUBLICKEYBYTES
+crypto_sign_SECRETKEYBYTES
+crypto_sign_SEEDBYTES
+crypto_sign_ed25519_PUBLICKEYBYTES
+crypto_sign_ed25519_SECRETKEYBYTES
+crypto_stream_KEYBYTES
+crypto_stream_NONCEBYTES
+crypto_stream_chacha20_NONCEBYTES
+crypto_stream_chacha20_KEYBYTES
+crypto_stream_chacha20_ietf_NONCEBYTES
+crypto_stream_chacha20_ietf_KEYBYTES
+crypto_stream_xchacha20_NONCEBYTES
+crypto_stream_xchacha20_KEYBYTES
+crypto_core_ristretto255_BYTES
+crypto_core_ristretto255_HASHBYTES
+crypto_core_ristretto255_SCALARBYTES
+crypto_core_ristretto255_NONREDUCEDSCALARBYTES
+crypto_auth_hmacsha256_BYTES
+crypto_auth_hmacsha256_KEYBYTES
+crypto_auth_hmacsha512_BYTES
+crypto_auth_hmacsha512_KEYBYTES
+crypto_auth_hmacsha512256_BYTES
+crypto_auth_hmacsha512256_KEYBYTES
+crypto_kdf_BYTES_MIN
+crypto_kdf_BYTES_MAX
+crypto_kdf_CONTEXTBYTES
+crypto_kdf_KEYBYTES
+crypto_kdf_hkdf_sha256_KEYBYTES
+crypto_kdf_hkdf_sha256_BYTES_MIN
+crypto_kdf_hkdf_sha256_BYTES_MAX
+crypto_kdf_hkdf_sha256_STATEBYTES
+
+wget https://hyperelliptic.org/nacl/nacl-20110221.tar.bz2
+     bunzip2 < nacl-20110221.tar.bz2 | tar -xf -
+     cd nacl-20110221
+     ./do
+
+     #include "crypto_hash.h"
+
+     int crypto_hash(unsigned char *out,const unsigned char *in,unsigned long long inlen)
+     {
+       ...
+     }
+An accompanying file crypto_hash/sha512/ref/api.h says
+     #define CRYPTO_BYTES 64
+  #define crypto_hash crypto_hash_sha512
+     #define crypto_hash_sha512 crypto_hash_sha512_ref
+     #define crypto_hash_BYTES crypto_hash_sha512_BYTES
+     #define crypto_hash_sha512_BYTES crypto_hash_sha512_ref_BYTES
+     #define crypto_hash_sha512_ref_BYTES 64
+     #define crypto_hash_PRIMITIVE "sha512"
+     #define crypto_hash_IMPLEMENTATION crypto_hash_sha512_IMPLEMENTATION
+     #define crypto_hash_sha512_IMPLEMENTATION "crypto_hash/sha512/ref"
+This means that hash.c actually defines a crypto_hash_sha512_ref function. Normally, as an implementor, you don't have to think about this; but if you avoid including crypto_hash.h (for example, because you're actually writing hash.s instead of hash.c) then you should make sure to define crypto_hash_sha512_ref.
+
+     #include "crypto_box.h"
+     
+     std::string pk;
+     std::string sk;
+     
+     pk = crypto_box_keypair(&sk);
+
+    #include "crypto_box.h"
+     
+     std::string pk;
+     std::string sk;
+     std::string n;
+     std::string m;
+     std::string c;
+
+     c = crypto_box(m,n,pk,sk);
+
+     #include "crypto_box.h"
+     
+     std::string pk;
+     std::string sk;
+     std::string n;
+     std::string c;
+     std::string m;
+
+     m = crypto_box_open(c,n,pk,sk);
+
+     #include "crypto_box.h"
+     
+     unsigned char pk[crypto_box_PUBLICKEYBYTES];
+     unsigned char sk[crypto_box_SECRETKEYBYTES];
+     
+     crypto_box_keypair(pk,sk);
+The crypto_box_keypair function randomly generates a secret key and a corresponding public key. It puts the secret key into sk[0], sk[1], ..., sk[crypto_box_SECRETKEYBYTES-1] and puts the public key into pk[0], pk[1], ..., pk[crypto_box_PUBLICKEYBYTES-1]. It then returns 0.
+
+C NaCl also provides a crypto_box function callable as follows:
+
+     #include "crypto_box.h"
+     
+     const unsigned char pk[crypto_box_PUBLICKEYBYTES];
+     const unsigned char sk[crypto_box_SECRETKEYBYTES];
+     const unsigned char n[crypto_box_NONCEBYTES];
+     const unsigned char m[...]; unsigned long long mlen;
+     unsigned char c[...];
+     
+     crypto_box(c,m,mlen,n,pk,sk);
+     #include "crypto_box.h"
+     
+     const unsigned char pk[crypto_box_PUBLICKEYBYTES];
+     const unsigned char sk[crypto_box_SECRETKEYBYTES];
+     const unsigned char n[crypto_box_NONCEBYTES];
+     const unsigned char c[...]; unsigned long long clen;
+     unsigned char m[...];
+     
+     crypto_box_open(m,c,clen,n,pk,sk);
+
+The crypto_box_beforenm function is callable as follows:
+
+     #include "crypto_box.h"
+     
+     unsigned char k[crypto_box_BEFORENMBYTES];
+     const unsigned char pk[crypto_box_PUBLICKEYBYTES];
+     const unsigned char sk[crypto_box_SECRETKEYBYTES];
+     
+     crypto_box_beforenm(k,pk,sk);
+The crypto_box_afternm function is callable as follows:
+     #include "crypto_box.h"
+     
+     const unsigned char k[crypto_box_BEFORENMBYTES];
+     const unsigned char n[crypto_box_NONCEBYTES];
+     const unsigned char m[...]; unsigned long long mlen;
+     unsigned char c[...];
+     
+     crypto_box_afternm(c,m,mlen,n,k);
+The crypto_box_open_afternm function is callable as follows:
+     #include "crypto_box.h"
+     
+     const unsigned char k[crypto_box_BEFORENMBYTES];
+     const unsigned char n[crypto_box_NONCEBYTES];
+     const unsigned char c[...]; unsigned long long clen;
+     unsigned char m[...];
+     
+     crypto_box_open_afternm(m,c,clen,n,k);
+
+Breadcrumbs
+# encoding: binary # frozen_string_literal: true module RbNaCl module SecretBoxes # The SecretBox class boxes and unboxes messages # # This class uses the given secret key to encrypt and decrypt messages. # # It is VITALLY important that the nonce is a nonce, i.e. it is a number used # only once for any given pair of keys. If you fail to do this, you # compromise the privacy of the messages encrypted. Give your nonces a # different prefix, or have one side use an odd counter and one an even counter. # Just make sure they are different. # # The ciphertexts generated by this class include a 16-byte authenticator which # is checked as part of the decryption. An invalid authenticator will cause # the unbox function to raise. The authenticator is not a signature. Once # you've looked in the box, you've demonstrated the ability to create # arbitrary valid messages, so messages you send are repudiable. For # non-repudiable messages, sign them before or after encryption. class XSalsa20Poly1305 extend Sodium sodium_type :secretbox sodium_primitive :xsalsa20poly1305 sodium_constant :KEYBYTES sodium_constant :NONCEBYTES sodium_constant :ZEROBYTES sodium_constant :BOXZEROBYTES sodium_function :secretbox_xsalsa20poly1305, :crypto_secretbox_xsalsa20poly1305, %i[pointer pointer ulong_long pointer pointer] sodium_function :secretbox_xsalsa20poly1305_open, :crypto_secretbox_xsalsa20poly1305_open, %i[pointer pointer ulong_long pointer pointer] # Create a new SecretBox # # Sets up the Box with a secret key fro encrypting and decrypting messages. # # @param key [String] The key to encrypt and decrypt with # # @raise [RbNaCl::LengthError] on invalid keys # # @return [RbNaCl::SecretBox] The new Box, ready to use def initialize(key) @key = Util.check_string(key, KEYBYTES, "Secret key") end # Encrypts a message # # Encrypts the message with the given nonce to the key set up when # initializing the class. Make sure the nonce is unique for any given # key, or you might as well just send plain text. # # This function takes care of the padding required by the NaCL C API. # # @param nonce [String] A 24-byte string containing the nonce. # @param message [String] The message to be encrypted. # # @raise [RbNaCl::LengthError] If the nonce is not valid # # @return [String] The ciphertext without the nonce prepended (BINARY encoded) def box(nonce, message) Util.check_length(nonce, nonce_bytes, "Nonce") msg = Util.prepend_zeros(ZEROBYTES, message) ct = Util.zeros(msg.bytesize) success = self.class.secretbox_xsalsa20poly1305(ct, msg, msg.bytesize, nonce, @key) raise CryptoError, "Encryption failed" unless success Util.remove_zeros(BOXZEROBYTES, ct) end alias encrypt box # Decrypts a ciphertext # # Decrypts the ciphertext with the given nonce using the key setup when # initializing the class. # # This function takes care of the padding required by the NaCL C API. # # @param nonce [String] A 24-byte string containing the nonce. # @param ciphertext [String] The message to be decrypted. # # @raise [RbNaCl::LengthError] If the nonce is not valid # @raise [RbNaCl::CryptoError] If the ciphertext cannot be authenticated. # # @return [String] The decrypted message (BINARY encoded) def open(nonce, ciphertext) Util.check_length(nonce, nonce_bytes, "Nonce") ct = Util.prepend_zeros(BOXZEROBYTES, ciphertext) message = Util.zeros(ct.bytesize) success = self.class.secretbox_xsalsa20poly1305_open(message, ct, ct.bytesize, nonce, @key) raise CryptoError, "Decryption failed. Ciphertext failed verification." unless success Util.remove_zeros(ZEROBYTES, message) end alias decrypt open # The crypto primitive for the SecretBox instance # # @return [Symbol] The primitive used def primitive self.class.primitive end # The nonce bytes for the SecretBox class # # @return [Integer] The number of bytes in a valid nonce def self.nonce_bytes NONCEBYTES end # The nonce bytes for the SecretBox instance # # @return [Integer] The number of bytes in a valid nonce def nonce_bytes NONCEBYTES end # The key bytes for the SecretBox class # # @return [Integer] The number of bytes in a valid key def self.key_bytes KEYBYTES end # The key bytes for the SecretBox instance # # @return [Integer] The number of bytes in a valid key def key_bytes KEYBYTES end end end end
+
+
+whsec_5V2GHGaht2mGJGNOmesTtTaxuJWFRssS
+Hide
+API version	
+2023-10-16
+Listening to	
+account.application.authorized
+account.application.deauthorized
+account.external_account.created
+account.external_account.deleted
+account.external_account.updated
+View all
+Edit
+Today
+
+sigma.scheduled_query_run.created
+Mar 22, 2024, 4:30:38 AM
+
+file.created
+Mar 22, 2024, 4:30:38 AM
+Yesterday
+
+checkout.session.expired
+Mar 21, 2024, 4:31:48 PM
+
+sigma.scheduled_query_run.created
+Mar 21, 2024, 3:29:21 AM
+
+file.created
+Mar 21, 2024
+
+import stripe
+stripe.api_key = "sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+
+import stripe
+charge = stripe.Charge.retrieve(
+  "ch_3Ln3e92eZvKYlo2C0eUfv7bi",
+  api_key="sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+)
+charge.capture() # Uses the same API Key.
+
+import stripe
+charge = stripe.Charge.retrieve(
+  "ch_3Lmjoz2eZvKYlo2C1rBER4Dk",
+  stripe_account="acct_1032D82eZvKYlo2C"
+)
+charge.capture() # Uses the same account.
+
+try:
+  # Use Stripe's library to make requests...
+  pass
+except stripe.error.CardError as e:
+  # Since it's a decline, stripe.error.CardError will be caught
+
+  print('Status is: %s' % e.http_status)
+  print('Code is: %s' % e.code)
+  # param is '' in this case
+  print('Param is: %s' % e.param)
+  print('Message is: %s' % e.user_message)
+except stripe.error.RateLimitError as e:
+  # Too many requests made to the API too quickly
+  pass
+except stripe.error.InvalidRequestError as e:
+  # Invalid parameters were supplied to Stripe's API
+  pass
+except stripe.error.AuthenticationError as e:
+  # Authentication with Stripe's API failed
+  # (maybe you changed API keys recently)
+  pass
+except stripe.error.APIConnectionError as e:
+  # Network communication with Stripe failed
+  pass
+except stripe.error.StripeError as e:
+  # Display a very generic error to the user, and maybe send
+  # yourself an email
+  pass
+except Exception as e:
+  # Something else happened, completely unrelated to Stripe
+  pass
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Charge.retrieve(
+  'ch_3Ln0cK2eZvKYlo2C1QmvaARY',
+  expand=['customer', 'invoice.subscription']
+)
+
+{
+  "id": "ch_3LmzzQ2eZvKYlo2C0XjzUzJV",
+  "object": "charge",
+  "customer": {
+    "id": "cu_14HOpH2eZvKYlo2CxXIM7Pb2",
+    "object": "customer",
+    // ...
+  },
+  "invoice": {
+    "id": "in_1LmzzQ2eZvKYlo2CpyWn8szu",
+    "object": "invoice",
+    "subscription": {
+      "id": "su_1LmzoG2eZvKYlo2Cpw6S7dAq",
+      "object": "subscription",
+      // ...
+    },
+    // ...
+  },
+  // ...
+}
+import stripe
+stripe.api_key = 'sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq'
+customer = stripe.Customer.create(
+  description='My First Test Customer',
+  idempotency_key='KG5LxwFBepaKHyUD',
+)
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Customer.create(metadata={"order_id": "6735"})
+
+RESPONSE
+{
+  "object": "search_result",
+  "url": "/v1/customers/search",
+  "has_more": false,
+  "data": [
+    {
+      "id": "cus_4QFJOjw2pOmAGJ",
+      "object": "customer",
+      "address": null,
+      "balance": 0,
+      "created": 1405641735,
+      "currency": "usd",
+      "default_source": "card_14HOpG2eZvKYlo2Cz4u5AJG5",
+      "delinquent": false,
+      "description": "someone@example.com for Coderwall",
+      "discount": null,
+      "email": null,
+      "invoice_prefix": "7D11B54",
+      "invoice_settings": {
+        "custom_fields": null,
+        "default_payment_method": null,
+        "footer": null,
+        "rendering_options": null
+      },
+      "livemode": false,
+      "metadata": {
+        "foo": "bar"
+      },
+      "name": "fakename",
+      "next_invoice_sequence": 25,
+      "phone": null,
+      "preferred_locales": [],
+      "shipping": null,
+      "tax_exempt": "none",
+      "test_clock": null
+    },
+    {...},
+    {...}
+  ]
+}
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+customers = stripe.Customer.list(limit=3)
+for customer in customers.auto_paging_iter():
+  # Do something with customer
+
+import stripe
+
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+
+customer = stripe.Customer.create()
+
+print(customer.last_response.request_id)
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+customer = stripe.Customer.create()
+print(customer.last_response.request_id)
+
+import stripe
+stripe.api_key = "sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.api_version = "2023-10-16"
+
+import stripe
+stripe.api_key = "sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+
+stripe.Balance.retrieve()
+OBJECT
+{
+  "object": "customer_session",
+  "client_secret": "_POpxYpmkXdtttYtZQYhrsOJZ2RCQ9kCqqXRU6qrP5c4Jgje",
+  "components": {
+    "buy_button": {
+      "enabled": false
+    },
+    "pricing_table": {
+      "enabled": true
+    }
+  },
+  "customer": "cus_PO34b57IOUb83c",
+  "expires_at": 1684790027,
+  "livemode": false
+}
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.CustomerSession.create(
+  customer="cus_PO34b57IOUb83c",
+  components={"pricing_table": {"enabled": True}},
+)
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Dispute.modify(
+  "dp_1MtJUT2eZvKYlo2CNaw2HvEv",
+  metadata={"order_id": "6735"},
+)
+RESPONSE
+{
+  "id": "dp_1MtJUT2eZvKYlo2CNaw2HvEv",
+  "object": "dispute",
+  "amount": 1000,
+  "balance_transactions": [],
+  "charge": "ch_1AZtxr2eZvKYlo2CJDX8whov",
+  "created": 1680651737,
+  "currency": "usd",
+  "evidence": {
+    "access_activity_log": null,
+    "billing_address": null,
+    "cancellation_policy": null,
+    "cancellation_policy_disclosure": null,
+    "cancellation_rebuttal": null,
+    "customer_communication": null,
+    "customer_email_address": null,
+    "customer_name": null,
+    "customer_purchase_ip": null,
+    "customer_signature": null,
+    "duplicate_charge_documentation": null,
+    "duplicate_charge_explanation": null,
+    "duplicate_charge_id": null,
+    "product_description": null,
+    "receipt": null,
+    "refund_policy": null,
+    "refund_policy_disclosure": null,
+    "refund_refusal_explanation": null,
+    "service_date": null,
+    "service_documentation": null,
+    "shipping_address": null,
+    "shipping_carrier": null,
+    "shipping_date": null,
+    "shipping_documentation": null,
+    "shipping_tracking_number": null,
+    "uncategorized_file": null,
+    "uncategorized_text": null
+  },
+  "evidence_details": {
+    "due_by": 1682294399,
+    "has_evidence": false,
+    "past_due": false,
+    "submission_count": 0
+  },
+  "is_charge_refundable": true,
+  "livemode": false,
+  "metadata": {
+    "order_id": "6735"
+  },
+  "payment_intent": null,
+  "reason": "general",
+  "status": "warning_needs_response"
+}
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Dispute.retrieve("dp_1MtJUT2eZvKYlo2CNaw2HvEv")
+RESPONSE
+{
+  "id": "dp_1MtJUT2eZvKYlo2CNaw2HvEv",
+  "object": "dispute",
+  "amount": 1000,
+  "balance_transactions": [],
+  "charge": "ch_1AZtxr2eZvKYlo2CJDX8whov",
+  "created": 1680651737,
+  "currency": "usd",
+  "evidence": {
+    "access_activity_log": null,
+    "billing_address": null,
+    "cancellation_policy": null,
+    "cancellation_policy_disclosure": null,
+    "cancellation_rebuttal": null,
+    "customer_communication": null,
+    "customer_email_address": null,
+    "customer_name": null,
+    "customer_purchase_ip": null,
+    "customer_signature": null,
+    "duplicate_charge_documentation": null,
+    "duplicate_charge_explanation": null,
+    "duplicate_charge_id": null,
+    "product_description": null,
+    "receipt": null,
+    "refund_policy": null,
+    "refund_policy_disclosure": null,
+    "refund_refusal_explanation": null,
+    "service_date": null,
+    "service_documentation": null,
+    "shipping_address": null,
+    "shipping_carrier": null,
+    "shipping_date": null,
+    "shipping_documentation": null,
+    "shipping_tracking_number": null,
+    "uncategorized_file": null,
+    "uncategorized_text": null
+  },
+  "evidence_details": {
+    "due_by": 1682294399,
+    "has_evidence": false,
+    "past_due": false,
+    "submission_count": 0
+  },
+  "is_charge_refundable": true,
+  "livemode": false,
+  "metadata": {},
+  "payment_intent": null,
+  "reason": "general",
+  "status": "warning_needs_response"
+}
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Dispute.list(limit=3)
+RESPONSE
+{
+  "object": "list",
+  "url": "/v1/disputes",
+  "has_more": false,
+  "data": [
+    {
+      "id": "dp_1MtJUT2eZvKYlo2CNaw2HvEv",
+      "object": "dispute",
+      "amount": 1000,
+      "balance_transactions": [],
+      "charge": "ch_1AZtxr2eZvKYlo2CJDX8whov",
+      "created": 1680651737,
+      "currency": "usd",
+      "evidence": {
+        "access_activity_log": null,
+        "billing_address": null,
+        "cancellation_policy": null,
+        "cancellation_policy_disclosure": null,
+        "cancellation_rebuttal": null,
+        "customer_communication": null,
+        "customer_email_address": null,
+        "customer_name": null,
+        "customer_purchase_ip": null,
+        "customer_signature": null,
+        "duplicate_charge_documentation": null,
+        "duplicate_charge_explanation": null,
+        "duplicate_charge_id": null,
+        "product_description": null,
+        "receipt": null,
+        "refund_policy": null,
+        "refund_policy_disclosure": null,
+        "refund_refusal_explanation": null,
+        "service_date": null,
+        "service_documentation": null,
+        "shipping_address": null,
+        "shipping_carrier": null,
+        "shipping_date": null,
+        "shipping_documentation": null,
+        "shipping_tracking_number": null,
+        "uncategorized_file": null,
+        "uncategorized_text": null
+      },
+      "evidence_details": {
+        "due_by": 1682294399,
+        "has_evidence": false,
+        "past_due": false,
+        "submission_count": 0
+      },
+      "is_charge_refundable": true,
+      "livemode": false,
+      "metadata": {},
+      "payment_intent": null,
+      "reason": "general",
+      "status": "warning_needs_response"
+    }
+    {...}
+    {...}
+  ],
+}
+id": "evt_1NG8Du2eZvKYlo2CUI79vXWy",
+  "object": "event",
+  "api_version": "2019-02-19",
+  "created": 1686089970,
+  "data": {
+    "object": {
+      "id": "seti_1NG8Du2eZvKYlo2C9XMqbR0x",
+      "object": "setup_intent",
+      "application": null,
+      "automatic_payment_methods": null,
+      "cancellation_reason": null,
+      "client_secret": "seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ",
+      "created": 1686089970,
+      "customer": null,
+      "description": null,
+      "flow_directions": null,
+      "last_setup_error": null,
+      "latest_attempt": null,
+      "livemode": false,
+      "mandate": null,
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_method": "pm_1NG8Du2eZvKYlo2CYzzldNr7",
+      "payment_method_options": {
+        "acss_debit": {
+          "currency": "cad",
+          "mandate_options": {
+            "interval_description": "First day of every month",
+            "payment_schedule": "interval",
+            "transaction_type": "personal"
+          },
+          "verification_method": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "acss_debit"
+      ],
+      "single_use_mandate": null,
+      "status": "requires_confirmation",
+      "usage": "off_session"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 0,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "setup_intent.created"
+}
+Retrieve
+
+      "single_use_mandate": null,
+
+      "status": "requires_confirmation",
+
+      "usage": "off_session"
+
+    }
+
+  },
+
+  "livemode": false,
+
+  "pending_webhooks": 0,
+
+  "request": {
+
+    "id": null,
+
+    "idempotency_key": null
+
+  },
+
+  "type": "setup_intent.created"
+
+}
+import stripe
+
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+
+stripe.Event.retrieve("evt_1NG8Du2eZvKYlo2CUI79vXWy")
+
+{
+
+  "id": "evt_1NG8Du2eZvKYlo2CUI79vXWy",
+
+  "object": "event",
+
+  "api_version": "2019-02-19",
+
+  "created": 1686089970,
+
+  "data": {
+
+    "object": {
+
+      "id": "seti_1NG8Du2eZvKYlo2C9XMqbR0x",
+
+      "object": "setup_intent",
+
+      "application": null,
+
+      "automatic_payment_methods": null,
+
+      "cancellation_reason": null,
+
+      "client_secret": "seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ",
+
+      "created": 1686089970,
+
+      "customer": null,
+
+      "description": null,
+
+      "flow_directions": null,
+
+      "last_setup_error": null,
+
+      "latest_attempt": null,
+
+      "livemode": false,
+
+      "mandate": null,
+
+      "metadata": {},
+
+      "next_action": null,
+
+      "on_behalf_of": null,
+
+      "payment_method": "pm_1NG8Du2eZvKYlo2CYzzldNr7",
+
+      "payment_method_options": {
+
+        "acss_debit": {
+
+          "currency": "cad",
+
+          "mandate_options": {
+
+            "interval_description": "First day of every month",
+
+            "payment_schedule": "interval",
+
+            "transaction_type": "personal"
+
+          },
+
+          "verification_method": "automatic"
+
+        }
+
+      },
+
+      "payment_method_types": [
+
+        "acss_debit"
+
+      ],
+
+      "single_use_mandate": null,
+
+      "status": "requires_confirmation",
+
+      "usage": "off_session"
+
+    }
+
+  },
+
+  "livemode": false,
+
+  "pending_webhooks": 0,
+
+  "request": {
+
+    "id": null,
+
+    "idempotency_key": null
+
+  },
+
+  "type": "setup_intent.created"
+
+}
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Event.retrieve("evt_1NG8Du2eZvKYlo2CUI79vXWy")
+
+
+{
+  "id": "evt_1NG8Du2eZvKYlo2CUI79vXWy",
+  "object": "event",
+  "api_version": "2019-02-19",
+  "created": 1686089970,
+  "data": {
+    "object": {
+      "id": "seti_1NG8Du2eZvKYlo2C9XMqbR0x",
+      "object": "setup_intent",
+      "application": null,
+      "automatic_payment_methods": null,
+      "cancellation_reason": null,
+      "client_secret": "seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ",
+      "created": 1686089970,
+      "customer": null,
+      "description": null,
+      "flow_directions": null,
+      "last_setup_error": null,
+      "latest_attempt": null,
+      "livemode": false,
+      "mandate": null,
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_method": "pm_1NG8Du2eZvKYlo2CYzzldNr7",
+      "payment_method_options": {
+        "acss_debit": {
+          "currency": "cad",
+          "mandate_options": {
+            "interval_description": "First day of every month",
+            "payment_schedule": "interval",
+            "transaction_type": "personal"
+          },
+          "verification_method": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "acss_debit"
+      ],
+      "single_use_mandate": null,
+      "status": "requires_confirmation",
+      "usage": "off_session"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 0,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "setup_intent.created"
+}
+var stripe = Stripe('pk_test_51OR5ePGF83d3fsgWcl7ad29rrqOUNvjdYXN1JrElZlEyDloYQpFPuxSeRZH8KiCgvshlSaDYnuu1xxYiiWOCHj7W00Nrph1csX');
+
+// Call your backend to create the VerificationSession
+fetch('/create-verification-session', {
+  method: 'POST',
+})
+.then(function(response) {
+  return response.json();
+})
+.then(function(verificationSession) {
+  return stripe.verifyIdentity(verificationSession.client_secret);
+})
+.then(function(result) {
+  // If `verifyIdentity` fails due to a browser or network
+  // error, you should display the localized error message to your
+  // customer using `error.message`.
+  if (result.error) {
+    alert(result.error.message);
+  }
+});
+stripe
+  .createEphemeralKeyNonce({
+    issuingCard: 'ic_1ITi6XKYfU8ZP6raDAXem8ql'
+  })
+  .then(function(result) {
+    // Handle result.error or result.nonce
+  });
+
+var stripe = Stripe('pk_test_51OR5ePGF83d3fsgWcl7ad29rrqOUNvjdYXN1JrElZlEyDloYQpFPuxSeRZH8KiCgvshlSaDYnuu1xxYiiWOCHj7W00Nrph1csX');
+
+// Call your backend to create the VerificationSession
+fetch('/create-verification-session', {
+  method: 'POST',
+})
+.then(function(response) {
+  return response.json();
+})
+.then(function(verificationSession) {
+  return stripe.verifyIdentity(verificationSession.client_secret);
+})
+.then(function(result) {
+  // If `verifyIdentity` fails due to a browser or network
+  // error, you should display the localized error message to your
+  // customer using `error.message`.
+  if (result.error) {
+    alert(result.error.message);
+  }
+});
+stripe.createToken(cardElement).then(function(result) {
+  // Handle result.error or result.token
+});
+
+OBJECT
+{
+  "id": "tok_1N3T00LkdIwHu7ixt44h1F8k",
+  "object": "token",
+  "card": {
+    "id": "card_1N3T00LkdIwHu7ixRdxpVI1Q",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "cvc_check": "unchecked",
+    "dynamic_last4": null,
+    "exp_month": 5,
+    "exp_year": 2024,
+    "fingerprint": "mToisGZ01V71BCos",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {},
+    "name": null,
+    "tokenization_method": null,
+    "wallet": null
+  },
+  "client_ip": "52.35.78.6",
+  "created": 1683071568,
+  "livemode": false,
+  "type": "card",
+  "used": false
+}
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Token.create(
+  account={
+    "individual": {"first_name": "Jane", "last_name": "Doe"},
+    "tos_shown_and_accepted": True,
+  },
+)
+
+{
+  "id": "ct_1BZ6xr2eZvKYlo2CsSOhuTfi",
+  "object": "token",
+  "client_ip": "104.198.25.169",
+  "created": 1513297331,
+  "livemode": false,
+  "redaction": null,
+  "type": "account",
+  "used": false
+}
+
+import stripe
+stripe.api_key = "sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+
+stripe.Token.create(
+  bank_account={
+    "country": "US",
+    "currency": "usd",
+    "account_holder_name": "Jenny Rosen",
+    "account_holder_type": "individual",
+    "routing_number": "110000000",
+    "account_number": "000123456789",
+  },
+)
+
+PONSE
+{
+  "id": "tok_1N3T00LkdIwHu7ixt44h1F8k",
+  "object": "token",
+  "bank_account": {
+    "id": "ba_1NWScr2eZvKYlo2C8MgV5Cwn",
+    "object": "bank_account",
+    "account_holder_name": "Jenny Rosen",
+    "account_holder_type": "individual",
+    "account_type": null,
+    "bank_name": "STRIPE TEST BANK",
+    "country": "US",
+    "currency": "usd",
+    "fingerprint": "1JWtPxqbdX5Gamtz",
+    "last4": "6789",
+    "routing_number": "110000000",
+    "status": "new"
+  },
+  "client_ip": null,
+  "created": 1689981645,
+  "livemode": false,
+  "redaction": null,
+  "type": "bank_account",
+  "used": false
+}
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Token.create(
+  card={
+    "number": "4242424242424242",
+    "exp_month": "5",
+    "exp_year": "2024",
+    "cvc": "314",
+  },
+)
+RESPONSE
+{
+  "id": "tok_1N3T00LkdIwHu7ixt44h1F8k",
+  "object": "token",
+  "card": {
+    "id": "card_1N3T00LkdIwHu7ixRdxpVI1Q",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "cvc_check": "unchecked",
+    "dynamic_last4": null,
+    "exp_month": 5,
+    "exp_year": 2024,
+    "fingerprint": "mToisGZ01V71BCos",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {},
+    "name": null,
+    "tokenization_method": null,
+    "wallet": null
+  },
+  "client_ip": "52.35.78.6",
+  "created": 1683071568,
+  "livemode": false,
+  "type": "card",
+  "used": false
+}
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Token.create(cvc_update={"cvc": "123"})
+RESPONSE
+{
+  "id": "cvctok_1NkWsu2eZvKYlo2CFDm6ab7X",
+  "object": "token",
+  "client_ip": null,
+  "created": 1693334608,
+  "livemode": false,
+  "redaction": null,
+  "type": "cvc_update",
+  "used": false
+}
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Token.create(
+  person={"first_name": "Jane", "last_name": "Doe", "relationship": {"owner": True}},
+)
+RESPONSE
+{
+  "id": "cpt_1EDww82eZvKYlo2CsdelTHFu",
+  "object": "token",
+  "client_ip": "8.21.168.117",
+  "created": 1552582904,
+  "livemode": false,
+  "redaction": null,
+  "type": "person",
+  "used": false
+}
+
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.Token.create(pii={"id_number": "000000000"})
+RESPONSE
+{
+  "id": "pii_18PwbX2eZvKYlo2CzRXgwN3J",
+  "object": "token",
+  "client_ip": "124.123.76.134",
+  "created": 1466783547,
+  "livemode": false,
+  "redaction": null,
+  "type": "pii",
+  "used": false
+}
+stripe
+  .createToken('pii', {
+    personal_id_number: '123131185',
+  })
+  .then(function(result) {
+    // Handle result.error or result.token
+  });
+
+var stripe = Stripe('pk_test_51OR5ePGF83d3fsgWcl7ad29rrqOUNvjdYXN1JrElZlEyDloYQpFPuxSeRZH8KiCgvshlSaDYnuu1xxYiiWOCHj7W00Nrph1csX');
+
+// Call your backend to create the VerificationSession
+fetch('/create-verification-session', {
+  method: 'POST',
+})
+.then(function(response) {
+  return response.json();
+})
+.then(function(verificationSession) {
+  return stripe.verifyIdentity(verificationSession.client_secret);
+})
+.then(function(result) {
+  // If `verifyIdentity` fails due to a browser or network
+  // error, you should display the localized error message to your
+  // customer using `error.message`.
+  if (result.error) {
+    alert(result.error.message);
+  }
+});
+
+stripe
+  .createEphemeralKeyNonce({
+    issuingCard: 'ic_1ITi6XKYfU8ZP6raDAXem8ql'
+  })
+  .then(function(result) {
+    // Handle result.error or result.nonce
+  });
+# This example sets up an endpoint using the Flask framework.
+# Watch this video to get started: https://youtu.be/7Ul1vfmsDck
+
+import stripe
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+stripe.api_key = 'sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq'
+
+@app.route('/ephemeral-keys', methods=['POST'])
+def ephemeral_keys():
+  ephemeralKey = stripe.EphemeralKey.create(
+    nonce=request.args.get('nonce'),
+    issuing_card=request.args.get('card_id'),
+    stripe_version='2023-10-16',
+  )
+
+  return jsonify(
+    ephemeralKeySecret=ephemeralKey.secret,
+  )
+const stripe = Stripe('pk_test_51OR5ePGF83d3fsgWcl7ad29rrqOUNvjdYXN1JrElZlEyDloYQpFPuxSeRZH8KiCgvshlSaDYnuu1xxYiiWOCHj7W00Nrph1csX');
+
+// Initialize Elements which you'll need later
+const elements = stripe.elements();
+
+// Use Stripe.js to create a nonce
+const cardId = 'ic_1ITi6XKYfU8ZP6raDAXem8ql';
+const nonceResult = await stripe.createEphemeralKeyNonce({
+  issuingCard: cardId,
+});
+const nonce = nonceResult.nonce;
+
+// Call your ephemeral key creation endpoint to fetch the ephemeral key
+const ephemeralKeyResult = await fetch('/ephemeral-keys', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    card_id: cardId,
+    nonce: nonce,
+  })
+});
+
+const ephemeralKeyResponse = await ephemeralKeyResult.json();
+const ephemeralKeySecret = ephemeralKeyResponse.ephemeralKeySecret;
+
+var element = elements.create('card', {
+  style: {
+    base: {
+      iconColor: '#c4f0ff',
+      color: '#fff',
+      fontWeight: '500',
+      fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
+      fontSize: '16px',
+      fontSmoothing: 'antialiased',
+      ':-webkit-autofill': {
+        color: '#fce883',
+      },
+      '::placeholder': {
+        color: '#87BBFD',
+      },
+    },
+    invalid: {
+      iconColor: '#FFC7EE',
+      color: '#FFC7EE',
+    },
+  },
+});
+
+{
+  status: 'success',
+  total: {
+    amount: 15000,
+    label: 'A soft cotton shirt',
+  },
+}
+var stripe = Stripe('pk_test_51OR5ePGF83d3fsgWcl7ad29rrqOUNvjdYXN1JrElZlEyDloYQpFPuxSeRZH8KiCgvshlSaDYnuu1xxYiiWOCHj7W00Nrph1csX', {
+  locale: 'fr'
+});
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+// Call your backend to create the Checkout Session
+fetch('/create-checkout-session', {
+  method: 'POST',
+})
+.then(function(response) {
+  return response.json();
+})
+.then(function(session) {
+  return stripe.redirectToCheckout({ sessionId: session.id });
+})
+.then(function(result) {
+  // If `redirectToCheckout` fails due to a browser or network
+  // error, you should display the localized error message to your
+  // customer using `error.message`.
+  if (result.error) {
+    alert(result.error.message);
+  }
+});
+stripe
+  .handleCardPayment('{pi_3MtweELkdIwHu7ix0Dt0gF2H_secret_ALlpPMIZse0ac8YzPxkMkFgGC}', element, {
+    payment_method_data: {
+      billing_details: {
+        name: 'Jenny Rosen',
+      },
+    },
+  })
+  .then(function(result) {
+    // Handle result.error or result.paymentIntent
+  });
+stripe listen --forward-to localhost:4242/webhook
+Ready! Your webhook signing secret is '{{whsec_ 5V2GHGaht2mGJGNOmesTtTaxuJWFRssS}}' (^C to quit)
+
+# Set your secret key. Remember to switch to your live secret key in production.
+# See your keys here: https://dashboard.stripe.com/apikeys
+stripe.api_key = 'sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq'
+
+intent = stripe.PaymentIntent.retrieve('{{pi_3MtwBwLkdIwHu7ix28a3tqPa}}')
+latest_charge = intent.latest_charge
+
+
+# Set your secret key. Remember to switch to your live secret key in production.
+# See your keys here: https://dashboard.stripe.com/apikeys
+import stripe
+stripe.api_key = "sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq""sk_test_51OR5ePGF83d3fsgWlh...xbcYsf8OF00CdDfT6Xq"
+
+stripe.Charge.list(payment_intent='{{pi_3MtweELkdIwHu7ix0Dt0gF2H_secret_ALlpPMIZse0ac8YzPxkMkFgGC}}')
+
+{
+  "id": "pi_3MtwBwLkdIwHu7ix28a3tqPa",
+  "object": "payment_intent",
+  "amount": 2000,
+  "amount_capturable": 0,
+  "amount_details": {
+    "tip": {}
+  },
+  "amount_received": 0,
+  "application": null,
+  "application_fee_amount": null,
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "canceled_at": null,
+  "cancellation_reason": null,
+  "capture_method": "automatic",
+  "client_secret": "pi_3MtwBwLkdIwHu7ix28a3tqPa_secret_YrKJUKribcBjcG8HVhfZluoGH/pi_3MtwBwLkdIwHu7ix28a3tqPa",
+  "confirmation_method": "automatic",
+  "created": 1680800504,
+  "currency": "usd",
+  "customer": null,
+  "description": null,
+  "invoice": null,
+  "last_payment_error": null,
+  "latest_charge": null,
+  "livemode": false,
+  "metadata": {},
+  "next_action": null,
+  "on_behalf_of": null,
+  "payment_method": null,
+  "payment_method_options": {
+    "card": {
+      "installments": null,
+      "mandate_options": null,
+      "network": null,
+      "request_three_d_secure": "automatic"
+    },
+    "link": {
+      "persistent_token": null
+    }
+  },
+  "payment_method_types": [
+    "card",
+    "link"
+  ],
+  "processing": null,
+  "receipt_email": null,
+  "review": null,
+  "setup_future_usage": null,
+  "shipping": null,
+  "source": null,
+  "statement_descriptor": null,
+  "statement_descriptor_suffix": null,
+  "status": "requires_payment_method",
+  "transfer_data": null,
+  "transfer_group": null
+}
+Create
+
+  "payment_method_types": [
+
+    "card"
+
+  ],
+
+  "processing": null,
+
+  "receipt_email": null,
+
+  "redaction": null,
+
+  "review": null,
+
+  "setup_future_usage": null,
+
+  "shipping": null,
+
+  "statement_descriptor": null,
+
+  "statement_descriptor_suffix": null,
+
+  "status": "succeeded",
+
+  "transfer_data": null,
+
+  "transfer_group": null
+
+}
+import stripe
+stripe.api_key = "sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+
+stripe.PaymentIntent.confirm(
+  "pi_3MtweELkdIwHu7ix0Dt0gF2H",
+  payment_method="pm_card_visa",
+  return_url="https://www.example.com",
+)
+RESPONSE
+{
+  "id": "pi_3MtweELkdIwHu7ix0Dt0gF2H",
+  "object": "payment_intent",
+  "amount": 2000,
+  "amount_capturable": 0,
+  "amount_details": {
+    "tip": {}
+  },
+  "amount_received": 2000,
+  "application": null,
+  "application_fee_amount": null,
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "canceled_at": null,
+  "cancellation_reason": null,
+  "capture_method": "automatic",
+  "client_secret": "pi_3MtweELkdIwHu7ix0Dt0gF2H_secret_ALlpPMIZse0ac8YzPxkMkFgGC",
+  "confirmation_method": "automatic",
+  "created": 1680802258,
+  "currency": "usd",
+  "customer": null,
+  "description": null,
+  "invoice": null,
+  "last_payment_error": null,
+  "latest_charge": "ch_3MtweELkdIwHu7ix05lnLAFd",
+  "livemode": false,
+  "metadata": {},
+  "next_action": null,
+  "on_behalf_of": null,
+  "payment_method": "pm_1MtweELkdIwHu7ixxrsejPtG",
+  "payment_method_options": {
+    "card": {
+      "installments": null,
+      "mandate_options": null,
+      "network": null,
+      "request_three_d_secure": "automatic"
+    },
+    "link": {
+      "persistent_token": null
+    }
+  },
+  "payment_method_types": [
+    "card",
+    "link"
+  ],
+  "processing": null,
+  "receipt_email": null,
+  "review": null,
+  "setup_future_usage": null,
+  "shipping": null,
+  "source": null,
+  "statement_descriptor": null,
+  "statement_descriptor_suffix": null,
+  "status": "succeeded",
+  "transfer_data": null,
+  "transfer_group": null
+}
+
+# Set your secret key. Remember to switch to your live secret key in production.
+# See your keys here: https://dashboard.stripe.com/apikeys
+client = StripeClient("sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq")
+
+client.payment_intents.create({
+  "amount": 1000,
+  "currency": "usd",
+  "payment_method_types": ["card_present"],
+  "capture_method": "manual",
+  "payment_method_options": {
+    "card_present": {"request_incremental_authorization_support": True},
+  },
+})
+{
+  "id": "pi_3MtwBwLkdIwHu7ix28a3tqPa",
+  "object": "payment_intent",
+  "amount": 2000,
+  "amount_capturable": 0,
+  "amount_details": {
+    "tip": {}
+  },
+  "amount_received": 0,
+  "application": null,
+  "application_fee_amount": null,
+  "automatic_payment_methods": {
+    "enabled": true
+  },
+  "canceled_at": null,
+  "cancellation_reason": null,
+  "capture_method": "automatic",
+  "client_secret": "pi_3MtwBwLkdIwHu7ix28a3tqPa_secret_YrKJUKribcBjcG8HVhfZluoGH",
+  "confirmation_method": "automatic",
+  "created": 1680800504,
+  "currency": "usd",
+  "customer": null,
+  "description": null,
+  "invoice": null,
+  "last_payment_error": null,
+  "latest_charge": null,
+  "livemode": false,
+  "metadata": {},
+  "next_action": null,
+  "on_behalf_of": null,
+  "payment_method": null,
+  "payment_method_options": {
+    "card": {
+      "installments": null,
+      "mandate_options": null,
+      "network": null,
+      "request_three_d_secure": "automatic"
+    },
+    "link": {
+      "persistent_token": null
+    }
+  },
+  "payment_method_types": [
+    "card",
+    "link"
+  ],
+  "processing": null,
+  "receipt_email": null,
+  "review": null,
+  "setup_future_usage": null,
+  "shipping": null,
+  "source": null,
+  "statement_descriptor": null,
+  "statement_descriptor_suffix": null,
+  "status": "requires_payment_method",
+  "transfer_data": null,
+  "transfer_group": null
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -22391,67 +24926,4 @@ curl --location --request PATCH 'https://manager.netify.ai/api/v1/assets/agents/
 
 curl --location 'https://manager.netify.ai/api/v1/assets/sites/00000000_0000_0000_0000_000000000000' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
 
-curl --location 'https://manager.netify.ai/api/v1/assets/sites' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-https://manager.netify.ai/api/v1/assets/sites?label=CPE1&organization_uuid={{e8197a53-28ed-4f30-82ac-2443940739b8}}&plan_id=1000000
-
-curl --location --request PATCH 'https://manager.netify.ai/api/v1/assets/sites/00000000_0000_0000_0000_000000000000?label=CPE1' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location -g 'https://manager.netify.ai/api/v1/assets/organizations/{{e8197a53-28ed-4f30-82ac-e8197a53-28ed-4f30-82ac-2443940739b}}' --header 'ak_2atIkJzKro4NLf7fn2yV6RNd'
-
-curl --location -g 'https://manager.netify.ai/api/v1/assets/organizations/{{dfb33af7_fa5a_4920_a4d4_e7742b2732460}}' --header 'ak_2atIkJzKro4NLf7fn2yV6RNd'
-
-curl --location --request POST 'https://manager.netify.ai/api/v1/assets/organizations?label=CPE1' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location -g --request PATCH 'https://manager.netify.ai/api/v1/assets/organizations/{{e8197a53-28ed-4f30-82ac-2443940739b8}}?label=CPE1' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location -g --request PATCH 'https://manager.netify.ai/api/v1/assets/organizations/{{dfb33af7_fa5a_4920_a4d4_e7742b2732460}}?label=CPE1' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location 'https://informatics.netify.ai/api/v1/data/stats/aggregate?filter_interval=1440' --header 'https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator'/ --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location 'https://informatics.netify.ai/api/v1/data/stats/datatable/application' --header 'https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location 'https://informatics.netify.ai/api/v1/data/stats/scorecard/application/download?filter_interval=1440' --header 'https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location 'https://informatics.netify.ai/api/v1/data/stats/summary' --header 'https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location 'https://informatics.netify.ai/api/v1/data/stats/summary' --header 'https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location 'https://informatics.netify.ai/api/v1/data/stats/top/application/download' --header 'https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location 'https://informatics.netify.ai/api/v1/data/flows/lookup/6285544?filter_interval=1440' --header 'https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location -g 'https://informatics.netify.ai/api/v1/data/flows/stream?filter_start_date=1574705594&filter_end_date=1574791994&filter_fields=[%22fandom.com%22]&filter_required_fields=[%22hfandom.com%22]' --header 'https://scpf-foundation-roblox.fandom.com/wiki/The_Administrator' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd'
-
-curl --location -g 'https://informatics.netify.ai/api/v1/event/events?filter_event_categories=[0]&filter_event_basename=agent.online&filter_event_severity=5' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd' --header 'x-net-organization: 'dfb33af7_fa5a_4920_a4d4_e7742b2732460' --header 'e8197a53-28ed-4f30-82ac-2443940739b8'
-
-curl --location 'https://informatics.netify.ai/api/v1/identity/devices/options' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd' --header 'e8197a53-28ed-4f30-82ac-2443940739b8' --header 'dfb33af7_fa5a_4920_a4d4_e7742b273246'
-
-curl --location --request POST 'https://informatics.netify.ai/api/v1/identity/device_macs?device_id=2&mac=f8%3A8f%3Aca%3A10%3Ac3%3Aff&label=-' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd' --header 'e8197a53-28ed-4f30-82ac-2443940739b8' --header 'dfb33af7_fa5a_4920_a4d4_e7742b273246'
-
-curl --location --request PATCH 'https://informatics.netify.ai/api/v1/identity/device_macs/f8:8f:ca:10:c3:dd?label=Intel%20GB' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd' --header 'dfb33af7_fa5a_4920_a4d4_e7742b273246'
-
-curl --location 'https://informatics.netify.ai/api/v1/identity/owners/options' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd' --header 'e8197a53-28ed-4f30-82ac-2443940739b8' --header 'dfb33af7_fa5a_4920_a4d4_e7742b273246'
-
-curl --location 'https://informatics.netify.ai/api/v1/identity/owners/options' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd' --header 'dfb33af7_fa5a_4920_a4d4_e7742b273246' --header 'e8197a53-28ed-4f30-82ac-2443940739b8'
-
-curl --location 'https://informatics.netify.ai/api/v1/identity/owners' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd' --header 'e8197a53-28ed-4f30-82ac-2443940739b8' --header 'dfb33af7_fa5a_4920_a4d4_e7742b273246'
-
-curl --location --request POST 'https://informatics.netify.ai/api/v1/identity/owners?first_name=Keith&last_name=Bieszczat' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd' --header 'e8197a53-28ed-4f30-82ac-2443940739b8' --header 'dfb33af7_fa5a_4920_a4d4_e7742b273246'
-
-curl --location --request PATCH 'https://informatics.netify.ai/api/v1/identity/owners/1004?last_name=Bieszczat%20III' --header 'ak_2atI9ikJZKro4NLf7fnt2yV6RNd' --header 'e8197a53-28ed-4f30-82ac-2443940739b8' --header 'dfb33af7_fa5a_4920_a4d4_e7742b273246'
-
-OVERSEER-GRATEFUL345I
-
-#000006
-
-Breadcrumbs OVERSEER-GRATEFUL345i
-
-#000006
-
-Breadcrumbs
-
-curl
--X POST -H "Authorization: Bearer {ak_2as1ORVjKAxTVjur5LeHun5z690}" -H "Content-Type: application/json" -H "Ngrok-Version: 2" -d '{"domain":"myapp.mydomain.com","region":"us","certificate_id":"cert_2arwYf0cqnJGX9y1yw4Ky2ZQRAe"}' https://api.ngrok.com/reserved_domains
-
-apiVersion: v1 kind: Secret metadata: name: 
+curl --location 'https://manager.netify.ai/a
