@@ -1,3 +1,183 @@
+"features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+}
+
+"name": "my-project-devcontainer",
+"image": "mcr.microsoft.com/devcontainers/base:ubuntu",  // Any generic, debian-based image.
+"features": {
+    "ghcr.io/devcontainers/features/go:1": {
+        "version": "1.18"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {
+        "version": "latest",
+        "moby": true
+    }
+}
+"features": {
+    "ghcr.io/devcontainers/features/go:1.0.0": {
+        "version": "1.18"
+    }
+}
+git clone <my-project-with-devcontainer>
+devcontainer build --workspace-folder <path-to-my-project-with-devcontainer>
+.
+├── README.md
+├── src
+│   ├── dotnet
+│   │   ├── devcontainer-feature.json
+│   │   └── install.sh
+│   ├── go
+│   │   ├── devcontainer-feature.json
+│   │   └── install.sh
+|   ├── ...
+│   │   ├── devcontainer-feature.json
+│   │   └── install.sh
+├── test
+│   ├── dotnet
+│   │   └── test.sh
+│   ├── go
+|   |   ├── scenarios.json
+|   |   ├── test_scenario_1.json
+│   |   └── test.sh
+|   ├── ...
+│   │   └── test.sh
+...
+"features": {
+    "ghcr.io/devcontainers/features/ruby:1": {}
+}
+
+"features": {
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {}
+}
+
+minikube start
+minikube addons enable ingress
+# Run this to forward to localhost in the background
+nohup kubectl port-forward --pod-running-timeout=24h -n ingress-nginx service/ingress-nginx-controller :80 &
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <GitHub token: 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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/artifacts/ARTIFACT_ID
+
+{
+  "id": 11,
+  "node_id": "MDg6QXJ0aWZhY3QxMQ==",
+  "name": "Rails",
+  "size_in_bytes": 556,
+  "url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/11",
+  "archive_download_url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/11/zip",
+  "expired": false,
+  "created_at": "2020-01-10T14:59:22Z",
+  "expires_at": "2020-01-21T14:59:22Z",
+  "updated_at": "2020-01-21T14:59:22Z",
+  "workflow_run": {
+    "id": 2332938,
+    "repository_id": 1296269,
+    "head_repository_id": 1296269,
+    "head_branch": "main",
+    "head_sha": "328faa0536e6fef19753d9d91dc96a9931694ce3"
+  }
+}
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <GitHub token: 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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/artifacts/ARTIFACT_ID/ARCHIVE_FORMAT
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <GitHub token: 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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/runs/RUN_ID/artifacts
+
+{
+  "total_count": 2,
+  "artifacts": [
+    {
+      "id": 11,
+      "node_id": "MDg6QXJ0aWZhY3QxMQ==",
+      "name": "Rails",
+      "size_in_bytes": 556,
+      "url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/11",
+      "archive_download_url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/11/zip",
+      "expired": false,
+      "created_at": "2020-01-10T14:59:22Z",
+      "expires_at": "2020-03-21T14:59:22Z",
+      "updated_at": "2020-02-21T14:59:22Z",
+      "workflow_run": {
+        "id": 2332938,
+        "repository_id": 1296269,
+        "head_repository_id": 1296269,
+        "head_branch": "main",
+        "head_sha": "328faa0536e6fef19753d9d91dc96a9931694ce3"
+      }
+    },
+    {
+      "id": 13,
+      "node_id": "MDg6QXJ0aWZhY3QxMw==",
+      "name": "Test output",
+      "size_in_bytes": 453,
+      "url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/13",
+      "archive_download_url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/13/zip",
+      "expired": false,
+      "created_at": "2020-01-10T14:59:22Z",
+      "expires_at": "2020-03-21T14:59:22Z",
+      "updated_at": "2020-02-21T14:59:22Z",
+      "workflow_run": {
+        "id": 2332942,
+        "repository_id": 1296269,
+        "head_repository_id": 1296269,
+        "head_branch": "main",
+        "head_sha": "178f4f6090b3fccad4a65b3e83d076a622d59652"
+      }
+    }
+  ]
+}
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <GitHub token: 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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/oidc/customization/sub
+
+Status: 200
+{
+  "include_claim_keys": [
+    "repo",
+    "context"
+  ]
+}
+
+curl -L \
+  -X PUT \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <GitHub token: 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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/actions/oidc/customization/sub \
+  -d '{"include_claim_keys":["repo","context"]}'
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <GitHub token: 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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/oidc/customization/sub
+
+curl -L \
+  -X PUT \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <GitHub token: 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>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/oidc/customization/sub \
+  -d '{"use_default":false,"include_claim_keys":["repo","context"]}'
+
+
+
+
+
+
+
 BHAHZGCJZK3BEVS7IRGZMKDF6USLO runner token apply to all commands
 
 gpg --encrypt --recipient 05D02D3D57ABFF46 FILENAME
@@ -22274,176 +22454,4 @@ Breadcrumbs
 curl
 -X POST -H "Authorization: Bearer {ak_2as1ORVjKAxTVjur5LeHun5z690}" -H "Content-Type: application/json" -H "Ngrok-Version: 2" -d '{"domain":"myapp.mydomain.com","region":"us","certificate_id":"cert_2arwYf0cqnJGX9y1yw4Ky2ZQRAe"}' https://api.ngrok.com/reserved_domains
 
-apiVersion: v1 kind: Secret metadata: name: github-webhook-secret type: Opaque data: secret-token: ""
-
-kind: NgrokModuleSet apiVersion: ingress.k8s.ngrok.com/v1alpha1 metadata: name: ngrok-module-set modules: webhookVerification: provider: twilio secret: name: "{twilio webhook secret}" key: secret-token
-
-apiVersion: networking.k8s.io/v1 kind: Ingress metadata: name: example-ingress annotations: k8s.ngrok.com/modules: ngrok-module-set spec: ingressClassName: ngrok rules: - host: your-domain.ngrok.app http: paths: - path: / pathType: Prefix backend: service: name: example-service port: number: 80 curl -X PUT -H "Authorization: Bearer {ak_2as1ORVjKAxTVjur5LeHun5z690} -H "Content-Type: application/json" -H "Ngrok-Version: 2" -d '{"enabled":true,"provider":"TWILIO","secret":"secret_token"}' https://api.ngrok.com/edges/https/edghts_2arwcDuk0T3vQ5nfcBxHwQrWqDj/routes/edghtsrt_2arwcCYIWJyPRtsZRV7Sghgiuf1/webhook_verification
-
-curl -X POST -H "Authorization: Bearer {ak_2as1ORVjKAxTVjur5LeHun5z690}" -H "Content-Type: application/json" -H "Ngrok-Version: 2" -d '{"description":"acme http response","metadata":"{"environment": "staging"}","body":"I'm a teapot","headers":{"Content-Type":"text/plain"},"status_code":418}' https://api.ngrok.com/backends/http_response
-
-curl -X GET -H "Authorization: Bearer {ak_2as10RVjKAxTVjur5LeHun5z690" -H "Ngrok-Version: 2" https://api.ngrok.com/backends/http_response curl -X PATCH -H "Authorization: Bearer {ak_2as10RVjKAxTVjur5LeHun5z690}" -H "Content-Type: application/json" -H "Ngrok-Version: 2" -d '{"metadata":"{"environment": "production"}"}' https://api.ngrok.com/backends/http_response/bkdhr_2arwbYL24DTjjLNbzoWwXKdz7de
-
-ngrok start Grateful 004w ngrok start --all
-
-heroic-enabled-rabbit.ngrok-free.app
-
-$ user id ngrok rd_2asmxxNHyOXQAus3lHS36FxmW1s brew install ngrok/ngrok/ngrok
-
-ngrok config add-authtoken 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD
-
-ngrok http 80
-
-$ ngrok http 80
-
-ngrok config edit
-
-version: 2
-
-authtoken: 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD
-
-tunnels:
-
-my_tunnel_name: Grateful 004w
-
-addr: http://localhost:80
-
-ngrok start your_tunnel_name
-
-ngrok start --all
-
-curl -L \
-
--X POST \
-
--H "Accept: application/vnd.github+json" \
-
--H "Authorization: Bearer <2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs>" \
-
--H "X-GitHub-Api-Version: 2022-11-28" \
-
-https://api.github.com/repos/OWNER/REPO/branches/BRANCH/protection/restrictions/apps \
-
--d '{"apps":["octoapp"]}'
-
-curl -L \
-
--H "Accept: application/vnd.github+json" \
-
--H "Authorization: Bearer <2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs>" \
-
--H "X-GitHub-Api-Version: 2022-11-28" \
-
-https://api.github.com/repos/OWNER/REPO/branches/BRANCH/protection/restrictions/users
-
-curl -L \
-
--X DELETE \
-
--H "Accept: application/vnd.github+json" \
-
--H "Authorization: Bearer <2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs>" \
-
--H "X-GitHub-Api-Version: 2022-11-28" \
-
-https://api.github.com/repos/OWNER/REPO/keys/KEY_ID
-
-curl -L \
-
--H "Accept: application/vnd.github+json" \
-
--H "Authorization: Bearer <2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs>" \
-
--H "X-GitHub-Api-Version: 2022-11-28" \
-
-https://api.github.com/repos/OWNER/REPO/keys/KEY_ID
-
-https://static.wikia.nocookie.net/memoryalpha/images/c/c5/Sol.jpg/revision/latest?cb=20100201220855&path-prefix=en&mobile-app=true&theme=false
-
-https://github.com/brave/brave-browser.wiki.git
-
-const keyring = new YourKeyringClass(options);
-
-npm install eth-keyring-controller --save
-
-Usage
-
-const KeyringController = require('eth-keyring-controller')
-
-const SimpleKeyring = require('eth-simple-keyring')
-
-const keyringController = new KeyringController({
-
-keyringTypes: [SimpleKeyring], // optional array of types to support.
-
-initState: initState.KeyringController, // Last emitted persisted state.
-
-encryptor: { // An optional object for defining encryption schemes:
-
-brew install ngrok/ngrok/ngrok ngrok config add-authtoken 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD ngrok http 80
-
-$ ngrok http 80
-
-ngrok config edit version: 2 authtoken: 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD tunnels: my_tunnel_name: $ grateful 004w addr: http://localhost:80 ngrok start $ grateful 004w ngrok start --all docker run --net=host -it -e NGROK_AUTHTOKEN=2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD ngrok/ngrok:latest http 80 ngrok http --domain=heroic-enabled-rabbit.ngrok-free.app 80 ngrok config edit
-
-authtoken: 2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD version: 2 tunnels: your_tunnel_name: proto: http hostname: heroic-enabled-rabbit.ngrok-free.app addr: 127.0.0.1:80
-
--------------------------
-
-Additional options
-
--------------------------
-
-auth: 'KBieszczat-Password******d"
-
-host_header: rewrite
-
-inspect: true
-
-bind_tls: true
-
-curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer <2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD>" -H "X-GitHub-Api-Version: 2022-11-28" \
-
-$ NGROK $Token 2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs
-
-authtoken: 4nq9771bPxe8ctg7LKr_2ClH7Y15Zqe4bWLWF9p api_key: 24yRd5U3DestCQapJrrVHLOqiAC_7RviwRqpd3wc9dKLujQZN connect_timeout: 30s console_ui: true console_ui_color: transparent dns_resolver_ips:
-
-1.1.1.1 8.8.8.8 heartbeat_interval: 1m heartbeat_tolerance: 5s inspect_db_size: 104857600 # 100mb inspect_db_size: 50000000 log_level: info log_format: json log: /var/log/ngrok.log metadata: '{"serial": "00012xa-33rUtz9", "comment": "For customer grateful345i@gmail.com"}' proxy_url: socks5://localhost:9150 region: us remote_management: false root_cas: trusted update_channel: stable update_check: false version: 2 web_addr: localhost:4040 tunnels: website: addr: 8888 basic_auth: "bob:bobpassword" schemes: https host_header: "myapp.ngrok.dev" inspect: false proto: http domain: myapp.ngrok.dev e2etls: addr: 9000 proto: tls domain: myapp.ngrok.dev crt: example.crt key: example.key
-
-iprestriction: ip_restriction: allow_cidrs: - 1.1.1.1/32 addr: 8000 proto: tcp
-
-ssh-access: addr: 22 proto: tcp remote_addr: 1.tcp.ngrok.io:12345
-
-my-load-balanced-website: labels: - env=prod - team=infra addr: 8000
-
-OVERSEER-GRATEFUL345I
-
-#000006
-
-brew install ngrok/ngrok/ngrok ngrok config add-authtoken 2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs ngrok http 80
-
-$ ngrok http 80
-
-ngrok config edit version: 2 authtoken: 2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs tunnels: my_tunnel_name: addr: http://localhost:80 ngrok start your_tunnel_name ngrok start --all docker run --net=host -it -e NGROK_AUTHTOKEN=2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs ngrok/ngrok:latest http 80 ngrok http --domain=heroic-enabled-rabbit.ngrok-free.app 80 ngrok config edit
-
-authtoken: 2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs version: 2 tunnels: your_tunnel_name: proto: http hostname: heroic-enabled-rabbit.ngrok-free.app addr: 127.0.0.1:80
-
--------------------------
-
-Additional options
-
--------------------------
-
-auth: "username:password"
-
-host_header: rewrite
-
-inspect: true
-
-bind_tls: true
-
-curl -L -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer <2asn8z2E56bn6uASp6tZYSRO5qB_3bUteAN928yk1SCTtatWs>" -H "X-GitHub-Api-Version: 2022-11-28" \
-
-docker run -it -e NGROK_AUTHTOKEN=2aslA7HLp3VGylwfuqpmwGCt60k_64xKZUycstgf5azyo1tHD ngrok/ngrok http 80 --domain=heroic-enabled-rabbit.ngrok-free.app
-
-sudo unzip ~/Downloads/ngrok-v3-stable-darwin.zip -d /usr
+apiVersion: v1 kind: Secret metadata: name: 
