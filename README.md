@@ -1,3 +1,76 @@
+stripe.max_network_retries = 2
+
+sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq
+
+{
+  "id": "we_1Mr5jULkdIwHu7ix1ibLTM0x",
+  "object": "webhook_endpoint",
+  "api_version": null,
+  "application": null,
+  "created": 1680122196,
+  "description": null,
+  "enabled_events": [
+    "charge.succeeded",
+    "charge.failed"
+  ],
+  "livemode": false,
+  "metadata": {},
+  "status": "disabled",
+  "url": "https://example.com/new_endpoint"
+}
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.WebhookEndpoint.retrieve("we_1Mr5jULkdIwHu7ix1ibLTM0x")
+
+RESPONSE
+{
+  "id": "we_1Mr5jULkdIwHu7ix1ibLTM0x",
+  "object": "webhook_endpoint",
+  "api_version": null,
+  "application": null,
+  "created": 1680122196,
+  "description": null,
+  "enabled_events": [
+    "charge.succeeded",
+    "charge.failed"
+  ],
+  "livemode": false,
+  "metadata": {},
+  "status": "enabled",
+  "url": "https://example.com/my/webhook/endpoint"
+}
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.WebhookEndpoint.list(limit=3)
+RESPONSE
+{
+  "object": "list",
+  "url": "/v1/webhook_endpoints",
+  "has_more": false,
+  "data": [
+    {
+      "id": "we_1Mr5jULkdIwHu7ix1ibLTM0x",
+      "object": "webhook_endpoint",
+      "api_version": null,
+      "application": null,
+      "created": 1680122196,
+      "description": null,
+      "enabled_events": [
+        "charge.succeeded",
+        "charge.failed"
+      ],
+      "livemode": false,
+      "metadata": {},
+      "status": "enabled",
+      "url": "https://example.com/my/webhook/endpoint"
+    }
+    {...}
+    {...}
+  ],
+}
+
+
+
 "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {}
 }
