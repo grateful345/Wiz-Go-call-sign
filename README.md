@@ -1,3 +1,7 @@
+Secret api token for Trello input whete neccessary: (b6ffa170da74846855071ebb9a12c2195e0a0373ef269a815e93da498ac2175c)
+
+
+
 # Set your secret key. Remember to switch to your live secret key in production.
 # See your keys here: https://dashboard.stripe.com/apikeys
 stripe.api_key = 'sk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq'
