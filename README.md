@@ -1,6 +1,7 @@
 Secret api token for Trello input where neccessary: (b6ffa170da74846855071ebb9a12c2195e0a0373ef269a815e93da498ac2175c)
 
-
+docker pull ghcr.io/actions/actions-runner:2.314.1@sha256:20a9abcadc9884cb2f054a6061680af92ae2f60dc3aa2edb273d6bd923f457e7
+docker pull ghcr.io/actions/actions-runner:2.314.1@sha256:f565dbb6420b7d3442b89373b36b7edf82ad814b5fb3e2d703b7e9e5d9419bce
 
 # Set your secret key. Remember to switch to your live secret key in production.
 # See your keys here: https://dashboard.stripe.com/apikeys
