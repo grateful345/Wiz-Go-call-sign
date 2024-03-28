@@ -1,5 +1,283 @@
 Secret api token for Trello input where neccessary: (b6ffa170da74846855071ebb9a12c2195e0a0373ef269a815e93da498ac2175c)
+bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+Step 2: Install chruby and the latest Ruby with ruby-installPermalink
 
+Install chruby and ruby-install with Homebrew:
+
+brew install chruby ruby-install xz
+Install the latest stable version of Ruby (supported by Jekyll):
+
+ruby-install ruby 3.1.3
+This will take a few minutes, and once it’s done, configure your shell to automatically use chruby:
+
+echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.zshrc
+echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc
+echo "chruby ruby-3.1.3" >> ~/.zshrc # run 'chruby' to see actual version
+If you’re using Bash, replace .zshrc with .bash_profile. If you’re not sure, read this external guide to find out which shell you’re using.
+
+Quit and relaunch Terminal, then check that everything is working:
+
+ruby -v
+It should show ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) or a newer version.
+
+Next, read that same external guide for important notes about setting and switching between Ruby versions with chruby.
+
+Install JekyllPermalink
+
+After installing Ruby with chruby, install the latest Jekyll gem:
+
+gem install jekyll
+uname -m
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew doctor
+If you get Your system is ready to brew, you can move on to Step 2. Otherwise, read what Homebrew is saying very carefully. They usually provide great instructions that you should follow.
+
+On Apple Silicon Macs, Homebrew might tell you to run a few commands after the installation, such as:
+
+echo "eval $(/opt/homebrew/bin/brew shellenv)" >> ~/.zprofile
+eval $(/opt/homebrew/bin/brew shellenv)
+Make sure to run those commands.
+
+Quit and restart Terminal, then check if everything is working so far:
+
+brew doctor
+Step 2: Install chruby and the latest Ruby with ruby-install
+
+Install chruby and ruby-install:
+
+brew install chruby ruby-install
+Then install the latest Ruby (currently 3.3.0):
+
+ruby-install ruby
+
+echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.zshrc
+echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc
+echo "chruby ruby-3.3.0" >> ~/.zshrc
+Note that 3.3.0 in the commands above assumes 3.3.0 is the version that was installed at the beginning of Step 2.
+
+Quit and relaunch Terminal, then check that everything is working:
+
+ruby -v
+It should match the version you installed in step 2.
+
+Step 3: Install a gem
+
+Congrats! You now have a working Ruby development environment. You should now be able to install Rails, Jekyll, cocoapods, fastlane, bundler, compass, or whatever gem you’ve been trying to install for the past few days or months!
+
+Just make sure you don’t use sudo to install any gems!
+
+Now that you have a proper Ruby development environment, you can safely install gems with gem install followed by the name of the gem.
+
+Note that some gems are not compatible with Apple Silicon (M1/M2). I recommend replacing them with more modern alternatives, or asking the maintainers if they’re willing to update them. Here are a couple of examples:
+
+therubyracer (read How to Install (Or Get Rid Of) therubyracer on M1 or M2 Macs)
+grpc (this fix should be coming soon)
+Next, make sure to read the rest of this guide. It will save you a lot of confusion and headaches.
+
+How to install different versions of Ruby and switch between them
+
+To install an additional version, run ruby-install followed by the desired version. But first, you need to check which version of the Apple Command Line Tools (CLT) or Xcode you have:
+
+brew config
+Look for the lines at the bottom that start with CLT: and Xcode:. If either one of them starts with 14 or higher, and you’re trying to install a version older than 3.1.3, 3.0.5, or 2.7.7 (but not 2.6.x or older), then you’ll need to install Ruby like this:
+
+ruby-install 3.1.2 -- --enable-shared
+Otherwise, if you have CLT/Xcode version less than 14, install Ruby normally without any extra options:
+
+ruby-install 3.1.2
+If this sounds complicated, and you don’t want to remember which command to use depending on which Ruby version you want to install, or what kind of Mac you have, you can buy Ruby on Mac Ultimate. It automatically figures out the right settings to use, and all you have to do is run rom install ruby 2.7.8 for example. And if you’re trying to install Ruby 2.6.x on your Mac, or even older Ruby versions on Mac, Ruby on Mac Ultimate will likely be your best option.
+
+To switch to this newly-installed version, quit and restart your terminal, then run chruby followed by the version. For example:
+
+chruby 3.1.4
+chruby is different from other Ruby version managers in that you can’t set a “global” Ruby version that’s automatically available everywhere. If you followed this guide, every time you open a new Terminal window or tab, chruby will switch to Ruby 3.3.0, or the version that appears last in your shell file. Then you should be able to install gems globally within that specific Ruby version with gem install name_of_gem.
+
+However, if you then cd into a different directory that either doesn’t have a .ruby-version file, or if the .ruby-version file is set to a Ruby version that chruby doesn’t know about, chruby will revert to the system Ruby (the one that came with your Mac), which is 2.6.10 on the latest Monterey and higher (Ventura, Sonoma).
+
+You definitely never want to be using the system Ruby! Here are 5 reasons why you shouldn’t use the system Ruby.
+
+You can check by running which ruby. It if says /usr/bin/ruby, that’s the system Ruby, and you don’t want that. If you get errors while trying to install a gem, or running bundle install, the first thing you should check is that you’re using the right version of Ruby.
+
+That’s why I recommend that all Ruby projects have a .ruby-version file that specifies one of the versions that chruby knows about. That way, when you cd into the project, chruby will automatically detect the .ruby-version file and switch to the version defined in the file.
+
+Read the section below to learn how to set up and use the .ruby-version file.
+
+Recommended way to automatically switch to the correct version
+
+A highly-recommended way to automatically switch between versions is to add a .ruby-version file in your Ruby project with the desired version number, such as 3.1.4. To test that this works:
+
+Create a test folder and cd into it:
+
+cd ~
+mkdir testing-chruby
+cd testing-chruby
+Create a file called .ruby-version with 3.1.4 in it:
+
+echo '3.1.4' >> .ruby-version
+This assumes that you already have 3.1.4 installed. If not, either install it, or replace 3.1.4 with a version you already have. You can check which versions are installed by running chruby.
+
+cd into a folder outside of your project, such as your home folder: cd ~
+
+Run ruby -v. It will probably say 2.6.10 (or older), which is the Ruby that came preinstalled on macOS.
+
+cd - to go back to your project. The - is a shortcut to go back to the previous directory in the terminal.
+
+Verify that ruby -v shows 3.1.4
+
+Delete the test folder:
+
+cd ~
+rm -rf testing-chruby
+For projects that have a Gemfile, it’s a good idea to specify the Ruby version in your Gemfile, and because it must match the one in the .ruby-version file, you can make that easy by telling the Gemfile to grab the version from the .ruby-version file, by putting this line in your Gemfile, right before the first gem:
+
+ruby File.read(".ruby-version").strip
+Here’s an example of what the first few lines of a Gemfile might look like:
+
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby File.read(".ruby-version").strip
+
+gem "rails", "~> 7.0.4"
+Important note about projects with older Ruby versions
+
+If you’re trying to work with an existing Ruby project that has a Gemfile and/or a .ruby-version file that specified a version older than 3.2.3, 3.1.4, 3.0.6, or 2.7.8, you’ll need to either update your app to use a more recent version (best solution), or install the older version specified in your project (not recommended).
+
+This is a very important concept to understand when working with Ruby, and many people waste time trying to install older versions of Ruby when the correct solution is to update the project instead.
+
+For example, it’s not possible to install Ruby 2.7.0 or 2.7.1 on an Apple Silicon Mac (unless you use Rosetta, which I do not recommend). Instead, you should update your project to at least 2.7.8, and then to 3.1.4 because Ruby 2.7 reached end of life in March 2023. Follow the step-by-step instructions in my article that explains how and why to upgrade the Ruby version in your project.
+
+Issues with existing projects
+
+Now that you have a proper Ruby development environment, it won’t necessarily fix issues that are specific to your project. For example, if you’ve been getting errors after running bundle install in an old Ruby project, or when trying to run a Jekyll site with bundle exec jekyll serve, or a Rails app with bin/rails s, those errors could be because the gems and/or Ruby version in your project are outdated.
+
+In the next two sections, I’ll go over how to tell if the issue is specific to your project, and troubleshooting tips.
+
+How to tell if the issue is specific to your project
+
+Check if you can create and run a brand new Rails app, and/or check if you can create and run a brand new Jekyll site.
+
+If you’re able to generate and run a brand new Rails or Jekyll project using the instructions in the links above, then that means you have a working Ruby dev setup, and the issues you’re seeing in your existing project are specific to that project. Read the next section for tips on fixing the issues.
+
+If you’re not able to generate and run a brand new Rails or Jekyll project, then that means something is wrong with your Ruby setup, and you’ll need to start over at the beginning of this tutorial, or buy Ruby on Mac.
+
+How to fix issues in existing projects
+
+The first thing I recommend is to make sure all your gems are up to date. Outdated gems are the most common source of errors.
+
+For example, ffi is a common source of errors on Apple Silicon Macs (M1/M2). If you see ffi anywhere in the error message, it most likely means you’re using a version older than 1.15.2.
+
+In that case, try updating ffi to the latest version:
+
+bundle update ffi
+Gem                    Current  Latest  Requested  Groups
+i18n                   0.9.5    1.8.8
+jekyll                 3.8.7    4.2.0   ~> 3.8.5   default
+jekyll-sass-converter  1.5.2    2.1.0
+kramdown               1.17.0   2.3.0
+liquid                 4.0.3    5.0.0
+mercenary              0.3.6    0.4.0
+In their Gemfile, Jekyll was listed like this:
+
+gem "jekyll", "~> 3.8.5"
+You can also see this same version in the Requested column above.
+
+So then they ran bundle update, which tries to update all outdated gems at the same time (see the end of this article for why you might not want to do this), and it said this about Jekyll:
+
+Using jekyll 3.8.7
+gem 'jekyll', '4.0.0.pre.beta1'
+gem install jekyll --pre
+gem 'mercenary', '~> 0.4.0'
+gem install mercenary
+gem 'bundler', '~> 2.5', '>= 2.5.7'
+
+gem install bundler
+gem 'em-websocket', '~> 0.5.3'
+
+gem install em-websocket
+gem 'eventmachine', '~> 1.2', '>= 1.2.7'
+gem install eventmachine
+gem 'rake-compiler', '~> 1.2', '>= 1.2.7'
+gem install rake-compiler
+
+gem install rake-compiler
+
+$ gem update --system  # you might need to be an administrator or root
+ruby setup.rb --help
+
+variable setting
+nil: respect environment variables (HTTP_PROXY, HTTP_PROXY_USER,
+HTTP_PROXY_PASS)
+:no_proxy: ignore environment variables and _don't_ use a proxy
+dns: An object to use for DNS resolution of the API endpoint.
+By default, use Resolv::DNS.
+headers: A set of additional HTTP headers to be sent to the server when
+fetching the gem.
+Public Instance Methods
+
+api_endpoint(uri)
+Given a source at uri, calculate what hostname to actually connect to query the data for it.
+# File lib/rubygems/remote_fetcher.rb, line 94
+def api_endpoint(uri)
+  host = uri.host
+
+  begin
+    res = @dns.getresource "_rubygems._tcp.#{host}",
+                           Resolv::DNS::Resource::IN::SRV
+  rescue Resolv::ResolvError => e
+    verbose "Getting SRV record failed: #{e}"
+    uri
+  else
+    target = res.target.to_s.strip
+
+    if /\.#{Regexp.quote(host)}\z/ =~ target
+      return URI.parse "#{uri.scheme}://#{target}#{uri.path}"
+    end
+
+    uri
+  end
+end
+cache_update_path(uri, path 
+
+
+
+
+
+
+
+
+
+
+
+
+
+gem install jekyll bundler
+Create a new Jekyll site at ./myblog.
+jekyll new myblog
+Change into your new directory.
+cd myblog
+Build the site and make it available on a local server.
+bundle exec jekyll serve
+Browse to http://localhost:4000
+
+
+ratchet/
+├── css/
+│   ├── ratchet.css
+│   ├── ratchet.min.css
+│   ├── ratchet-theme-android.css
+│   ├── ratchet-theme-android.min.css
+│   ├── ratchet-theme-ios.css
+│   └── ratchet-theme-ios.min.css
+├── js/
+│   ├── ratchet.js
+│   └── ratchet.min.js
+└── fonts/
+    ├── ratchicons.eot
+    ├── ratchicons.svg
+    ├── ratchicons.ttf
+    └── ratchicons.woff
 Copyright 2017 Google Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
